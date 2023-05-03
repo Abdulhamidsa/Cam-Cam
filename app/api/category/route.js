@@ -2,13 +2,13 @@
   const products = [
     {
       id: 1,
-      name: "Product 1",
+      name: "Prodaaaaact 1",
       price: 10.99,
       description: "Description of product 1",
     },
     {
       id: 2,
-      name: "Product 2",
+      name: "Product asssssss 2",
       price: 5.99,
       description: "Description of product 2",
     },
