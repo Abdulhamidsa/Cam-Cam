@@ -1,5 +1,5 @@
 "use client";
-// import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import getProducts from "../util/getProducts";
 
 // async function getData() {
@@ -89,8 +89,8 @@ export default async function Page() {
 
   return (
     <div>
-      <p>Name: {productsData.name}</p>
-      <p>Hero Link: {productsData.heroLink}</p>
+      <p>hiiiiiiiiii</p>
+      {/* <p>Hero Link: {productsData.heroLink}</p>
       <p>Hero Text: {productsData.heroText}</p>
       <p>Hero Title: {productsData.heroTitle}</p>
       <p>Hero Background:</p>
@@ -98,7 +98,7 @@ export default async function Page() {
       <p>Hero Link: {product.heroLink}</p>
       <p>Hero Text: {product.heroText}</p>
       <p>Hero Title: {product.heroTitle}</p>
-      <p>Hero Background:</p>
+      <p>Hero Background:</p> */}
       {/* <img src={pageData.heroBackground.url} width={220} height={220} alt="Hero Background" /> */}
     </div>
   );
