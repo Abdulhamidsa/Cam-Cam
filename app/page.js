@@ -1,6 +1,6 @@
-"use client";
+// "use client";
 // import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-import getProducts from "../util/getProducts";
+// import getProducts from "../util/getProducts";
 
 // async function getData() {
 //   const client = new ApolloClient({
@@ -80,9 +80,9 @@ import getProducts from "../util/getProducts";
 //   };
 // }
 
-export default async function Page() {
+export default function Page() {
   // const productsData = await getData();
-  const product = await getProducts();
+  // const product = await getProducts();
   // console.log(product);
 
   //   const productsData = await getData();
