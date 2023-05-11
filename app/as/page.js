@@ -268,7 +268,7 @@ function ProductsList() {
       </label>
 
       <label>
-        Filter by categories:
+        Filter byyyy categories:
         <div>
           <input type="checkbox" id="app" name="category" value="app" checked={filterCategories.includes("app")} onChange={handleCategoryFilterChange} />
           <label htmlFor="app">category 1</label>
