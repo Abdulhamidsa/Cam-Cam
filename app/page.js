@@ -1,5 +1,5 @@
 "use client";
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+// import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import getProducts from "../util/getProducts";
 
 // async function getData() {
