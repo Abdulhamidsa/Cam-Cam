@@ -1,5 +1,5 @@
 "use client";
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+// import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import getProducts from "../util/getProducts";
 
 // async function getData() {
@@ -34,56 +34,56 @@ import getProducts from "../util/getProducts";
 
 //   return data.page;
 // }
-async function getData() {
-  const client = new ApolloClient({
-    uri: "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clh6ai0n46o6601taehrigvqq/master",
-    cache: new InMemoryCache(),
-  });
+// async function getData() {
+//   const client = new ApolloClient({
+//     uri: "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clh6ai0n46o6601taehrigvqq/master",
+//     cache: new InMemoryCache(),
+//   });
 
-  const pageQuery = gql`
-    query PageHome {
-      page(where: { slug: "home" }) {
-        id
-        name
-        heroLink
-        heroText
-        heroTitle
-        heroBackground {
-          url
-          width
-          height
-        }
-      }
-    }
-  `;
+//   const pageQuery = gql`
+//     query PageHome {
+//       page(where: { slug: "home" }) {
+//         id
+//         name
+//         heroLink
+//         heroText
+//         heroTitle
+//         heroBackground {
+//           url
+//           width
+//           height
+//         }
+//       }
+//     }
+//   `;
 
-  const productsQuery = gql`
-    query ProductsList {
-      products(first: 10) {
-        name
-        price
-        slug
-        id
-        image {
-          url
-          width
-          height
-        }
-      }
-    }
-  `;
+//   const productsQuery = gql`
+//     query ProductsList {
+//       products(first: 10) {
+//         name
+//         price
+//         slug
+//         id
+//         image {
+//           url
+//           width
+//           height
+//         }
+//       }
+//     }
+//   `;
 
-  const [pageData, productsData] = await Promise.all([client.query({ query: pageQuery }), client.query({ query: productsQuery })]);
-  return {
-    pageData: pageData.data.page,
-    productsData: productsData.data.products,
-  };
-}
+//   const [pageData, productsData] = await Promise.all([client.query({ query: pageQuery }), client.query({ query: productsQuery })]);
+//   return {
+//     pageData: pageData.data.page,
+//     productsData: productsData.data.products,
+//   };
+// }
 
 export default async function Page() {
-  const productsData = await getData();
+  // const productsData = await getData();
   const product = await getProducts();
-  console.log(product);
+  // console.log(product);
 
   //   const productsData = await getData();
 
