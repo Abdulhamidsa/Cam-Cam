@@ -279,7 +279,7 @@ function ProductsList() {
         </div>
         <div>
           <input type="checkbox" id="ass" name="category" value="ass" checked={filterCategories.includes("ass")} onChange={handleCategoryFilterChange} />
-          <label htmlFor="ass">category 3</label>
+          <label htmlFor="ass">category00000 3</label>
         </div>
       </label>
 
