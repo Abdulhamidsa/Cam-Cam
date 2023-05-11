@@ -25,6 +25,7 @@
 
   const headers = {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "https://camcam.vercel.app", // Allow all domains to access the API (change to your specific domain in production)
   };
 
   const body = JSON.stringify(products);
