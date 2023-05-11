@@ -220,6 +220,7 @@
 // }
 
 "use client";
+import { v4 as uuidv4 } from "uuid";
 import React, { useState, useEffect } from "react";
 import fetchProducts from "@/util/fetchProducts";
 
@@ -270,16 +271,16 @@ function ProductsList() {
       <label>
         Filter byyyy categories:
         <div>
-          <input type="checkbox" id="app" name="category" value="app" checked={filterCategories.includes("app")} onChange={handleCategoryFilterChange} />
-          <label htmlFor="app">category 1</label>
+          <input type="checkbox" id="Playtime" name="category" value="Playtime" checked={filterCategories.includes("Playtime")} onChange={handleCategoryFilterChange} />
+          <label htmlFor="Playtime">Playtime</label>
         </div>
         <div>
-          <input type="checkbox" id="add" name="category" value="add" checked={filterCategories.includes("add")} onChange={handleCategoryFilterChange} />
-          <label htmlFor="add">category 2</label>
+          <input type="checkbox" id="Furniture" name="category" value="Furniture" checked={filterCategories.includes("Furniture")} onChange={handleCategoryFilterChange} />
+          <label htmlFor="Furniture">Furniture</label>
         </div>
         <div>
-          <input type="checkbox" id="ass" name="category" value="ass" checked={filterCategories.includes("ass")} onChange={handleCategoryFilterChange} />
-          <label htmlFor="ass">category000hahaah00 3</label>
+          <input type="checkbox" id="Sleep and cuddle" name="category" value="Sleep and cuddle" checked={filterCategories.includes("Sleep and cuddle")} onChange={handleCategoryFilterChange} />
+          <label htmlFor="Sleep and cuddle">category000hahaah00 3</label>
         </div>
       </label>
 
@@ -298,11 +299,10 @@ function ProductsList() {
 
       <ul>
         {filteredProducts.map((product) => (
-          <li key={product.id}>
+          <li key={uuidv4()}>
             <h2>{product.name}</h2>
             <p>{product.price}</p>
             <p>{product.category}</p>
-            <p>{product.description}</p>
           </li>
         ))}
       </ul>

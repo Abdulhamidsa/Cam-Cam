@@ -1,6 +1,6 @@
 ﻿export default async function fetchProducts() {
   // const res = await fetch("http://localhost:3000/api/ass");
-  const res = await fetch("http://localhost:3000/api/hello");
+  const res = await fetch("/api/ass");
 
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
