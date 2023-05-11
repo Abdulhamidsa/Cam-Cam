@@ -1,4 +1,3 @@
-"use client";
 import "./globals.css";
 async function getData() {
   const res = await fetch("https://kea-alt-del.dk/t7/api/products/1163");
