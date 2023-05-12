@@ -32,9 +32,6 @@ const Navbar = () => {
           Services
           {activeMenu === "services" && (
             <ul className={styles.subMenu}>
-              <li className={styles.subMenuItem} onClick={() => handleMenuClick("shop")}>
-                Shop
-              </li>
               <li className={styles.subMenuItem}>Service 2</li>
               <li className={styles.subMenuItem}>Service 3</li>
               <li className={styles.subMenuItem}>Service 4</li>
