@@ -79,17 +79,23 @@
 //     productsData: productsData.data.products,
 //   };
 // }
-
+"use client";
+import styles from "../styles/Navbar.module.scss";
+import { useState } from "react";
 export default function Page() {
   // const productsData = await getData();
   // const product = await getProducts();
   // console.log(product);
 
   //   const productsData = await getData();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div>
-      <p>hiiiiiiiiii</p>
       {/* <p>Hero Link: {productsData.heroLink}</p>
       <p>Hero Text: {productsData.heroText}</p>
       <p>Hero Title: {productsData.heroTitle}</p>

@@ -1,0 +1,69 @@
+﻿.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 0, 0, 0.231);
+  padding: 1rem;
+  z-index: 10;
+}
+.burgerMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.burgerBar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.open:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.open:nth-child(2) {
+  opacity: 0;
+}
+
+.open:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.navLinks {
+  list-style: none;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  background-color: #333;
+  position: relative;
+  width: 90vmax;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  z-index: -1;
+}
+.navContents {
+}
+.slideIn {
+  transform: translateX(0px);
+}
+
+.navItem {
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navItem:hover {
+  background-color: #555;
+}

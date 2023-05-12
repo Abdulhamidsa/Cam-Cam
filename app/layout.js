@@ -1,4 +1,5 @@
 import "./globals.css";
+import Navbar from "../componetns/Navbar";
 async function getData() {
   const res = await fetch("https://kea-alt-del.dk/t7/api/products/1163");
 
@@ -23,7 +24,10 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
