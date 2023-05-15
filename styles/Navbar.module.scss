@@ -1,81 +1,102 @@
 ﻿.burgerMenu {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 6px;
-  width: 30px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
+  float: right;
+  z-index: 10;
 }
 
 .burgerBar {
   width: 100%;
-  height: 3px;
+  height: 1.5px;
   background-color: #fff;
   transition: transform 0.3s ease-in-out;
 }
 
 .open:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(10px) rotate(45deg);
 }
 
 .open:nth-child(2) {
   opacity: 0;
+  transition: 0.3s ease-in-out;
 }
 
 .open:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-5px) rotate(-45deg);
 }
 
-.navLinks {
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-  height: 100vh;
-  background-color: blueviolet;
-}
-
-.slideIn {
-  transform: translateX(0);
-}
-
-.subMenu {
-  left: -200px;
-  background-color: #6e1414;
-  padding: 10px;
-  opacity: 1;
-  transition: left 0.3s ease-in-out;
-}
-
-.slideIn {
-  left: 0;
-}
-
-.subMenuItem {
-  position: relative;
-  padding: 5px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
+.navLinks,
+.subMenu,
 .subSubMenu {
   position: absolute;
   top: 0;
-  left: -200px;
-  width: 100svw;
-  background-color: #444;
-  padding: 10px;
-  opacity: 1;
-  transition: left 0.3s ease-in-out;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  height: 100vh;
+  width: 100vw;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem 2rem 1rem;
+  gap: 5px;
+}
+
+.navLinks li {
+  position: relative;
+}
+
+.navLinks li::before {
+  content: "";
+  display: inline-block;
+  width: 2.5px;
+  height: 100%;
+  color: red;
+  background-color: red;
+  vertical-align: middle;
+  margin-right: 0.1rem;
+}
+
+.slideIn {
+  transform: translateX(0px);
+  transition: transform 1s ease-in-out;
+}
+
+.subMenu {
+  background-color: blue;
+}
+.subSubMenu {
+  background-color: yellowgreen;
+  z-index: 55;
+}
+.active {
+  transform: translateX(10%);
+  transition: transform 1s ease;
 }
 
 .subSubMenuParent.active .subSubMenu {
-  left: 0;
+  transition: 0.3s ease-in-out;
 }
 
-.subSubMenuItem {
-  position: relative;
-  padding: 5px 0;
+.backButton {
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  color: white;
+  display: inline-block;
+  margin-top: 5px;
+  z-index: 5555555555;
+  position: absolute;
+  top: 0;
 }
+
+/////
+///
+///
+///
+///

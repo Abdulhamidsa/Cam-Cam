@@ -1,23 +1,119 @@
 ﻿"use client";
+
 import { useState } from "react";
 import styles from "../styles/Navbar.module.scss";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [activeSubSubMenu, setActiveSubSubMenu] = useState(null);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
-    setActiveMenu(null); // Reset the active menu state
+    setActiveMenu(null);
+    setActiveSubMenu(null);
+    setActiveSubSubMenu(null);
   };
 
   const handleMenuClick = (menu) => {
     if (activeMenu === menu) {
-      setActiveMenu(null); // Close the submenu if it is already active
+      setActiveMenu(null);
+      setActiveSubMenu(null);
+      setActiveSubSubMenu(null);
     } else {
       setActiveMenu(menu);
+      setActiveSubMenu(null);
+      setActiveSubSubMenu(null);
+    }
+    setIsMenuOpen(true);
+  };
+
+  const handleSubSubMenuClick = (subSubMenu) => {
+    setActiveSubSubMenu(subSubMenu);
+  };
+
+  const handleBackClick = () => {
+    if (activeSubSubMenu) {
+      setActiveSubSubMenu(null);
+    } else if (activeSubMenu) {
+      setActiveSubMenu(null);
+    } else if (activeMenu) {
+      setActiveMenu(null);
     }
   };
+
+  const handleSubMenuClick = (subMenu) => {
+    setActiveSubMenu(subMenu);
+  };
+
+  const menuData = [
+    {
+      title: "Home",
+    },
+    {
+      title: "Services",
+      children: [
+        {
+          title: "Service 1",
+          children: [
+            {
+              title: "Sub-Service 1",
+            },
+            {
+              title: "Sub-Service 2",
+            },
+          ],
+        },
+        {
+          title: "Service 2",
+        },
+      ],
+    },
+    {
+      title: "Shop",
+      children: [
+        {
+          title: "Product 1",
+          children: [
+            {
+              title: "Sub Product 1",
+            },
+            {
+              title: "Sub Product 2",
+            },
+          ],
+        },
+        {
+          title: "Product 2",
+        },
+      ],
+    },
+    {
+      title: "Contact",
+    },
+  ];
+
+  const renderSubMenu = (items) => (
+    <ul className={`${styles.subMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+      {items.map((item, index) => (
+        <li key={index} className={`${styles.subMenuItem} ${activeSubMenu === item.title ? styles.active : ""}`} onClick={() => handleSubMenuClick(item.title)}>
+          <span>{item.title}</span>
+          {item.children && activeSubMenu === item.title && renderSubMenu(item.children)}
+        </li>
+      ))}
+    </ul>
+  );
+
+  //   const renderSubSubMenu = (items) => (
+  //     <ul className={`${styles.subSubMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+  //       {items.map((item, index) => (
+  //         <li key={index} className={`${styles.subSubMenuItem} ${activeSubSubMenu === item.title ? styles.active : ""}`} onClick={() => handleSubSubMenuClick(item.title)}>
+  //           <span>{item.title}</span>
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
 
   return (
     <nav>
@@ -27,32 +123,18 @@ const Navbar = () => {
         <div className={`${styles.burgerBar} ${isMenuOpen ? styles.open : ""}`}></div>
       </div>
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
-        <li className={styles.navItem}>Home</li>
-        <li className={`${styles.navItem} ${activeMenu === "services" ? styles.active : ""}`} onClick={() => handleMenuClick("services")}>
-          Services
-          {activeMenu === "services" && (
-            <ul className={styles.subMenu}>
-              <li className={styles.subMenuItem}>Service 2</li>
-              <li className={styles.subMenuItem}>Service 3</li>
-              <li className={styles.subMenuItem}>Service 4</li>
-              <li className={styles.subMenuItem}>Service 5</li>
-            </ul>
-          )}
-        </li>
-        <li className={`${styles.navItem} ${activeMenu === "shop" ? styles.active : ""}`} onClick={() => handleMenuClick("shop")}>
-          Shop
-          {activeMenu === "shop" && (
-            <ul className={styles.subMenu}>
-              <li className={styles.subMenuItem}>Product 1</li>
-              <li className={styles.subMenuItem}>Product 2</li>
-              <li className={styles.subMenuItem}>Product 3</li>
-              <li className={styles.subMenuItem}>Product 4</li>
-              <li className={styles.subMenuItem}>Product 5</li>
-            </ul>
-          )}
-        </li>
-        <li className={styles.navItem}>Contact</li>
+        {menuData.map((item, index) => (
+          <li key={index} className={`${styles.navItem} ${activeMenu === item.title ? styles.active : ""}`}>
+            <span onClick={() => handleMenuClick(item.title)}>{item.title}</span>
+            {item.children && activeMenu === item.title && renderSubMenu(item.children)}
+          </li>
+        ))}
       </ul>
+      {activeMenu && (
+        <div className={`${styles.backButton} ${isMenuOpen ? styles.slideIn : ""}`} onClick={handleBackClick}>
+          &larr;
+        </div>
+      )}
     </nav>
   );
 };
