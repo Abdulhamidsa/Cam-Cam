@@ -36,21 +36,22 @@
 .subMenu,
 .subSubMenu {
   position: absolute;
-  top: 0;
-  left: 0;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
-  height: 100vh;
+  height: calc(100vh - 25px);
   width: 100vw;
+  width: 100svw;
   background-color: blueviolet;
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem 2rem 1rem;
   gap: 5px;
+  // overflow: hidden;
 }
 
 .navLinks li {
   position: relative;
+  font-size: 24px;
 }
 
 .navLinks li::before {
@@ -68,21 +69,29 @@
   transform: translateX(0px);
   transition: transform 1s ease-in-out;
 }
+.slideOut {
+  transform: translateX(0px);
+  transition: transform 1s ease-in-out;
+}
 
 .subMenu {
-  background-color: blue;
+  background-color: red;
+  z-index: 666666;
+  position: relative;
 }
 .subSubMenu {
   background-color: yellowgreen;
-  z-index: 55;
+  z-index: 5555555555555555;
+  position: absolute;
+  top: calc(0px + 25px);
 }
 .active {
-  transform: translateX(10%);
+  transform: translateX(0%);
   transition: transform 1s ease;
 }
 
 .subSubMenuParent.active .subSubMenu {
-  transition: 0.3s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 .backButton {
