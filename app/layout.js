@@ -1,5 +1,5 @@
 import "./globals.css";
-import Navbar from "../componetns/Navbar";
+import Navbar from "../componetns/Navigation/Navbar";
 async function getData() {
   const res = await fetch("https://kea-alt-del.dk/t7/api/products/1163");
 

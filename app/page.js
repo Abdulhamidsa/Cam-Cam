@@ -88,24 +88,20 @@ export default function Page() {
   // console.log(product);
 
   //   const productsData = await getData();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  // const handleMenuToggle = () => {
+  //   setIsMenuOpen(!isMenuOpen);
+  // };
 
   return (
     <div>
-      {/* <p>Hero Link: {productsData.heroLink}</p>
-      <p>Hero Text: {productsData.heroText}</p>
-      <p>Hero Title: {productsData.heroTitle}</p>
-      <p>Hero Background:</p>
-      <p>Name: {product.productdisplayname}</p>
-      <p>Hero Link: {product.heroLink}</p>
-      <p>Hero Text: {product.heroText}</p>
-      <p>Hero Title: {product.heroTitle}</p>
-      <p>Hero Background:</p> */}
-      {/* <img src={pageData.heroBackground.url} width={220} height={220} alt="Hero Background" /> */}
+      <div className={styles.vidBg}>
+        <video className={styles.vid} autoPlay loop>
+          <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+          Your bscSdrowser does not support the video tag.
+        </video>
+      </div>
     </div>
   );
 }
