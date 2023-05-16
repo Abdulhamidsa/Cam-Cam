@@ -82,7 +82,8 @@
 "use client";
 import styles from "../styles/Navbar.module.scss";
 import { useState } from "react";
-// import vid from "../public/vid.mp4";
+import gif from "../public/gif.gif";
+import Image from "next/image";
 
 export default function Page() {
   // const productsData = await getData();
@@ -99,8 +100,10 @@ export default function Page() {
   return (
     <div>
       <div className={styles.vidBg}>
-        <video className={styles.vid} autoPlay loop>
-          <source src="/vid.mp4" type="video/mp4" />
+        <Image className={styles.vid} src="/gif.gif" width={1} height={5} alt="Picture of the author" />
+
+        <video autoPlay loop className={styles.vid}>
+          {/* <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" /> */}
           Your browser does not support the video tag.
         </video>
       </div>
