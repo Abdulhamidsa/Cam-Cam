@@ -102,17 +102,17 @@ export default function Page() {
   return (
     <div>
       <div className={styles.vidBg}>
-        <video className={styles.vid} autoPlay>
+        {/* <video className={styles.vid} autoPlay>
           <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1684410419/samples/elephants.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
       </div>
       <div className={styles.section}>
         <Section section="section1" />
       </div>
       <div className={styles.insp}>
         <h2>GET INSPIRED</h2>
-        <Image className={styles.imageSec} src="https://res.cloudinary.com/dtaceicn1/image/upload/v1684412018/CAMCAM_AW215541_copy_jlijvr.jpg" width={350} height={300} alt="Picture of the author" />
+        <Image className={styles.imageSec} src={insp} sizes="50vw" alt="Picture of the author" />
       </div>
     </div>
   );
