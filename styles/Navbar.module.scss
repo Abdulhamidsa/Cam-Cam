@@ -47,7 +47,7 @@
   flex-direction: column;
   padding: 2rem 1rem 2rem 1rem;
   gap: 1rem;
-  // overflow: hidden;
+  z-index: 10;
 }
 
 .navigation li {
@@ -93,10 +93,6 @@
 .subSubMenu {
   z-index: 100;
 }
-// .active {
-//   transform: translateX(0);
-//   transition: transform 1s ease;
-// }
 
 .subSubMenuParent.active .subSubMenu {
   transition: 1s ease-in-out;
@@ -107,18 +103,44 @@
   color: white;
   display: inline-block;
   margin-top: 5px;
-  z-index: 5555555555;
+  z-index: 5555;
   position: absolute;
   top: 0;
 }
 ////////
 .vidBg {
-  width: 100vw;
-  height: 35vh;
-  background-color: red;
+  // width: 100dvw;
+  height: auto;
+  // background-color: rgb(105, 99, 99);
 }
 .vid {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+}
+.imageSec {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+.insp {
+  // height: 250px;
+}
+.collectionSec {
+  position: relative;
+}
+.secText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }

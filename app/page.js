@@ -82,8 +82,10 @@
 "use client";
 import styles from "../styles/Navbar.module.scss";
 import { useState } from "react";
-import gif from "../public/gif.gif";
+import vid from "../public/vid.mp4";
 import Image from "next/image";
+import Section from "../componetns/landing/Section";
+import insp from "../public/insp.jpg";
 
 export default function Page() {
   // const productsData = await getData();
@@ -100,12 +102,17 @@ export default function Page() {
   return (
     <div>
       <div className={styles.vidBg}>
-        <Image className={styles.vid} src="/gif.gif" width={1} height={5} alt="Picture of the author" />
-
-        <video autoPlay loop className={styles.vid}>
-          {/* <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" /> */}
+        <video className={styles.vid} autoPlay>
+          <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1684410419/samples/elephants.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+      </div>
+      <div className={styles.section}>
+        <Section section="section1" />
+      </div>
+      <div className={styles.insp}>
+        <h2>GET INSPIRED</h2>
+        <Image className={styles.imageSec} src="https://res.cloudinary.com/dtaceicn1/image/upload/v1684412018/CAMCAM_AW215541_copy_jlijvr.jpg" width={350} height={300} alt="Picture of the author" />
       </div>
     </div>
   );

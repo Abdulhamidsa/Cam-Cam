@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ["res.cloudinary.com"], // Add your domain(s) here
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(mp4|webm)$/,
