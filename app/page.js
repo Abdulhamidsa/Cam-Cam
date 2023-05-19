@@ -80,12 +80,12 @@
 //   };
 // }
 "use client";
-import styles from "../styles/Navbar.module.scss";
+import styles from "../styles/FrontPage.module.scss";
 import { useState } from "react";
 import vid from "../public/vid.mp4";
-import Image from "next/image";
-import Section from "../componetns/landing/Section";
-import insp from "../public/insp.jpg";
+import Section from "../componetns/Landing/Section";
+import Inspiration from "@/componetns/Landing/Inspiration";
+import Categories from "@/componetns/Landing/Categories";
 
 export default function Page() {
   // const productsData = await getData();
@@ -110,10 +110,9 @@ export default function Page() {
       <div className={styles.section}>
         <Section section="section1" />
       </div>
-      <div className={styles.insp}>
-        <h2>GET INSPIRED</h2>
-        <Image className={styles.imageSec} src={insp} sizes="50vw" alt="Picture of the author" />
-      </div>
+      <Inspiration />
+      <Categories inspCat="patterns" />
+      <Categories inspCat="categories" />
     </div>
   );
 }

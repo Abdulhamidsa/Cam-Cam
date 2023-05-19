@@ -108,39 +108,3 @@
   top: 0;
 }
 ////////
-.vidBg {
-  // width: 100dvw;
-  height: auto;
-  // background-color: rgb(105, 99, 99);
-}
-.vid {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: relative;
-}
-.imageSec {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  position: relative;
-}
-.insp {
-  // height: 250px;
-}
-.collectionSec {
-  position: relative;
-}
-.secText {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}

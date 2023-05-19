@@ -1,10 +1,9 @@
 ﻿"use client";
 import { useState } from "react";
-import styles from "../../styles/Navbar.module.scss";
+import styles from "../../styles/FrontPage.module.scss";
 import BurgerMenu from "./BurgerMenu";
 import { RxChevronRight } from "react-icons/rx";
 import { menuData } from "./MenuData";
-import shortid from "shortid";
 import { v4 as uuidv4 } from "uuid";
 
 const Navbar = () => {
