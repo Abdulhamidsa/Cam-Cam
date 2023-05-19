@@ -84,7 +84,7 @@ import styles from "../styles/FrontPage.module.scss";
 import vid from "../public/vid.mp4";
 import Section from "../componetns/Landing/Section";
 import Inspiration from "../componetns/Landing/Inspiration";
-import Categories from "../componetns/Landing/Categories";
+// import Categories from "../componetns/Landing/Categories";
 
 export default function Page() {
   // const productsData = await getData();
