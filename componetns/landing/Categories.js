@@ -5,6 +5,8 @@ import insp from "../../public/insp.jpg";
 import styles from "../../styles/FrontPage.module.scss";
 import Link from "next/link";
 import classNames from "classnames";
+// import { SlArrowRight } from "react-icons/si";
+import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 const data = {
   patterns: {
@@ -70,22 +72,21 @@ export default function Categories({ inspCat }) {
   return (
     <div className={containerStyleClass}>
       <div>{inspCatData.title}</div>
+
       <div className={styles.scrollableContainer} ref={containerRef} onScroll={handleScroll}>
         {inspCatData.images.map((image) => (
-          <a key={image.id} href={image.url} className={classNames(styles.imageContainer, containerStyleClass)}>
-            <div className={styles.imageShape}>
-              <Image className={styles.imageSec} src={image.src} alt={image.alt} />
-            </div>
-          </a>
+          <>
+            <a key={image.id} href={image.url} className={classNames(styles.imageContainer, containerStyleClass)}>
+              <div className={styles.imageShape}>
+                <Image className={styles.imageSec} src={image.src} alt={image.alt} />
+              </div>
+            </a>
+          </>
         ))}
       </div>
-      <div className={styles.navigation}>
-        <button className={styles.scrollButton} onClick={handleScrollLeft}>
-          &lt;
-        </button>
-        <button className={styles.scrollButton} onClick={handleScrollRight}>
-          &gt;
-        </button>
+      <div className={styles.arrowsContainer}>
+        <BsChevronLeft onClick={handleScrollLeft} />
+        <BsChevronRight onClick={handleScrollRight} />
       </div>
     </div>
   );

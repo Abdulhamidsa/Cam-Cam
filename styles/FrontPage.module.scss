@@ -78,7 +78,10 @@
   scroll-snap-align: start;
   flex: 0 0 calc((100% - 2rem) / 3);
 }
-
+.patternsContainer,
+.categoriesContainer {
+  position: relative;
+}
 .patternsContainer .imageShape {
   width: 130px;
   height: 130px;
@@ -90,4 +93,26 @@
   width: 130px;
   height: 130px;
   overflow: hidden;
+}
+.arrowsContainer {
+  // position: relative;
+  background-color: red;
+}
+
+.arrowsContainer > * {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  z-index: 55;
+}
+
+.arrowsContainer :nth-child(1) {
+  left: 0px;
+}
+
+.arrowsContainer :nth-child(2) {
+  right: 0px;
 }
