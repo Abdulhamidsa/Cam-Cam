@@ -82,8 +82,8 @@
 "use client";
 import styles from "../styles/FrontPage.module.scss";
 import vid from "../public/vid.mp4";
-import Section from "../componetns/Landing/Section";
-import Inspiration from "../componetns/Landing/Inspiration";
+import Section from "../componetns/landing/Section";
+import Inspiration from "../componetns/landing/Inspiration";
 // import Categories from "../componetns/Landing/Categories";
 
 export default function Page() {
