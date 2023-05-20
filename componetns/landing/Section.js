@@ -7,14 +7,14 @@ export default function Section({ section }) {
       {
         imageUrl: "/front-collection.jpg",
         heading: "Collection 1",
-        buttonText: "Shop Now 1",
+        buttonText: "READ MORE",
       },
     ],
     section2: [
       {
         imageUrl: "/thirteen.svg",
-        heading: "Our Story",
-        buttonText: "Shop Now 3",
+        heading: "OUR STORY",
+        buttonText: "READ MORE",
       },
     ],
   };
@@ -29,7 +29,6 @@ export default function Section({ section }) {
             <Image className={styles.imageSec} src={item.imageUrl} width={100} height={100} alt="Picture of the author" sizes="(max-width: 480px) 50vw, 100vw" />
             <div className={styles.secText}>
               <h2>{item.heading}</h2>
-              <button>{item.buttonText}</button>
             </div>
           </div>
         ))}

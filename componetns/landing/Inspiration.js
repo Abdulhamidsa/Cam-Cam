@@ -7,13 +7,13 @@ import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 
 export default function Inspiration() {
-  const [hotspots] = useState([
+  const hotspots = [
     { id: 1, url: "https://example.com/page1", top: "50%", left: "50%", backgroundColor: "black" },
     { id: 2, url: "https://example.com/page2", top: "20%", left: "40%", backgroundColor: "red" },
     { id: 3, url: "https://example.com/page3", top: "50%", left: "20%", backgroundColor: "green" },
     { id: 4, url: "https://example.com/page3", top: "60%", left: "30%", backgroundColor: "blue" },
     // Add more hotspot objects as needed
-  ]);
+  ];
   return (
     <div className={styles.insp}>
       <h2>GET INSPIRED</h2>

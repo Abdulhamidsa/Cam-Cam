@@ -10,7 +10,7 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 const data = {
   patterns: {
-    title: "Shop By Patterns",
+    title: "SHOP BY PATTERN",
     images: [
       { id: 1, name: "pattern1", src: insp, alt: "Picture 1", url: "https://example.com/page1" },
       { id: 2, name: "pattern1", src: insp, alt: "Picture 2", url: "https://example.com/page2" },
@@ -25,12 +25,14 @@ const data = {
     ],
   },
   categories: {
-    title: "Categories",
+    title: "SHOP BY CATEGORY",
     images: [
-      { id: 1, src: insp, alt: "Picture 1", url: "https://example.com/category1" },
-      { id: 2, src: insp, alt: "Picture 2", url: "https://example.com/category2" },
-      { id: 3, src: insp, alt: "Picture 3", url: "https://example.com/category3" },
+      { id: 1, name: "pattern1", src: insp, alt: "Picture 1", url: "https://example.com/category1" },
+      { id: 2, name: "pattern1", src: insp, alt: "Picture 2", url: "https://example.com/category2" },
+      { id: 3, name: "pattern1", src: insp, alt: "Picture 3", url: "https://example.com/category3" },
     ],
+    buttonText: "VIEW ALL",
+    url: "/this",
   },
 };
 
@@ -67,7 +69,7 @@ export default function Categories({ inspCat }) {
   const handleScrollLeft = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
-        left: -150, // Adjust the scroll distance as needed
+        left: -250, // Adjust the scroll distance as needed
         behavior: "smooth",
       });
     }
@@ -76,7 +78,7 @@ export default function Categories({ inspCat }) {
   const handleScrollRight = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
-        left: 150, // Adjust the scroll distance as needed
+        left: 250, // Adjust the scroll distance as needed
         behavior: "smooth",
       });
     }
@@ -85,7 +87,6 @@ export default function Categories({ inspCat }) {
   return (
     <div className={containerStyleClass}>
       <div>{inspCatData.title}</div>
-
       <div className={styles.scrollableContainer} ref={containerRef} onScroll={handleScroll}>
         {inspCatData.images.map((image) => (
           <>
@@ -98,7 +99,11 @@ export default function Categories({ inspCat }) {
           </>
         ))}
       </div>
-
+      {inspCat === "categories" && (
+        <Link href={inspCatData.url}>
+          <button>{inspCatData.buttonText}</button>
+        </Link>
+      )}
       <div className={styles.arrowsContainer}>
         <BsChevronRight onClick={handleScrollRight} className={isMaxScrollRight ? styles.disabled : styles.arrow} />
         {!isMaxScrollLeft && <BsChevronLeft onClick={handleScrollLeft} className={styles.arrow} />}

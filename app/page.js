@@ -85,8 +85,11 @@ import vid from "../public/vid.mp4";
 import Section from "../componetns/landing/Section";
 import Inspiration from "../componetns/landing/Inspiration";
 import Categories from "../componetns/landing/Categories";
-
+import Loading from "./loading";
+import { useState, useEffect } from "react";
 export default function Page() {
+  const [isLoading, setIsLoading] = useState(true);
+
   // const productsData = await getData();
   // const product = await getProducts();
   // console.log(product);
@@ -97,20 +100,34 @@ export default function Page() {
   // const handleMenuToggle = () => {
   //   setIsMenuOpen(!isMenuOpen);
   // };
+  useEffect(() => {
+    // Simulate a loading delay
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
 
+    // Clean up the timeout on component unmount
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
-    <div>
-      <div className={styles.vidBg}>
-        <video className={styles.vid} autoPlay>
+    <>
+      <div className={styles.margin}>
+        <div className={styles.vidBg}>
+          {/* <video className={styles.vid} autoPlay>
           <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1684410419/samples/elephants.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
+        </div>
+        <Section section="section1" />
+        <Inspiration />
+        <Categories inspCat="patterns" />
+        <Categories inspCat="categories" />
+        <Section section="section2" />
       </div>
-      <Section className={styles.section} section="section1" />
-      <Inspiration />
-      <Categories inspCat="patterns" />
-      <Categories inspCat="categories" />
-      <Section className={styles.section} section="section2" />
-    </div>
+    </>
   );
 }
