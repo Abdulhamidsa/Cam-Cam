@@ -1,4 +1,66 @@
 ﻿import styles from "../../styles/FrontPage.module.scss";
+import { useEffect, useLayoutEffect, useState } from "react";
+
+// const data = [
+//   { id: 1, src: "/insp.jpg", width: 120, height: 200, left: 0, top: 0 },
+//   { id: 2, src: "/insp.jpg", width: 80, height: 98, left: 125, top: 0 },
+//   { id: 3, src: "/insp.jpg", width: 80, height: 98, left: 125, top: 102 },
+//   { id: 4, src: "/insp.jpg", width: 120, height: 200, left: 210, top: 0 },
+//   { id: 5, src: "/insp.jpg", width: 120, height: 200, left: 335, top: 0 },
+//   { id: 6, src: "/insp.jpg", width: 80, height: 98, left: 460, top: 0 },
+//   { id: 7, src: "/insp.jpg", width: 80, height: 98, left: 460, top: 102 },
+//   { id: 8, src: "/insp.jpg", width: 120, height: 200, left: 545, top: 0 },
+
+//   { id: 9, src: "/insp.jpg", width: 160, height: 150, left: 0, top: 204 },
+//   { id: 10, src: "/insp.jpg", width: 160, height: 150, left: 165, top: 204 },
+//   { id: 11, src: "/insp.jpg", width: 165, height: 150, left: 330, top: 204 },
+//   { id: 12, src: "/insp.jpg", width: 165, height: 150, left: 500, top: 204 },
+// ];
+// export default function Gallery() {
+//   const [windowWidth, setWindowWidth] = useState(0);
+
+//   useLayoutEffect(() => {
+//     const handleResize = () => {
+//       setWindowWidth(window.innerWidth);
+//     };
+
+//     handleResize();
+
+//     window.addEventListener("resize", handleResize);
+
+//     return () => {
+//       window.removeEventListener("resize", handleResize);
+//     };
+//   }, []);
+
+//   return (
+//     <div className={styles.gallery}>
+//       {data.map((image) => {
+//         const adjustedWidth = windowWidth >= 450 ? image.width * 1.7 : image.width;
+//         // const adjustedHeight = windowWidth >= 450 ? image.width * 1.8 : image.width;
+
+//         const adjustedLeft = windowWidth >= 450 ? image.left * 1.71 : image.left;
+//         const adjustedTop = windowWidth >= 450 ? image.top * 1.05 : image.top;
+
+//         return (
+//           <div
+//             key={image.id}
+//             className={styles.imgContainer}
+//             style={{
+//               width: `${adjustedWidth}px`,
+//               height: `${image.height}px`,
+//               left: `${adjustedLeft}px`,
+//               top: `${adjustedTop}px`,
+//             }}
+//           >
+//             <img src={image.src} alt={`Image ${image.id}`} />
+//           </div>
+//         );
+//       })}
+//     </div>
+//   );
+// }
+
 const data = [
   { id: 1, src: "/insp.jpg", width: 120, height: 200, left: 0, top: 0 },
   { id: 2, src: "/insp.jpg", width: 80, height: 98, left: 125, top: 0 },
@@ -13,23 +75,57 @@ const data = [
   { id: 10, src: "/insp.jpg", width: 160, height: 150, left: 165, top: 204 },
   { id: 11, src: "/insp.jpg", width: 165, height: 150, left: 330, top: 204 },
   { id: 12, src: "/insp.jpg", width: 165, height: 150, left: 500, top: 204 },
-  //   { id: 6, src: "/insp.jpg", width: 160, height: 150, left: 165, top: 204 },
-
-  //   { id: 7, src: "/insp.jpg", width: 120, height: 200, left: 210, top: 0 },
 ];
-
 export default function Gallery() {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  let adjustedWidth;
+  let adjustedLeft;
+  let adjustedTop;
+  let adjustedHeight;
+
+  if (windowWidth >= 1024) {
+    adjustedWidth = data.map((image) => image.width * 2);
+    adjustedLeft = data.map((image) => image.left * 1.94);
+    adjustedTop = data.map((image) => image.top * 1.58);
+    adjustedHeight = data.map((image) => image.height * 1.6);
+  } else if (windowWidth >= 450) {
+    adjustedWidth = data.map((image) => image.width * 1.6);
+    adjustedLeft = data.map((image) => image.left * 1.57);
+    adjustedTop = data.map((image) => image.top * 1.3);
+    adjustedHeight = data.map((image) => image.height * 1.3);
+  } else {
+    adjustedWidth = data.map((image) => image.width * 1.1);
+    adjustedLeft = data.map((image) => image.left * 1.1);
+    adjustedTop = data.map((image) => image.top * 1);
+    adjustedHeight = data.map((image) => image.height * 1);
+  }
+
   return (
     <div className={styles.gallery}>
-      {data.map((image) => (
+      {data.map((image, index) => (
         <div
           key={image.id}
           className={styles.imgContainer}
           style={{
-            width: `${image.width}px`,
-            height: `${image.height}px`,
-            left: `${image.left}px`,
-            top: `${image.top}px`,
+            width: `${adjustedWidth[index]}px`,
+            height: `${adjustedHeight[index]}px`,
+            left: `${adjustedLeft[index]}px`,
+            top: `${adjustedTop[index]}px`,
           }}
         >
           <img src={image.src} alt={`Image ${image.id}`} />
@@ -38,30 +134,3 @@ export default function Gallery() {
     </div>
   );
 }
-
-// import React from "react";
-// import styles from "../../styles/FrontPage.module.scss";
-
-// const data = [
-//   { id: 1, src: "/insp.jpg", width: 200, height: 120, left: 0, top: 0 },
-//   { id: 2, src: "/insp.jpg", width: 60, height: 50, left: 150, top: 80 },
-//   { id: 3, src: "/insp.jpg", width: 100, height: 150, left: 300, top: 50 },
-//   { id: 4, src: "/insp.jpg", width: 250, height: 350, left: 500, top: 100 },
-//   { id: 5, src: "/insp.jpg", width: 400, height: 200, left: 700, top: 150 },
-//   { id: 6, src: "/insp.jpg", width: 200, height: 400, left: 950, top: 50 },
-//   { id: 7, src: "/insp.jpg", width: 350, height: 300, left: 1200, top: 80 },
-//   { id: 8, src: "/insp.jpg", width: 300, height: 300, left: 1450, top: 20 },
-//   { id: 9, src: "/insp.jpg", width: 200, height: 200, left: 1700, top: 100 },
-// ];
-
-// export default function Gallery() {
-//   return (
-//     <div className={styles.galleryContainer}>
-//       {data.map((image) => (
-//         <div key={image.id} className={styles.imgContainer} style={{ left: `${image.left}px`, top: `${image.top}px` }}>
-//           <img src={image.src} alt={`Image ${image.id}`} />
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
