@@ -1,9 +1,15 @@
 ﻿@import "Navbar.module";
 @import "Fron.module";
-.ss{
-  width: 100%;
+.ss {
+  position: absolute;
+  top: 0;
+  width: 100vw;
   height: 100vh;
-  background-color: rgb(46, 31, 31);
+  background-color: rgb(216, 84, 84);
+  z-index: 100000000000000000000000;
+}
+.insp {
+  text-align: center;
 }
 .margin {
   display: flex;
@@ -19,13 +25,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: relative;
-}
-.imageSec {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
   position: relative;
 }
 
@@ -135,4 +134,31 @@
 }
 .disabled {
   opacity: 0.4;
+}
+
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  object-fit: cover;
+  margin: auto;
+}
+
+.imgContainer {
+  position: absolute;
+  background-color: hsl(0, 0%, 95%);
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.gallery {
+  margin: auto;
+  width: 100%;
+  max-width: 500px;
+  height: 500px; /* Adjust the height to your desired value */
+  overflow: auto;
+  position: relative;
+  // background-color: red;
 }

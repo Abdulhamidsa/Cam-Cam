@@ -1,6 +1,5 @@
 ﻿import styles from "../styles/FrontPage.module.scss";
-function Loading() {
-  return <div className={styles.ss}>Loading</div>;
+export default function Loading() {
+  // You can add any UI inside Loading, including a Skeleton.
+  return <p className={styles.ss}>adddd</p>;
 }
-
-export default Loading;

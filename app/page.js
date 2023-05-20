@@ -87,8 +87,20 @@ import Inspiration from "../componetns/landing/Inspiration";
 import Categories from "../componetns/landing/Categories";
 import Loading from "./loading";
 import { useState, useEffect } from "react";
+import { Suspense } from "react";
+import Gallery from "@/componetns/landing/Gallery";
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   // const productsData = await getData();
   // const product = await getProducts();
@@ -100,19 +112,7 @@ export default function Page() {
   // const handleMenuToggle = () => {
   //   setIsMenuOpen(!isMenuOpen);
   // };
-  useEffect(() => {
-    // Simulate a loading delay
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
 
-    // Clean up the timeout on component unmount
-    return () => clearTimeout(timeout);
-  }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
   return (
     <>
       <div className={styles.margin}>
@@ -127,6 +127,8 @@ export default function Page() {
         <Categories inspCat="patterns" />
         <Categories inspCat="categories" />
         <Section section="section2" />
+        <Gallery />
+        {/* <Gallery /> */}
       </div>
     </>
   );
