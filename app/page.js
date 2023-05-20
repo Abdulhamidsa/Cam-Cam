@@ -101,17 +101,16 @@ export default function Page() {
   return (
     <div>
       <div className={styles.vidBg}>
-        {/* <video className={styles.vid} autoPlay>
+        <video className={styles.vid} autoPlay>
           <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1684410419/samples/elephants.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video> */}
+        </video>
       </div>
-      <div className={styles.section}>
-        <Section section="section1" />
-      </div>
+      <Section className={styles.section} section="section1" />
       <Inspiration />
       <Categories inspCat="patterns" />
       <Categories inspCat="categories" />
+      <Section className={styles.section} section="section2" />
     </div>
   );
 }

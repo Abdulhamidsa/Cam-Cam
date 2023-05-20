@@ -68,3 +68,12 @@ a {
     color-scheme: light;
   }
 }
+
+body::-webkit-scrollbar {
+  width: 0em;
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}

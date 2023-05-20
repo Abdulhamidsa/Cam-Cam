@@ -10,10 +10,10 @@ export default function Section({ section }) {
         buttonText: "Shop Now 1",
       },
     ],
-    sec: [
+    section2: [
       {
         imageUrl: "/thirteen.svg",
-        heading: "Collection 3",
+        heading: "Our Story",
         buttonText: "Shop Now 3",
       },
     ],
