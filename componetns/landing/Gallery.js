@@ -72,9 +72,10 @@ const data = [
   { id: 8, src: "/insp.jpg", width: 120, height: 200, left: 545, top: 0 },
 
   { id: 9, src: "/insp.jpg", width: 160, height: 150, left: 0, top: 204 },
-  { id: 10, src: "/insp.jpg", width: 160, height: 150, left: 165, top: 204 },
-  { id: 11, src: "/insp.jpg", width: 165, height: 150, left: 330, top: 204 },
-  { id: 12, src: "/insp.jpg", width: 165, height: 150, left: 500, top: 204 },
+  { id: 10, src: "/insp.jpg", width: 90, height: 150, left: 165, top: 204 },
+  // { id: 11, src: "/insp.jpg", width: 80, height: 74, left: 165, top: 279 },
+  { id: 12, src: "/insp.jpg", width: 170, height: 150, left: 248, top: 204 },
+  // { id: 12, src: "/insp.jpg", width: 100, height: 150, left: 420, top: 204 },
 ];
 export default function Gallery() {
   const [windowWidth, setWindowWidth] = useState(0);

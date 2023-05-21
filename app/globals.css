@@ -59,7 +59,8 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  background-color: wheat;
+  background-color: white;
+  color: #d4b2a7;
 }
 
 a {
