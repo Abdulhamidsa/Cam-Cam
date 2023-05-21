@@ -4,7 +4,6 @@ import styles from "../../styles/FrontPage.module.scss";
 import insp from "../../public/insp.jpg";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
-import Link from "next/link";
 
 export default function Inspiration() {
   const hotspots = [
@@ -14,21 +13,44 @@ export default function Inspiration() {
     { id: 4, url: "https://example.com/page3", top: "60%", left: "30%", backgroundColor: "blue" },
     // Add more hotspot objects as needed
   ];
+
+  const [activeHotspot, setActiveHotspot] = useState(null);
+
+  const handleMouseEnter = (id) => {
+    setActiveHotspot(id);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveHotspot(null);
+  };
+
   return (
     <div className={styles.insp}>
       <h2>GET INSPIRED</h2>
       <div className={styles.spots}>
         <Image className={styles.imageSec} src={insp} sizes="50vw" alt="Picture of the author" />
         {hotspots.map((hotspot) => (
-          <Link key={uuidv4()} href={hotspot.url}>
-            <div
-              style={{
-                top: hotspot.top,
-                left: hotspot.left,
-                backgroundColor: hotspot.backgroundColor,
-              }}
-            ></div>
-          </Link>
+          <div
+            key={uuidv4()}
+            className={styles.spot}
+            style={{
+              top: hotspot.top,
+              left: hotspot.left,
+              backgroundColor: hotspot.backgroundColor,
+            }}
+            onMouseEnter={() => handleMouseEnter(hotspot.id)}
+            onMouseLeave={handleMouseLeave}
+          >
+            {activeHotspot === hotspot.id && (
+              <div className={styles.popup}>
+                <div className={styles.popupContent}>
+                  <span className={styles.title}>Product Title</span>
+                  <span className={styles.price}>$99.99</span>
+                </div>
+                <button className={styles.showProductBtn}>Show Product</button>
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </div>
