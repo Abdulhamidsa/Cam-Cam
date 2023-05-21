@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+module.exports = {
   images: {
     domains: ["res.cloudinary.com"], // Add your domain(s) here
   },
   webpack: (config) => {
+    // Add your modifications to the webpack configuration here
     config.module.rules.push({
       test: /\.(mp4|webm)$/,
       use: {
@@ -17,8 +19,7 @@ const nextConfig = {
       },
     });
 
+    // Return the modified configuration
     return config;
   },
 };
-
-module.exports = nextConfig;

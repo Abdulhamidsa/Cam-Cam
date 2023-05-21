@@ -90,17 +90,17 @@ import { useState, useEffect } from "react";
 import { Suspense } from "react";
 import Gallery from "@/componetns/landing/Gallery";
 export default function Page() {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-    return () => clearTimeout(timeout);
-  }, []);
+  // const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 500);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
   // const productsData = await getData();
   // const product = await getProducts();

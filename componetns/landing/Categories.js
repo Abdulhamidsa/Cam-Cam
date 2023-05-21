@@ -5,7 +5,7 @@ import insp from "../../public/insp.jpg";
 import styles from "../../styles/FrontPage.module.scss";
 import Link from "next/link";
 import classNames from "classnames";
-// import { SlArrowRight } from "react-icons/si";
+import { v4 as uuidv4 } from "uuid";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 const data = {
@@ -17,11 +17,11 @@ const data = {
       { id: 3, name: "pattern1", src: insp, alt: "Picture 3", url: "https://example.com/page3" },
       { id: 4, name: "pattern1", src: insp, alt: "Picture 4", url: "https://example.com/page4" },
       { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+      { id: 6, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+      { id: 7, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+      { id: 8, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+      { id: 9, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+      { id: 10, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
     ],
   },
   categories: {
@@ -89,14 +89,12 @@ export default function Categories({ inspCat }) {
       <div>{inspCatData.title}</div>
       <div className={styles.scrollableContainer} ref={containerRef} onScroll={handleScroll}>
         {inspCatData.images.map((image) => (
-          <>
-            <a key={image.id} href={image.url} className={classNames(styles.imageContainer, containerStyleClass)}>
-              <div className={styles.imageShape}>
-                <Image className={styles.imageSec} src={image.src} alt={image.alt} />
-              </div>
-              <p>{image.name}</p>
-            </a>
-          </>
+          <a key={uuidv4()} href={image.url} className={classNames(styles.imageContainer, containerStyleClass)}>
+            <div className={styles.imageShape}>
+              <Image className={styles.imageSec} src={image.src} alt={image.alt} />
+            </div>
+            <p>{image.name}</p>
+          </a>
         ))}
       </div>
       {inspCat === "categories" && (

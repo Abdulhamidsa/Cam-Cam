@@ -8,7 +8,7 @@ export default function Footer() {
       <DropdownAccordion />
       <div className={styles.footerContainer}>
         <div className={styles.logoContainer}>
-          <Image src={"/next.svg"} width={100} height={50} />
+          <Image src={"/next.svg"} alt="sadfefe" width={100} height={50} />
         </div>
         <div className={styles.addressInfo}>
           Skyttegade 7, 3.sal <br />
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         <div className={styles.credit}>
           POWERD BY
-          <Image src={"/next.svg"} width={40} height={40} />
+          <Image src={"/next.svg"} alt="assssss" width={40} height={40} />
         </div>
       </div>
     </>
