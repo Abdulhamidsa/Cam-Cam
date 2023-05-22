@@ -1,6 +1,6 @@
 ﻿import styles from "../../styles/FrontPage.module.scss";
 import { useEffect, useLayoutEffect, useState } from "react";
-
+import Image from "next/image";
 // const data = [
 //   { id: 1, src: "/insp.jpg", width: 120, height: 200, left: 0, top: 0 },
 //   { id: 2, src: "/insp.jpg", width: 80, height: 98, left: 125, top: 0 },
@@ -129,7 +129,7 @@ export default function Gallery() {
             top: `${adjustedTop[index]}px`,
           }}
         >
-          <img src={image.src} alt={`Image ${image.id}`} />
+          <Image width={100} height={100} src={image.src} alt={`Image ${image.id}`} />
         </div>
       ))}
     </div>
