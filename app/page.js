@@ -81,11 +81,10 @@
 // }
 "use client";
 import styles from "../styles/FrontPage.module.scss";
-import vid from "../public/vid.mp4";
+// import vid from "../public/vid.mp4";
 import Section from "../componetns/landing/Section";
 import Inspiration from "../componetns/landing/Inspiration";
 import Categories from "../componetns/landing/Categories";
-import Loading from "./loading";
 import { useState, useEffect } from "react";
 import { Suspense } from "react";
 import Gallery from "@/componetns/landing/Gallery";

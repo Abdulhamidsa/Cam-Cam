@@ -1,0 +1,106 @@
+﻿.insp {
+  text-align: center;
+}
+
+.spots {
+  position: relative;
+}
+
+.spot {
+  position: absolute;
+  width: 5%;
+  height: 3%;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  border: 2px solid transparent;
+  background-color: #fff;
+  transition: top 0.3s, left 0.3s; // Apply transitions to top and left properties
+  z-index: 55;
+
+  &.activeSpot {
+    background-color: red;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 40px;
+    left: -11px;
+    top: -12px;
+    border-radius: 100%;
+    background: #ffffff66;
+    animation: 2200ms pulse ease-in-out infinite;
+    z-index: 5;
+  }
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 55;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+
+  .popupContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .price {
+    color: #888;
+  }
+
+  .showProductBtn {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #555;
+    }
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

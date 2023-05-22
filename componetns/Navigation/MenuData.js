@@ -1,4 +1,4 @@
-﻿export const menuData = [
+﻿export const MenuData = [
   {
     title: "NURSING AND CARE",
     children: [

@@ -89,12 +89,14 @@ export default function Categories({ inspCat }) {
       <div>{inspCatData.title}</div>
       <div className={styles.scrollableContainer} ref={containerRef} onScroll={handleScroll}>
         {inspCatData.images.map((image) => (
-          <a key={uuidv4()} href={image.url} className={classNames(styles.imageContainer, containerStyleClass)}>
-            <div className={styles.imageShape}>
-              <Image className={styles.imageSec} src={image.src} alt={image.alt} />
-            </div>
-            <p>{image.name}</p>
-          </a>
+          <div key={image.id}>
+            <Link href={image.url} className={classNames(styles.imageContainer, containerStyleClass)}>
+              <div className={styles.imageShape}>
+                <Image className={styles.imageSec} src={image.src} alt={image.alt} />
+              </div>
+              <p>{image.name}</p>
+            </Link>
+          </div>
         ))}
       </div>
       {inspCat === "categories" && (
@@ -103,8 +105,9 @@ export default function Categories({ inspCat }) {
         </Link>
       )}
       <div className={styles.arrowsContainer}>
-        <BsChevronRight onClick={handleScrollRight} className={isMaxScrollRight ? styles.disabled : styles.arrow} />
-        {!isMaxScrollLeft && <BsChevronLeft onClick={handleScrollLeft} className={styles.arrow} />}
+        <BsChevronRight onClick={handleScrollRight} className={isMaxScrollRight ? styles.arrowHide : styles.arrow} />
+
+        <BsChevronLeft onClick={handleScrollLeft} className={isMaxScrollLeft ? styles.arrowDisabled : styles.arrow} />
       </div>
     </div>
   );

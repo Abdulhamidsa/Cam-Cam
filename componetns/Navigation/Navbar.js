@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "../../styles/FrontPage.module.scss";
 import BurgerMenu from "./BurgerMenu";
 import { RxChevronRight } from "react-icons/rx";
-import { menuData } from "./MenuData";
+import { MenuData } from "./MenuData";
 import { v4 as uuidv4 } from "uuid";
 
 const Navbar = () => {
@@ -97,7 +97,7 @@ const Navbar = () => {
         </div>
       )}
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
-        {menuData.map((menuItem) => (
+        {MenuData.map((menuItem) => (
           <li key={uuidv4()} className={styles.navItemMain}>
             {menuItem.children ? (
               <>
@@ -112,7 +112,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      {menuData.map((menuItem) => (
+      {MenuData.map((menuItem) => (
         <li key={uuidv4()} className={styles.navItem}>
           {activeMenu === menuItem.title && menuItem.children && (
             <>
