@@ -66,16 +66,16 @@ const data = [
   { id: 2, src: "/DSCF3111.jpg", width: 80, height: 98, left: 125, top: 0 },
   { id: 3, src: "/DSCF3306.jpg", width: 80, height: 98, left: 125, top: 102 },
   { id: 4, src: "/DSCF3372.jpg", width: 120, height: 200, left: 210, top: 0 },
-  { id: 5, src: "/DSCF3387.jpg", width: 120, height: 200, left: 335, top: 0 },
+  { id: 5, src: "/DSCF3372.jpg", width: 120, height: 200, left: 335, top: 0 },
   { id: 6, src: "/DSCF3474.jpg", width: 80, height: 98, left: 460, top: 0 },
-  { id: 7, src: "/DSCF3491.jpg", width: 80, height: 98, left: 460, top: 102 },
+  { id: 7, src: "/DSCF3502.jpg", width: 80, height: 98, left: 460, top: 102 },
   { id: 8, src: "/DSCF3502.jpg", width: 120, height: 200, left: 545, top: 0 },
 
   { id: 9, src: "/IMG_2913.jpg", width: 160, height: 150, left: 0, top: 204 },
   { id: 10, src: "/IMG_3042.jpg", width: 90, height: 150, left: 165, top: 204 },
   // { id: 11, src: "/insp.jpg", width: 80, height: 74, left: 165, top: 279 },
   { id: 12, src: "/DSCF3474.jpg", width: 170, height: 150, left: 248, top: 204 },
-  // { id: 12, src: "/insp.jpg", width: 100, height: 150, left: 420, top: 204 },
+  { id: 12, src: "/insp.jpg", width: 100, height: 150, left: 420, top: 204 },
 ];
 export default function Gallery() {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -129,7 +129,7 @@ export default function Gallery() {
             top: `${adjustedTop[index]}px`,
           }}
         >
-          <Image sizes="30vw" width={100} height={100} src={image.src} alt={`Image ${image.id}`} />
+          <Image sizes="25vw" width={100} height={100} src={image.src} alt={`Image ${image.id}`} />
         </div>
       ))}
     </div>

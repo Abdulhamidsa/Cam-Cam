@@ -5,6 +5,8 @@ import BurgerMenu from "./BurgerMenu";
 import { RxChevronRight } from "react-icons/rx";
 import { MenuData } from "./MenuData";
 import { v4 as uuidv4 } from "uuid";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,20 +55,22 @@ const Navbar = () => {
 
   const renderSubMenu = (subMenuItems) => {
     return (
-      <ul className={`${styles.subMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
-        {subMenuItems.map((item) => (
-          <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
-            {item.url ? (
-              <a href={item.url}>{item.title}</a>
-            ) : (
-              <>
-                {item.title}
-                <RxChevronRight />
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+      <>
+        <ul className={`${styles.subMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+          {subMenuItems.map((item) => (
+            <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
+              {item.url ? (
+                <a href={item.url}>{item.title}</a>
+              ) : (
+                <>
+                  {item.title}
+                  <RxChevronRight />
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      </>
     );
   };
 
@@ -97,6 +101,9 @@ const Navbar = () => {
         </div>
       )}
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
+        <Link href={"/"}>
+          <Image className={styles.logo} src={"/logo.png"} alt="assssss" width={70} height={70} />
+        </Link>
         {MenuData.map((menuItem) => (
           <li key={uuidv4()} className={styles.navItemMain}>
             {menuItem.children ? (
