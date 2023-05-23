@@ -1,11 +1,11 @@
-﻿import Image from "next/image";
-import styles from "../../styles/FrontPage.module.scss";
+﻿"use client";
+import Image from "next/image";
+import styles from "../../styles/frontPage.module.scss";
 import DropdownAccordion from "./DropDown";
 import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <DropdownAccordion />
       <div className={styles.footerContainer}>
         <div className={styles.logoContainer}>
           <Image src={"/next.svg"} alt="sadfefe" width={100} height={50} />

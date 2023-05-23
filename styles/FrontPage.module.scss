@@ -1,6 +1,6 @@
-﻿@import "./Navbar.module.scss";
-@import "./Fron.module.scss";
-@import "./Inspo.module.scss";
+﻿@import "./navbar.module.scss";
+@import "./fron.module.scss";
+@import "./inspo.module.scss";
 
 .margin {
   display: flex;
@@ -13,7 +13,7 @@
   // background-color: rgb(105, 99, 99);
 }
 .vid {
-  width: 10%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   position: relative;
@@ -53,14 +53,13 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  // background-color: red;
   scroll-snap-align: start;
 }
 
 .patternsContainer .imageContainer {
-  flex: 0 0 calc((100% - 2rem) / 3);
-  width: 0 0 calc((100% - 2rem) / 3);
-  padding: 0.2rem;
+  // flex: 0 0 calc((100% - 555555rem) / 2) !important;
+  // width: 0 0 calc((100% - 55555rem) / 2) !important;
+  padding: 1rem;
 }
 
 .categoriesContainer .imageContainer {
@@ -196,6 +195,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 .addressInfo {
   line-height: 1.3;

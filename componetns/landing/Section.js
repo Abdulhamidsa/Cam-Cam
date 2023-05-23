@@ -1,5 +1,5 @@
 ﻿import Image from "next/image";
-import styles from "../../styles/FrontPage.module.scss";
+import styles from "../../styles/frontPage.module.scss";
 
 export default function Section({ section }) {
   const collectionData = {
@@ -26,7 +26,7 @@ export default function Section({ section }) {
       <div className={styles.collectionSec}>
         {sectionData.map((item, index) => (
           <div className={styles.section} key={index}>
-            <Image className={styles.imageSec} src={item.imageUrl} width={100} height={100} alt="Picture of the author" sizes="(max-width: 480px) 50vw, 100vw" />
+            <Image className={styles.imageSec} src={item.imageUrl} width={100} height={100} alt="Picture of the author" sizes="(max-width: 480px) 50vw, 100vw" priority={true} />
             <div className={styles.secText}>
               <h2>{item.heading}</h2>
             </div>

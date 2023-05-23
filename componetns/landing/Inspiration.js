@@ -1,9 +1,10 @@
 ﻿"use client";
 import { useState } from "react";
-import styles from "../../styles/FrontPage.module.scss";
+import styles from "../../styles/frontPage.module.scss";
 import insp from "../../public/insp.jpg";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
+import { RxCross1 } from "react-icons/rx";
 
 const hotspots = [
   { id: 1, url: "https://example.com/page1", top: "50%", left: "50%" },
@@ -44,16 +45,16 @@ export default function Inspiration() {
             onMouseEnter={() => handleSpotHover(hotspot.id)}
             onMouseLeave={handleSpotLeave}
           >
+            <div className={styles.hotspotWrapper}></div>
+
             {activeSpot === hotspot.id && (
-              <div className={`${styles.popup} ${styles.fadeIn}`}>
+              <div className={styles.popup}>
                 <div className={styles.popupContent}>
                   <span className={styles.title}>Product Title</span>
                   <span className={styles.price}>$99.99</span>
                 </div>
                 <button className={styles.showProductBtn}>Show Product</button>
-                <button className={styles.closeButton} onClick={handleClosePopup}>
-                  dd
-                </button>
+                <RxCross1 className={styles.closeButton} onClick={handleClosePopup} />
               </div>
             )}
           </div>

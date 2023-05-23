@@ -1,42 +1,41 @@
 ﻿"use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import insp from "../../public/insp.jpg";
-import styles from "../../styles/FrontPage.module.scss";
+import styles from "../../styles/frontPage.module.scss";
 import Link from "next/link";
 import classNames from "classnames";
 import { v4 as uuidv4 } from "uuid";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
-const data = {
-  patterns: {
-    title: "SHOP BY PATTERN",
-    images: [
-      { id: 1, name: "pattern1", src: insp, alt: "Picture 1", url: "https://example.com/page1" },
-      { id: 2, name: "pattern1", src: insp, alt: "Picture 2", url: "https://example.com/page2" },
-      { id: 3, name: "pattern1", src: insp, alt: "Picture 3", url: "https://example.com/page3" },
-      { id: 4, name: "pattern1", src: insp, alt: "Picture 4", url: "https://example.com/page4" },
-      { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 6, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 7, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 8, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 9, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-      { id: 10, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
-    ],
-  },
-  categories: {
-    title: "SHOP BY CATEGORY",
-    images: [
-      { id: 1, name: "pattern1", src: insp, alt: "Picture 1", url: "https://example.com/category1" },
-      { id: 2, name: "pattern1", src: insp, alt: "Picture 2", url: "https://example.com/category2" },
-      { id: 3, name: "pattern1", src: insp, alt: "Picture 3", url: "https://example.com/category3" },
-    ],
-    buttonText: "VIEW ALL",
-    url: "/this",
-  },
-};
-
 export default function Categories({ inspCat }) {
+  const data = {
+    patterns: {
+      title: "SHOP BY PATTERN",
+      images: [
+        { id: 1, name: "pattern1", src: insp, alt: "Picture 1", url: "https://example.com/page1" },
+        { id: 2, name: "pattern1", src: insp, alt: "Picture 2", url: "https://example.com/page2" },
+        { id: 3, name: "pattern1", src: insp, alt: "Picture 3", url: "https://example.com/page3" },
+        { id: 4, name: "pattern1", src: insp, alt: "Picture 4", url: "https://example.com/page4" },
+        { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+        { id: 6, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+        { id: 7, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+        { id: 8, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+        { id: 9, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+        { id: 10, name: "pattern1", src: insp, alt: "Picture 5", url: "https://example.com/page5" },
+      ],
+    },
+    categories: {
+      title: "SHOP BY CATEGORY",
+      images: [
+        { id: 1, name: "pattern1", src: insp, alt: "Picture 1", url: "https://example.com/category1" },
+        { id: 2, name: "pattern1", src: insp, alt: "Picture 2", url: "https://example.com/category2" },
+        { id: 3, name: "pattern1", src: insp, alt: "Picture 3", url: "https://example.com/category3" },
+      ],
+      buttonText: "VIEW ALL",
+      url: "/this",
+    },
+  };
   const containerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isMaxScrollRight, setIsMaxScrollRight] = useState(false);

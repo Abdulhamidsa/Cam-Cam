@@ -17,24 +17,24 @@
   border: 2px solid transparent;
   background-color: #fff;
   transition: top 0.3s, left 0.3s; // Apply transitions to top and left properties
-  z-index: 55;
+  z-index: 5;
 
   &.activeSpot {
     background-color: red;
   }
+}
+.hotspotWrapper {
+  position: relative;
+  content: "";
+  min-width: 200%;
+  height: 200%;
+  left: -50%;
+  top: -50%;
+  // transform: translate(-50%, -50%);
 
-  &::after {
-    position: absolute;
-    content: "";
-    width: 40px;
-    height: 40px;
-    left: -11px;
-    top: -12px;
-    border-radius: 100%;
-    background: #ffffff66;
-    animation: 2200ms pulse ease-in-out infinite;
-    z-index: 5;
-  }
+  border-radius: 100%;
+  background: #ffffff66;
+  animation: 2200ms pulse ease-in-out infinite;
 }
 
 .popup {
@@ -67,7 +67,7 @@
   }
 
   .price {
-    color: #888;
+    color: red;
   }
 
   .showProductBtn {

@@ -79,47 +79,57 @@
 //     productsData: productsData.data.products,
 //   };
 // }
+// const products = await res.json();
+// console.log(products);
+// const [isLoading, setIsLoading] = useState(true);
+// useEffect(() => {
+//   const timeout = setTimeout(() => {
+//     setIsLoading(false);
+//   }, 500);
+//   return () => clearTimeout(timeout);
+// }, []);
+
+// if (isLoading) {
+//   return <Loading />;
+// }
+
+// const productsData = await getData();
+// const product = await getProducts();
+// console.log(product);
+
+//   const productsData = await getData();
+// const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+// const handleMenuToggle = () => {
+//   setIsMenuOpen(!isMenuOpen);
+// };
+
 "use client";
-import styles from "../styles/FrontPage.module.scss";
-// import vid from "../public/vid.mp4";
+import styles from "../styles/frontPage.module.scss";
 import Section from "../componetns/landing/Section";
 import Inspiration from "../componetns/landing/Inspiration";
 import Categories from "../componetns/landing/Categories";
-import { useState, useEffect } from "react";
-import { Suspense } from "react";
 import Gallery from "@/componetns/landing/Gallery";
+import DropdownAccordion from "@/componetns/Footer/DropDown";
+import Link from "next/link";
+import vid from "../public/vid.mp4";
 export default function Page() {
-  // const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 500);
-  //   return () => clearTimeout(timeout);
-  // }, []);
-
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
-
-  // const productsData = await getData();
-  // const product = await getProducts();
-  // console.log(product);
-
-  //   const productsData = await getData();
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // const handleMenuToggle = () => {
-  //   setIsMenuOpen(!isMenuOpen);
-  // };
-
   return (
     <>
       <div className={styles.margin}>
         <div className={styles.vidBg}>
-          {/* <video className={styles.vid} autoPlay>
-          <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1684410419/samples/elephants.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video> */}
+          <div className="video-container">
+            <video className={styles.vid} autoPlay loop muted poster="/path/to/video-poster.jpg">
+              <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1684858958/Hero_Homepage_l1vj2s.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          {/* <div className="video-container">
+            <video className={styles.vid} autoPlay loop muted>
+              <source src="/vid.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div> */}
         </div>
         <Section section="section1" />
         <Inspiration />
@@ -127,7 +137,7 @@ export default function Page() {
         <Categories inspCat="categories" />
         <Section section="section2" />
         <Gallery />
-        {/* <Gallery /> */}
+        <DropdownAccordion />
       </div>
     </>
   );

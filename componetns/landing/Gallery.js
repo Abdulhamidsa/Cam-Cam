@@ -1,5 +1,5 @@
-﻿import styles from "../../styles/FrontPage.module.scss";
-import { useEffect, useLayoutEffect, useState } from "react";
+﻿import styles from "../../styles/frontPage.module.scss";
+import { useLayoutEffect, useState } from "react";
 import Image from "next/image";
 // const data = [
 //   { id: 1, src: "/insp.jpg", width: 120, height: 200, left: 0, top: 0 },
