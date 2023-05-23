@@ -1,6 +1,6 @@
 ﻿"use client";
 import { useState } from "react";
-import styles from "../../styles/frontPage.module.scss";
+import styles from "../../styles/FrontPage.module.scss";
 import BurgerMenu from "./BurgerMenu";
 import { RxChevronRight } from "react-icons/rx";
 import { MenuData } from "./MenuData";

@@ -105,7 +105,7 @@
 // };
 
 "use client";
-import styles from "../styles/frontPage.module.scss";
+import styles from "../styles/FrontPage.module.scss";
 import Section from "../componetns/landing/Section";
 import Inspiration from "../componetns/landing/Inspiration";
 import Categories from "../componetns/landing/Categories";

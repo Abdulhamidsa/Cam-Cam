@@ -1,7 +1,7 @@
 ﻿"use client";
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import styles from "../../styles/frontPage.module.scss";
+import styles from "../../styles/FrontPage.module.scss";
 
 export default function DropdownAccordion() {
   const [dropdownItems, setDropdownItems] = useState([

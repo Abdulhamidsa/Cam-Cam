@@ -1,4 +1,4 @@
-﻿import styles from "../../styles/frontPage.module.scss";
+﻿import styles from "../../styles/FrontPage.module.scss";
 import { useLayoutEffect, useState } from "react";
 import Image from "next/image";
 // const data = [

@@ -1,6 +1,6 @@
 ﻿"use client";
 import Image from "next/image";
-import styles from "../../styles/frontPage.module.scss";
+import styles from "../../styles/FrontPage.module.scss";
 import DropdownAccordion from "./DropDown";
 import Link from "next/link";
 export default function Footer() {

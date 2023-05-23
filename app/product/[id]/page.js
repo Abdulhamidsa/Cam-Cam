@@ -127,7 +127,6 @@
 //   );
 // }
 "use client";
-import { getProductData } from "../../../util/productsApi";
 async function ProductPage({ params: { id } }) {
   try {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);

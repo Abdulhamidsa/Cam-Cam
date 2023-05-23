@@ -2,7 +2,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import insp from "../../public/insp.jpg";
-import styles from "../../styles/frontPage.module.scss";
+import styles from "../../styles/FrontPage.module.scss";
 import Link from "next/link";
 import classNames from "classnames";
 import { v4 as uuidv4 } from "uuid";

@@ -1,5 +1,5 @@
 ﻿import Image from "next/image";
-import styles from "../../styles/frontPage.module.scss";
+import styles from "../../styles/FrontPage.module.scss";
 
 export default function Section({ section }) {
   const collectionData = {
