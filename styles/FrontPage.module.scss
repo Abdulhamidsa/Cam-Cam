@@ -1,11 +1,14 @@
 ﻿@import "./Navbar.module.scss";
 @import "./Fron.module.scss";
 @import "./Inspo.module.scss";
+@import "./_variables.scss";
 
 .margin {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  // margin-left: 1rem;
+  // margin-right: 1rem;
 }
 .vidBg {
   // width: 100dvw;
@@ -16,10 +19,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: relative;
-}
-
-.collectionSec {
   position: relative;
 }
 
@@ -130,7 +129,7 @@
 .imgContainer {
   position: absolute;
   background-color: hsl(0, 0%, 95%);
-  border: 1px solid #ddd;
+  border: 3px solid $bg-prim-clr-pink;
   display: flex;
   justify-content: center;
   align-items: center;
