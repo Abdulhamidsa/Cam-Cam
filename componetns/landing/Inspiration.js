@@ -31,7 +31,7 @@ export default function Inspiration() {
 
   return (
     <div className={styles.insp}>
-      <h1>GET INSPIRED</h1>
+      <h2>GET INSPIRED</h2>
       <div className={styles.spots}>
         <Image className={styles.imageSec} src={insp} sizes="50vw" alt="Picture of the author" />
         {hotspots.map((hotspot) => (

@@ -6,7 +6,7 @@ export default function Product(props) {
   return (
     <>
       {" "}
-      <h1>{props.category}</h1>
+      <h2>{props.category}</h2>
       <section className={styles.ProductContainer}>
         {props.products.map((product) => (
           <div key={product.id} className={styles.productCard}>

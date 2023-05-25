@@ -28,7 +28,7 @@ export default function Section({ section }) {
       <div className={styles.collectionSec}>
         {sectionData.map((item, index) => (
           <div className={styles.section} key={index}>
-            <h1>{item.heading}</h1>
+            <h2>{item.heading}</h2>
 
             <Image className={styles.imageSec} src={item.imageUrl} width={100} height={100} alt="Picture of the author" sizes="(max-width: 480px) 50vw, 100vw" priority={true} />
             <h2 className={styles.secBody}>{item.text}</h2>

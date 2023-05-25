@@ -60,68 +60,11 @@ const Navbar = () => {
   const handleLogoClick = () => {
     setIsMenuOpen(false); // Close the menu when the logo is clicked
   };
-
-  const renderSubMenu = (subMenuItems) => {
-    return (
-      <>
-        <ul className={`${styles.subMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
-          <Link className={styles.logo} href={"/"} onClick={handleLogoClick}>
-            <Image src={"/logo.png"} alt="assssss" width={90} height={90} />
-          </Link>
-          {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt={"left arrow"} onClick={handleBackClick}></Image>}
-
-          {subMenuItems.map((item) => (
-            <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
-              {item.url ? (
-                <Link key={uuidv4()} href={`category/${item.title}`} onClick={handleLinkClick}>
-                  {item.title}
-                </Link>
-              ) : (
-                <>
-                  {item.title}
-
-                  <RxChevronRight />
-                </>
-              )}
-            </li>
-          ))}
-        </ul>
-      </>
-    );
-  };
-
-  const renderSubSubMenu = (subSubMenuItems) => {
-    return (
-      <ul className={`${styles.subSubMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
-        <Link className={styles.logo} href={"/"} onClick={handleLogoClick}>
-          <Image src={"/logo.png"} alt="assssss" width={90} height={90} />
-        </Link>
-        {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt={"left arrow"} onClick={handleBackClick}></Image>}
-        {subSubMenuItems.map((item) => (
-          <li key={uuidv4()} className={styles.subSubMenuItem} onClick={() => handleSubSubMenuClick(item.title)}>
-            {item.url ? (
-              <Link href={item.url} onClick={handleLinkClick}>
-                {item.title}
-              </Link>
-            ) : (
-              <>
-                {item.title}
-                <RxChevronRight />
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-    );
-  };
-
   return (
     <nav className={styles.navigation}>
       <BurgerMenu isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
-        <Link className={styles.logo} href={"/"} onClick={handleLogoClick}>
-          <Image src={"/logo.png"} alt="assssss" width={90} height={90} />
-        </Link>
+        <Image className={styles.logo} src={"/logo.png"} width={60} height={60}></Image>
         {MenuData.map((menuItem) => (
           <li key={uuidv4()} className={styles.navItemMain}>
             {menuItem.children ? (
@@ -137,12 +80,54 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+
       {MenuData.map((menuItem) => (
         <li key={uuidv4()} className={styles.navItem}>
           {activeMenu === menuItem.title && menuItem.children && (
             <>
-              {renderSubMenu(menuItem.children)}
-              {activeSubMenu && menuItem.children.find((child) => child.title === activeSubMenu)?.children && renderSubSubMenu(menuItem.children.find((child) => child.title === activeSubMenu)?.children)}
+              <ul className={`${styles.subMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+                {/* <Image src={"/logo.png"} width={50} height={50}></Image> */}
+
+                {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt={"left arrow"} onClick={handleBackClick} />}
+
+                {menuItem.children.map((item) => (
+                  <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
+                    {item.url ? (
+                      <Link key={uuidv4()} href={`category/${item.title}`} onClick={handleLinkClick}>
+                        {item.title}
+                      </Link>
+                    ) : (
+                      <>
+                        {item.title}
+                        <RxChevronRight />
+                      </>
+                    )}
+                  </li>
+                ))}
+              </ul>
+
+              {activeSubMenu && menuItem.children.find((child) => child.title === activeSubMenu)?.children && (
+                <ul className={`${styles.subSubMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+                  {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt={"left arrow"} onClick={handleBackClick} />}
+
+                  {menuItem.children
+                    .find((child) => child.title === activeSubMenu)
+                    ?.children.map((item) => (
+                      <li key={uuidv4()} className={styles.subSubMenuItem} onClick={() => handleSubSubMenuClick(item.title)}>
+                        {item.url ? (
+                          <Link href={item.url} onClick={handleLinkClick}>
+                            {item.title}
+                          </Link>
+                        ) : (
+                          <>
+                            {item.title}
+                            <RxChevronRight />
+                          </>
+                        )}
+                      </li>
+                    ))}
+                </ul>
+              )}
             </>
           )}
         </li>
