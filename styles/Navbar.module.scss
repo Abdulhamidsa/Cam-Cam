@@ -1,5 +1,10 @@
 ﻿@import "./variables.scss";
-
+.nav {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 1rem 0 1rem;
+}
 .burgerMenu {
   position: relative;
   display: flex;
@@ -18,13 +23,13 @@
 
 .burgerBar {
   width: 100%;
-  height: 3.2px;
+  height: 2px;
   background-color: #000000;
   transition: transform 0.3s ease-in-out;
 }
 
 .open:nth-child(1) {
-  transform: translateY(12px) rotate(45deg);
+  transform: translateY(5px) rotate(45deg);
 }
 
 .open:nth-child(2) {
@@ -33,7 +38,7 @@
 }
 
 .open:nth-child(3) {
-  transform: translateY(-5px) rotate(-45deg);
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 .navLinks,

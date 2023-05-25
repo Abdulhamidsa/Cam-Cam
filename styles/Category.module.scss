@@ -66,6 +66,8 @@
   align-items: end;
   padding: 3px;
 }
-.productTile p {
-  font-size: clamp(5px, calc(1vw + 1px), 10px); /* Adjust the minimum and maximum font sizes and scaling factor as needed */
+.productTile p,
+.productName {
+  text-align: center;
+  font-size: clamp(8px, calc(2vw + 1px), 8px); /* Adjust the minimum and maximum font sizes and scaling factor as needed */
 }

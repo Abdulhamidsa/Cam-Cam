@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
 import Link from "next/link";
 
-const Navbar = ({ value }) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
