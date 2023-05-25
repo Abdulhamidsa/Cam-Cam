@@ -118,12 +118,12 @@ export default function Page() {
     <>
       <div className={styles.margin}>
         <div className={styles.vidBg}>
-          {/* <div className="video-container">
+          <div className="video-container">
             <video className={styles.vid} autoPlay loop muted poster="/path/to/video-poster.jpg">
               <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1684858958/Hero_Homepage_l1vj2s.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </div> */}
+          </div>
           {/* <div className="video-container">
             <video className={styles.vid} autoPlay loop muted>
               <source src="/vid.mp4" type="video/mp4" />

@@ -65,6 +65,11 @@ const Navbar = () => {
     return (
       <>
         <ul className={`${styles.subMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+          <Link className={styles.logo} href={"/"} onClick={handleLogoClick}>
+            <Image src={"/logo.png"} alt="assssss" width={90} height={90} />
+          </Link>
+          {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt={"left arrow"} onClick={handleBackClick}></Image>}
+
           {subMenuItems.map((item) => (
             <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
               {item.url ? (
@@ -88,6 +93,10 @@ const Navbar = () => {
   const renderSubSubMenu = (subSubMenuItems) => {
     return (
       <ul className={`${styles.subSubMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+        <Link className={styles.logo} href={"/"} onClick={handleLogoClick}>
+          <Image src={"/logo.png"} alt="assssss" width={90} height={90} />
+        </Link>
+        {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt={"left arrow"} onClick={handleBackClick}></Image>}
         {subSubMenuItems.map((item) => (
           <li key={uuidv4()} className={styles.subSubMenuItem} onClick={() => handleSubSubMenuClick(item.title)}>
             {item.url ? (
@@ -109,14 +118,9 @@ const Navbar = () => {
   return (
     <nav className={styles.navigation}>
       <BurgerMenu isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
-      {activeMenu && (
-        <div className={styles.backButton} onClick={handleBackClick}>
-          &larr;
-        </div>
-      )}
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
-        <Link href={"/"} onClick={handleLogoClick}>
-          <Image className={styles.logo} src={"/logo.png"} alt="assssss" width={70} height={70} />
+        <Link className={styles.logo} href={"/"} onClick={handleLogoClick}>
+          <Image src={"/logo.png"} alt="assssss" width={90} height={90} />
         </Link>
         {MenuData.map((menuItem) => (
           <li key={uuidv4()} className={styles.navItemMain}>

@@ -4,12 +4,18 @@ module.exports = {
     domains: ["res.cloudinary.com", "media.graphassets.com"],
   },
   webpack: (config) => {
-    config.module.rules.push({
-      test: /\.mp4$/,
-      use: {
-        loader: "file-loader",
+    config.module.rules.push(
+      {
+        test: /\.mp4$/,
+        use: {
+          loader: "file-loader",
+        },
       },
-    });
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
+      }
+    );
     return config;
   },
 };
