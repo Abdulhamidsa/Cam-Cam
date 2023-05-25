@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ value }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
-    // close all menues
+    // close all menus
     setActiveMenu(null);
     setActiveSubMenu(null);
     setActiveSubSubMenu(null);
@@ -53,6 +53,14 @@ const Navbar = () => {
     setActiveSubMenu(subMenu);
   };
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false); // Close the menu when a link is clicked
+  };
+
+  const handleLogoClick = () => {
+    setIsMenuOpen(false); // Close the menu when the logo is clicked
+  };
+
   const renderSubMenu = (subMenuItems) => {
     return (
       <>
@@ -60,10 +68,13 @@ const Navbar = () => {
           {subMenuItems.map((item) => (
             <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
               {item.url ? (
-                <a href={item.url}>{item.title}</a>
+                <Link key={uuidv4()} href={`category/${item.title}`} onClick={handleLinkClick}>
+                  {item.title}
+                </Link>
               ) : (
                 <>
                   {item.title}
+
                   <RxChevronRight />
                 </>
               )}
@@ -80,7 +91,9 @@ const Navbar = () => {
         {subSubMenuItems.map((item) => (
           <li key={uuidv4()} className={styles.subSubMenuItem} onClick={() => handleSubSubMenuClick(item.title)}>
             {item.url ? (
-              <a href={item.url}>{item.title}</a>
+              <Link href={item.url} onClick={handleLinkClick}>
+                {item.title}
+              </Link>
             ) : (
               <>
                 {item.title}
@@ -92,6 +105,7 @@ const Navbar = () => {
       </ul>
     );
   };
+
   return (
     <nav className={styles.navigation}>
       <BurgerMenu isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
@@ -101,7 +115,7 @@ const Navbar = () => {
         </div>
       )}
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
-        <Link href={"/"}>
+        <Link href={"/"} onClick={handleLogoClick}>
           <Image className={styles.logo} src={"/logo.png"} alt="assssss" width={70} height={70} />
         </Link>
         {MenuData.map((menuItem) => (
@@ -112,9 +126,9 @@ const Navbar = () => {
                 <RxChevronRight />
               </>
             ) : (
-              <a key={uuidv4()} href={menuItem.url}>
+              <Link key={uuidv4()} href={`category/${menuItem.url}`} onClick={handleLinkClick}>
                 {menuItem.title}
-              </a>
+              </Link>
             )}
           </li>
         ))}

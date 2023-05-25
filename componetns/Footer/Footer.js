@@ -8,7 +8,7 @@ export default function Footer() {
     <>
       <div className={styles.footerContainer}>
         <div className={styles.logoContainer}>
-          <Image src={"/next.svg"} alt="sadfefe" width={100} height={50} />
+          <Image src={"/logo.png"} alt="sadfefe" width={70} height={70} />
         </div>
         <div className={styles.addressInfo}>
           Skyttegade 7, 3.sal <br />

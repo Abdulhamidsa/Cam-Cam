@@ -1,0 +1,71 @@
+﻿@import "../styles/variables";
+.ProductContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 7px;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: auto;
+}
+
+.productCard {
+  background-color: var(--bg-prim-clr-white);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  // width: 150px;
+  // flex: 0 0 calc((100% - 8px) / 2); /* Adjust the number of columns as needed */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+// @media (max-width: 768px) {
+//   .productCard {
+//     flex: 0 0 calc((100% - 25px) / 1); /* Adjust the number of columns for smaller screens */
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .productCard {
+//     flex: 0 0 calc((100% - 25px) / 4); /* Adjust the number of columns for smaller screens */
+//   }
+// }
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 80%;
+  margin-bottom: 0.5rem;
+}
+
+.productImage,
+.hoverImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hoverImage {
+  opacity: 0;
+}
+
+.imageWrapper:hover .hoverImage {
+  opacity: 1;
+}
+.productTile {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: end;
+  padding: 3px;
+}
+.productTile p {
+  font-size: clamp(5px, calc(1vw + 1px), 10px); /* Adjust the minimum and maximum font sizes and scaling factor as needed */
+}

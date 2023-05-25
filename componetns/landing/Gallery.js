@@ -75,7 +75,7 @@ const data = [
   { id: 10, src: "/IMG_3042.jpg", width: 90, height: 150, left: 165, top: 204 },
   // { id: 11, src: "/insp.jpg", width: 80, height: 74, left: 165, top: 279 },
   { id: 12, src: "/DSCF3474.jpg", width: 170, height: 150, left: 248, top: 204 },
-  { id: 12, src: "/insp.jpg", width: 100, height: 150, left: 420, top: 204 },
+  { id: 13, src: "/insp.jpg", width: 100, height: 150, left: 420, top: 204 },
 ];
 export default function Gallery() {
   const [windowWidth, setWindowWidth] = useState(0);
