@@ -64,9 +64,9 @@ const Navbar = () => {
     <nav className={styles.navigation}>
       <BurgerMenu isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
-        <Image className={styles.logo} src={"/logo.png"} width={60} height={60}></Image>
+        <Image className={styles.logo} src={"/logo.png"} width={55} height={55}></Image>
         {MenuData.map((menuItem) => (
-          <li key={uuidv4()} className={styles.navItemMain}>
+          <li onClick={() => handleMenuClick(menuItem.title)} key={uuidv4()} className={styles.navItemMain}>
             {menuItem.children ? (
               <>
                 <span onClick={() => handleMenuClick(menuItem.title)}>{menuItem.title}</span>

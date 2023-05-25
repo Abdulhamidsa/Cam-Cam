@@ -11,7 +11,7 @@ const BurgerMenu = ({ isMenuOpen, handleMenuToggle }) => {
         <div className={`${styles.burgerBar} ${isMenuOpen ? styles.open : ""}`}></div>
       </div>
       <Link href={"/"}>
-        <Image src={"/logo.png"} alt="assssss" width={60} height={60} />
+        <Image src={"/logo.png"} alt="assssss" width={70} height={70} />
       </Link>
     </div>
   );

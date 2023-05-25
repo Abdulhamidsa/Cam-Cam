@@ -66,7 +66,7 @@
   // height: 5px;
   width: 100%;
   margin-top: 1rem;
-  z-index: 555555555555555;
+  // z-index: 555555555555555;
 }
 .navigation li {
   position: relative;
@@ -86,9 +86,7 @@
 }
 .logo {
   align-self: center;
-  // padding-bottom: 5rem;
-
-  // position: relative;
+  margin-bottom: 1rem;
 }
 
 .subMenuItem,
@@ -100,7 +98,9 @@
 .navItemMain svg,
 .subMenuItem svg,
 .subSubMenuItem svg {
-  margin-left: auto;
+  // margin-left: ;
+  position: absolute;
+  right: 0;
 }
 .slideIn {
   transform: translateX(0px);
@@ -128,7 +128,7 @@
   display: inline-block;
 
   position: relative;
-  position: absolute;
-  top: -2%;
+  // position: absolute;
+  // top: -2%;
   transform: rotate(180deg);
 }
