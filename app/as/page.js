@@ -219,95 +219,95 @@
 // //   );
 // // }
 
-// "use client";
-// import { v4 as uuidv4 } from "uuid";
-// import React, { useState, useEffect } from "react";
-// import fetchProducts from "@/util/fetchProducts";
+"use client";
+import { v4 as uuidv4 } from "uuid";
+import React, { useState, useEffect } from "react";
+import fetchProducts from "@/util/fetchProducts";
 
-// function ProductsList() {
-//   const [products, setProducts] = useState([]);
-//   const [filterPrice, setFilterPrice] = useState(null);
-//   const [filterCategories, setFilterCategories] = useState([]);
-//   const filteredProducts = products.filter((product) => {
-//     if (filterPrice && product.price > filterPrice) {
-//       return false;
-//     }
-//     if (filterCategories.length > 0 && !filterCategories.includes(product.category)) {
-//       return false;
-//     }
-//     return true;
-//   });
+function ProductsList() {
+  const [products, setProducts] = useState([]);
+  const [filterPrice, setFilterPrice] = useState(null);
+  const [filterCategories, setFilterCategories] = useState([]);
+  const filteredProducts = products.filter((product) => {
+    if (filterPrice && product.price > filterPrice) {
+      return false;
+    }
+    if (filterCategories.length > 0 && !filterCategories.includes(product.category)) {
+      return false;
+    }
+    return true;
+  });
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const products = await fetchProducts();
-//         setProducts(products);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const products = await fetchProducts();
+        setProducts(products);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-//     fetchData();
-//   }, []);
+    fetchData();
+  }, []);
 
-//   const handleCategoryFilterChange = (event) => {
-//     const { value, checked } = event.target;
-//     if (checked) {
-//       setFilterCategories([...filterCategories, value]);
-//     } else {
-//       setFilterCategories(filterCategories.filter((category) => category !== value));
-//     }
-//   };
+  const handleCategoryFilterChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setFilterCategories([...filterCategories, value]);
+    } else {
+      setFilterCategories(filterCategories.filter((category) => category !== value));
+    }
+  };
 
-//   return (
-//     <div>
-//       <label>
-//         Filter by price:
-//         <input type="range" min="0" max="100" step="0.1" value={filterPrice || ""} onChange={(event) => setFilterPrice(event.target.value ? parseFloat(event.target.value) : null)} />
-//         <span>{filterPrice && `$${filterPrice.toFixed(2)}`}</span>
-//       </label>
+  return (
+    <div>
+      <label>
+        Filter by price:
+        <input type="range" min="0" max="100" step="0.1" value={filterPrice || ""} onChange={(event) => setFilterPrice(event.target.value ? parseFloat(event.target.value) : null)} />
+        <span>{filterPrice && `$${filterPrice.toFixed(2)}`}</span>
+      </label>
 
-//       <label>
-//         Filter byyyy categories:
-//         <div>
-//           <input type="checkbox" id="Playtime" name="category" value="Playtime" checked={filterCategories.includes("Playtime")} onChange={handleCategoryFilterChange} />
-//           <label htmlFor="Playtime">Playtime</label>
-//         </div>
-//         <div>
-//           <input type="checkbox" id="Furniture" name="category" value="Furniture" checked={filterCategories.includes("Furniture")} onChange={handleCategoryFilterChange} />
-//           <label htmlFor="Furniture">Furniture</label>
-//         </div>
-//         <div>
-//           <input type="checkbox" id="Sleep and cuddle" name="category" value="Sleep and cuddle" checked={filterCategories.includes("Sleep and cuddle")} onChange={handleCategoryFilterChange} />
-//           <label htmlFor="Sleep and cuddle">category000hahaah00 3</label>
-//         </div>
-//       </label>
+      <label>
+        Filter byyyy categories:
+        <div>
+          <input type="checkbox" id="Playtime" name="category" value="Playtime" checked={filterCategories.includes("Playtime")} onChange={handleCategoryFilterChange} />
+          <label htmlFor="Playtime">Playtime</label>
+        </div>
+        <div>
+          <input type="checkbox" id="Furniture" name="category" value="Furniture" checked={filterCategories.includes("Furniture")} onChange={handleCategoryFilterChange} />
+          <label htmlFor="Furniture">Furniture</label>
+        </div>
+        <div>
+          <input type="checkbox" id="Sleep and cuddle" name="category" value="Sleep and cuddle" checked={filterCategories.includes("Sleep and cuddle")} onChange={handleCategoryFilterChange} />
+          <label htmlFor="Sleep and cuddle">category000hahaah00 3</label>
+        </div>
+      </label>
 
-//       <div>
-//         {filterCategories.length > 0 && (
-//           <div>
-//             Filtered by categories:
-//             {filterCategories.map((category) => (
-//               <div key={category} onClick={() => setFilterCategories(filterCategories.filter((c) => c !== category))}>
-//                 {category}
-//               </div>
-//             ))}
-//           </div>
-//         )}
-//       </div>
+      <div>
+        {filterCategories.length > 0 && (
+          <div>
+            Filtered by categories:
+            {filterCategories.map((category) => (
+              <div key={category} onClick={() => setFilterCategories(filterCategories.filter((c) => c !== category))}>
+                {category}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
-//       <ul>
-//         {filteredProducts.map((product) => (
-//           <li key={uuidv4()}>
-//             <h2>{product.name}</h2>
-//             <p>{product.price}</p>
-//             <p>{product.category}</p>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
+      <ul>
+        {filteredProducts.map((product) => (
+          <li key={uuidv4()}>
+            <h2>{product.name}</h2>
+            <p>{product.price}</p>
+            <p>{product.category}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-// export default ProductsList;
+export default ProductsList;
