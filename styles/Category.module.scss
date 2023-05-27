@@ -1,4 +1,4 @@
-﻿@import "./variables";
+﻿@import "./styles/variables";
 .ProductContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));

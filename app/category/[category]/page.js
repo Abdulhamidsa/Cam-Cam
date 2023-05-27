@@ -1,5 +1,5 @@
 ﻿import { capitalizeation, fetchBeforeSecondComma, removeNumbersAndSpecialChars } from "../../../util/functions";
-import Product from "../../../componetns/products/Product";
+import Product from "../Product";
 
 export default async function CategoryPage({ params: { category } }) {
   const res = await fetch(
