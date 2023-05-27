@@ -1,4 +1,4 @@
-// import "./"
+import "./global.css";
 import Navbar from "../componetns/Navigation/Navbar";
 import Footer from "../componetns/Footer/Footer";
 
@@ -22,18 +22,17 @@ import Footer from "../componetns/Footer/Footer";
 // };
 
 export default function RootLayout({ children }) {
-
   // Define a function to update the state
 
   // const product = await getData();
 
   return (
-      <html lang="en">
-        <body>
-          <Navbar  />
-          {children}
-          <Footer />
-        </body>
-      </html>
+    <html lang="en">
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }

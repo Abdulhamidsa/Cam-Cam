@@ -89,17 +89,19 @@ export default function Categories({ inspCat }) {
       <div className={styles.scrollableContainer} ref={containerRef} onScroll={handleScroll}>
         {inspCatData.images.map((image) => (
           <div key={image.id}>
-            <Link href={image.url} className={classNames(styles.imageContainer, containerStyleClass)}>
-              <div className={styles.imageShape}>
-                <Image className={styles.imageSec} src={image.src} alt={image.alt} />
+            <Link href={image.url} className={classNames(styles.imageContainer, containerStyleClass)} legacyBehavior>
+              <div>
+                <div className={styles.imageShape}>
+                  <Image className={styles.imageSec} src={image.src} alt={image.alt} />
+                </div>
+                <p>{image.name}</p>
               </div>
-              <p>{image.name}</p>
             </Link>
           </div>
         ))}
       </div>
       {inspCat === "categories" && (
-        <Link href={inspCatData.url}>
+        <Link href={inspCatData.url} legacyBehavior>
           <button>{inspCatData.buttonText}</button>
         </Link>
       )}

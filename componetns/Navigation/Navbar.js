@@ -64,7 +64,7 @@ const Navbar = () => {
     <nav className={styles.navigation}>
       <BurgerMenu isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
-        <Link href={"/"}>
+        <Link href={"/"} legacyBehavior>
           <Image className={styles.logo} src="/logo.png" width={55} height={55} alt="image of logo" />
         </Link>
         {MenuData.map((menuItem) => (
@@ -75,8 +75,8 @@ const Navbar = () => {
                 <RxChevronRight />
               </>
             ) : (
-              <Link key={uuidv4()} href={`category/${menuItem.url}`} onClick={handleLinkClick}>
-                {menuItem.title}
+              <Link key={uuidv4()} href={`category/${menuItem.url}`} legacyBehavior>
+                <p onClick={handleLinkClick}> {menuItem.title}</p>
               </Link>
             )}
           </li>
@@ -95,7 +95,7 @@ const Navbar = () => {
                 {menuItem.children.map((item) => (
                   <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
                     {item.url ? (
-                      <Link key={uuidv4()} href={`category/${item.title}`} onClick={handleLinkClick}>
+                      <Link key={uuidv4()} href={`category/${item.title}`} onClick={handleLinkClick} legacyBehavior>
                         {item.title}
                       </Link>
                     ) : (
@@ -117,7 +117,7 @@ const Navbar = () => {
                     ?.children.map((item) => (
                       <li key={uuidv4()} className={styles.subSubMenuItem} onClick={() => handleSubSubMenuClick(item.title)}>
                         {item.url ? (
-                          <Link href={item.url} onClick={handleLinkClick}>
+                          <Link href={item.url} onClick={handleLinkClick} legacyBehavior>
                             {item.title}
                           </Link>
                         ) : (
