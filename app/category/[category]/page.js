@@ -1,4 +1,4 @@
-﻿import { capitalizeation, fetchBeforeSecondComma, removeNumbersAndSpecialChars } from "../../../util/functions";
+﻿import { utilFunctions } from "../../../util/functions";
 import Product from "../Product";
 
 export default async function CategoryPage({ params: { category } }) {
@@ -12,18 +12,18 @@ export default async function CategoryPage({ params: { category } }) {
     { cache: "no-store" }
   );
   const data = await res.json();
-  const capitalizedData = capitalizeation(data, "name");
+  const capitalizedData = utilFunctions.capitalizeation(data, "name");
   const capitalizedDataBeforeSecondComma = capitalizedData.map((item) => {
     const capitalizedItem = {
       ...item,
-      name: fetchBeforeSecondComma(item.name),
+      name: utilFunctions.fetchBeforeSecondComma(item.name),
     };
     return capitalizedItem;
   });
 
   return (
     <main>
-      <Product products={capitalizedDataBeforeSecondComma} category={removeNumbersAndSpecialChars(category)} />
+      <Product products={capitalizedDataBeforeSecondComma} category={utilFunctions.removeNumbersAndSpecialChars(category)} />
     </main>
   );
 }

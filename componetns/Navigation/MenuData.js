@@ -1,5 +1,5 @@
-﻿import { capitalizeation } from "../../util/functions";
-export const MenuData = capitalizeation(
+﻿import { utilFunctions } from "../../util/functions";
+export const MenuData = utilFunctions.capitalizeation(
   [
     {
       title: "NURSING AND CARE",

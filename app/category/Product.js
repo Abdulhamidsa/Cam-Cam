@@ -5,6 +5,7 @@ import styles from "../../styles/Category.module.scss";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
+import { Range } from "react-range";
 
 const colorData = [
   { color: "", image: "/ass.jpg", alt: "pattern1" },
@@ -22,6 +23,8 @@ export default function Product(props) {
   const [isSortingOpen, setIsSortingOpen] = useState(false); // Add isSortingOpen state
   const [sortingOption, setSortingOption] = useState("");
   const [isDropdownActive, setIsDropdownActive] = useState(false);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(100); // Declare maxPrice state
 
   const colors = new Set();
 
@@ -49,13 +52,28 @@ export default function Product(props) {
 
   const applyFilters = () => {
     const filteredProducts = products.filter((product) => {
-      if (typeof product.colors === "string") {
-        return selectedColors.includes(product.colors);
-      } else if (Array.isArray(product.colors)) {
-        return product.colors.some((color) => selectedColors.includes(color));
+      let isColorMatched = true;
+      if (selectedColors.length > 0) {
+        if (typeof product.colors === "string") {
+          isColorMatched = selectedColors.includes(product.colors);
+        } else if (Array.isArray(product.colors)) {
+          isColorMatched = product.colors.some((color) => selectedColors.includes(color));
+        }
       }
-      return false;
+
+      let isPriceMatched = true;
+      if (minPrice !== "") {
+        // Add minimum price check
+        isPriceMatched = product.price >= minPrice;
+      }
+
+      if (maxPrice !== "") {
+        isPriceMatched = isPriceMatched && product.price <= maxPrice;
+      }
+
+      return isColorMatched && isPriceMatched;
     });
+
     setFilteredProducts(filteredProducts);
     toggleMenu();
   };
@@ -95,6 +113,7 @@ export default function Product(props) {
           <button className={styles.filterButton} onClick={toggleMenu}>
             Filter
           </button>
+
           <div className={`${styles.sortingDropdown} ${isSortingOpen ? styles.open : ""}`}>
             <button className={styles.filterButton} onClick={toggleSorting}>
               {sortingOption ? `Sorting: ${sortingOption}` : "Sorting"}
@@ -112,25 +131,69 @@ export default function Product(props) {
           </div>
           {isMenuOpen && (
             <div className={styles.menuOverlay}>
+              <div className={styles.filterSelected}>
+                <div className={styles.filterResults}>
+                  <p>Filter:</p>
+                  {selectedColors.length > 0 && (
+                    <div className={styles.selectedColors}>
+                      {selectedColors.map((color) => (
+                        <div key={uuidv4()} className={styles.selectedColor}>
+                          <span className={styles.color} onClick={() => filterProductsByColor(color)}>
+                            {color}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <p onClick={toggleMenu}>Close</p>
+              </div>
+
               <div className={styles.allFilterOptions}>
+                <div className={styles.priceFilterContainer}>
+                  <label htmlFor="maxPrice">Max Price:</label>
+                  <Range
+                    step={1}
+                    min={0}
+                    max={100} // Set the max value to 100
+                    values={[maxPrice]}
+                    onChange={(values) => setMaxPrice(values[0])}
+                    renderTrack={({ props, children }) => (
+                      <div
+                        {...props}
+                        style={{
+                          ...props.style,
+                          height: "6px",
+                          background: "#ccc",
+                          borderRadius: "3px",
+                          marginTop: "10px",
+                        }}
+                      >
+                        {children}
+                      </div>
+                    )}
+                    renderThumb={({ props }) => (
+                      <div
+                        {...props}
+                        style={{
+                          ...props.style,
+                          height: "16px",
+                          width: "16px",
+                          borderRadius: "50%",
+                          backgroundColor: "#007bff",
+                          outline: "none",
+                        }}
+                      />
+                    )}
+                  />
+                  <span>{maxPrice}</span>
+                </div>
                 <div className={styles.colorFilterContainer}>
                   <button className={styles.toggleButton} onClick={() => setIsDropdownActive(!isDropdownActive)}>
-                    Toggle Dropdown
+                    Colors
                     {isDropdownActive ? <FiChevronUp className={styles.chevronIcon} /> : <FiChevronDown className={styles.chevronIcon} />}
                   </button>
                   <div className={`${styles.dropdownContent} ${isDropdownActive ? styles.active : ""}`}>
-                    {selectedColors.length > 0 && (
-                      <div className={styles.selectedColors}>
-                        {selectedColors.map((color) => (
-                          <div key={uuidv4()} className={styles.selectedColor}>
-                            <span>{color}</span>
-                            <button className={styles.removeColor} onClick={() => filterProductsByColor(color)}>
-                              X
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
                     {Array.from(colors).map((colorOption) => (
                       <div key={uuidv4()} className={styles.alignColorsFilter}>
                         <div className={styles.colorName}>{colorOption}</div>
@@ -146,9 +209,7 @@ export default function Product(props) {
                 <button className={styles.applyButton} onClick={applyFilters}>
                   Apply
                 </button>
-                <button className={styles.closeButton} onClick={toggleMenu}>
-                  X
-                </button>
+
                 <button className={styles.resetButton} onClick={clearFilters}>
                   Reset Filter
                 </button>

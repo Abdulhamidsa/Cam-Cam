@@ -20,6 +20,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
+    "react-input-slider": "^6.0.1",
+    "react-range": "^1.8.14",
+    "react-range-slider": "^0.2.1",
     "shortid": "^2.2.16",
     "uuid": "^9.0.0"
   },

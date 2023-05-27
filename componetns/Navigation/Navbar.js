@@ -95,8 +95,8 @@ const Navbar = () => {
                 {menuItem.children.map((item) => (
                   <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
                     {item.url ? (
-                      <Link key={uuidv4()} href={`category/${item.title}`} onClick={handleLinkClick} legacyBehavior>
-                        {item.title}
+                      <Link key={uuidv4()} href={`category/${item.title}`} legacyBehavior>
+                        <p onClick={handleLinkClick}>{item.title}</p>
                       </Link>
                     ) : (
                       <>
@@ -117,8 +117,8 @@ const Navbar = () => {
                     ?.children.map((item) => (
                       <li key={uuidv4()} className={styles.subSubMenuItem} onClick={() => handleSubSubMenuClick(item.title)}>
                         {item.url ? (
-                          <Link href={item.url} onClick={handleLinkClick} legacyBehavior>
-                            {item.title}
+                          <Link href={item.url} legacyBehavior>
+                            <p onClick={handleLinkClick}>{item.title}</p>
                           </Link>
                         ) : (
                           <>
