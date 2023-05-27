@@ -1,0 +1,29 @@
+﻿.productPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImage {
+  position: relative;
+}
+
+.swipeContainer {
+  overflow: hidden;
+}
+
+.mainImage {
+  width: 100%;
+  max-width: 500px;
+}
+
+.productDetails {
+  margin-left: 20px;
+}
+
+.addToCartButton {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+}

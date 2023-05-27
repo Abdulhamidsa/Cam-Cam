@@ -1,9 +1,12 @@
-﻿export default function Layout({
+﻿import styles from "../../styles/Category.module.scss";
+export default function Layout({
   children, // will be a page or nested layout
 }) {
   return (
     <>
-      <section>{children}</section>
+      <div className={styles.categoryContainer}>
+        <section>{children}</section>
+      </div>
     </>
   );
 }

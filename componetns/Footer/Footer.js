@@ -8,7 +8,7 @@ export default function Footer() {
     <>
       <div className={styles.footerContainer}>
         <div className={styles.logoContainer}>
-          <Image src={"/logo.png"} alt="sadfefe" width={70} height={70} />
+          <Image src={"/logo.png"} width={70} height={70} alt="image of logo" />
         </div>
         <div className={styles.addressInfo}>
           Skyttegade 7, 3.sal <br />
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         <div className={styles.credit}>
           POWERD BY
-          <Image src={"/next.svg"} alt="assssss" width={40} height={40} />
+          <Image src={"/next.svg"} width={40} height={40} alt="nextjs logo" />
         </div>
       </div>
     </>

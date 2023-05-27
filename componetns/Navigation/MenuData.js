@@ -131,7 +131,7 @@ export const MenuData = capitalizeation(
           ],
         },
         {
-          title: "MUSLIN",
+          title: "SWADDLE",
           url: "/",
         },
         {

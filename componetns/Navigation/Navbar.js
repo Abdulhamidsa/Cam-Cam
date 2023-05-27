@@ -64,7 +64,9 @@ const Navbar = () => {
     <nav className={styles.navigation}>
       <BurgerMenu isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
-        <Image className={styles.logo} src={"/logo.png"} width={55} height={55}></Image>
+        <Link href={"/"}>
+          <Image className={styles.logo} src="/logo.png" width={55} height={55} alt="image of logo" />
+        </Link>
         {MenuData.map((menuItem) => (
           <li onClick={() => handleMenuClick(menuItem.title)} key={uuidv4()} className={styles.navItemMain}>
             {menuItem.children ? (
@@ -86,9 +88,9 @@ const Navbar = () => {
           {activeMenu === menuItem.title && menuItem.children && (
             <>
               <ul className={`${styles.subMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
-                {/* <Image src={"/logo.png"} width={50} height={50}></Image> */}
+                {/* <Image src="/logo.png" width={50} height={50} alt="image of logo" /> */}
 
-                {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt={"left arrow"} onClick={handleBackClick} />}
+                {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt="left arrow" onClick={handleBackClick} />}
 
                 {menuItem.children.map((item) => (
                   <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
@@ -108,7 +110,7 @@ const Navbar = () => {
 
               {activeSubMenu && menuItem.children.find((child) => child.title === activeSubMenu)?.children && (
                 <ul className={`${styles.subSubMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
-                  {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt={"left arrow"} onClick={handleBackClick} />}
+                  {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt="left arrow" onClick={handleBackClick} />}
 
                   {menuItem.children
                     .find((child) => child.title === activeSubMenu)
