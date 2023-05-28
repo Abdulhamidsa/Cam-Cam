@@ -10,29 +10,27 @@ module.exports = {
   webpack: (config, { isServer }) => {
     // Only perform optimization for client-side bundles
     if (!isServer) {
-      config.optimization.splitChunks.cacheGroups = {
-        // Create separate modern and legacy chunks
-        modern: {
-          test: /\.js$/,
-          chunks: "all",
-          name: "modern",
-          enforce: true,
-          priority: 10,
-          minSize: 0,
-          minChunks: 2,
-          reuseExistingChunk: true,
-          description: "Modern JavaScript for modern browsers",
-        },
-        legacy: {
-          test: /\.js$/,
-          chunks: "all",
-          name: "legacy",
-          enforce: true,
-          priority: 5,
-          minSize: 0,
-          minChunks: 2,
-          reuseExistingChunk: true,
-          description: "Legacy JavaScript for older browsers",
+      config.optimization.splitChunks = {
+        chunks: "all",
+        cacheGroups: {
+          modern: {
+            test: /\.js$/,
+            name: "modern",
+            chunks: "all",
+            priority: 10,
+            minSize: 0,
+            minChunks: 2,
+            reuseExistingChunk: true,
+          },
+          legacy: {
+            test: /\.js$/,
+            name: "legacy",
+            chunks: "all",
+            priority: 5,
+            minSize: 0,
+            minChunks: 2,
+            reuseExistingChunk: true,
+          },
         },
       };
     }
