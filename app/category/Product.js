@@ -282,7 +282,7 @@ export default function Product(props) {
               <div key={uuidv4()} className={styles.productCard}>
                 <Link href={`/product/${product.id}`} legacyBehavior>
                   <div className={styles.imageContainer}>
-                    <Image className={styles.productImage} src={product.imgurl} alt={product.name} sizes="50vw" width={10} height={10} />
+                    <Image className={styles.productImage} src={product.imgurl} alt={product.name} width={10} height={10} />
                   </div>
                 </Link>
                 <div className={styles.favoriteContainer}>

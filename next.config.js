@@ -7,7 +7,37 @@ module.exports = {
     minimumCacheTTL: 60,
     formats: ["image/webp"],
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
+    // Only perform optimization for client-side bundles
+    if (!isServer) {
+      config.optimization.splitChunks.cacheGroups = {
+        // Create separate modern and legacy chunks
+        modern: {
+          test: /\.js$/,
+          chunks: "all",
+          name: "modern",
+          enforce: true,
+          priority: 10,
+          minSize: 0,
+          minChunks: 2,
+          reuseExistingChunk: true,
+          description: "Modern JavaScript for modern browsers",
+        },
+        legacy: {
+          test: /\.js$/,
+          chunks: "all",
+          name: "legacy",
+          enforce: true,
+          priority: 5,
+          minSize: 0,
+          minChunks: 2,
+          reuseExistingChunk: true,
+          description: "Legacy JavaScript for older browsers",
+        },
+      };
+    }
+
+    // Add additional webpack rules for file types
     config.module.rules.push(
       {
         test: /\.mp4$/,
@@ -20,6 +50,7 @@ module.exports = {
         use: ["@svgr/webpack"],
       }
     );
+
     return config;
   },
 };

@@ -15,7 +15,7 @@ export default function Section({ section }) {
       {
         imageUrl: "/teddy.jpg",
         heading: "OUR STORY",
-        text:"this is very cool story and i would love to see even more stuff about that if you want to ",
+        text: "this is very cool story and i would love to see even more stuff about that if you want to ",
         buttonText: "READ MORE",
       },
     ],
@@ -30,7 +30,7 @@ export default function Section({ section }) {
           <div className={styles.section} key={index}>
             <h2>{item.heading}</h2>
 
-            <Image className={styles.imageSec} src={item.imageUrl} width={100} height={100} alt="Picture of the author" sizes="(max-width: 480px) 50vw, 100vw" priority={true} />
+            <Image className={styles.imageSec} src={item.imageUrl} width={100} height={100} alt="Picture of the author" />
             <h2 className={styles.secBody}>{item.text}</h2>
             <button>{item.buttonText}</button>
           </div>

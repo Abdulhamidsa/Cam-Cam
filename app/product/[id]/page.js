@@ -141,7 +141,7 @@ export default function ProductPage({ params: { id } }) {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.imageContainer}>{product && <Image src={product.imgurl} alt={product.name} sizes="20vw" width={300} height={400} />}</div>
+        <div className={styles.imageContainer}>{product && <Image src={product.imgurl} alt={product.name} width={300} height={400} />}</div>
         <div className={styles.productInfo}>
           <h1>{product?.name}</h1>
           <h2>{product?.price}</h2>
