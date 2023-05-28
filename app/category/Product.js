@@ -6,13 +6,13 @@ import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { Range } from "react-range";
+import { loadStripe } from "@stripe/stripe-js";
 
 const colorData = [
   { color: "", image: "/ass.jpg", alt: "pattern1" },
   { color: "", image: "/ass.jpg", alt: "pattern2" },
   { color: "", image: "/ass.jpg", alt: "pattern3" },
   { color: "", image: "/ass.jpg", alt: "pattern4" },
-  // { color: "#ff00ff", image: "/ass.jpg" },
 ];
 
 export default function Product(props) {
@@ -24,7 +24,34 @@ export default function Product(props) {
   const [sortingOption, setSortingOption] = useState("");
   const [isDropdownActive, setIsDropdownActive] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(100); // Declare maxPrice state
+  const [maxPrice, setMaxPrice] = useState(100);
+  const [ageFilters, setAgeFilters] = useState({
+    age0to6: false,
+    age6to12: false,
+    age12to24: false,
+    age24plus: false,
+  });
+
+  const handleCheckout = async () => {
+    const stripe = await loadStripe("pk_test_51N2SXzKkTizHhw1syRwk052o2cje3EHSBJCIzJDlASS0rXg39MpmfLGWP7C1r718Fq3w1ZfakcLPdaDumvnxyzBk00CGhLvLKD");
+
+    const lineItems = filteredProducts.map((product) => ({
+      price: String(product.stripePriceId), // Convert to string
+      quantity: 1,
+    }));
+
+    const { error } = await stripe.redirectToCheckout({
+      lineItems,
+      mode: "payment",
+      successUrl: "http://localhost:3000/success", // Replace with your success URL
+      cancelUrl: "http://localhost:3000/cancel", // Replace with your cancel URL
+    });
+
+    if (error) {
+      console.error("Error during checkout:", error);
+      // Handle error
+    }
+  };
 
   const colors = new Set();
 
@@ -62,16 +89,17 @@ export default function Product(props) {
       }
 
       let isPriceMatched = true;
-      if (minPrice !== "") {
-        // Add minimum price check
-        isPriceMatched = product.price >= minPrice;
-      }
-
       if (maxPrice !== "") {
-        isPriceMatched = isPriceMatched && product.price <= maxPrice;
+        isPriceMatched = product.price <= maxPrice;
       }
 
-      return isColorMatched && isPriceMatched;
+      let isAgeMatched = true;
+      if (Object.values(ageFilters).some((value) => value === true)) {
+        const productAge = product.age; // Replace 'age' with the actual field name in the product data
+        isAgeMatched = filterProductsByAge(productAge);
+      }
+
+      return isColorMatched && isPriceMatched && isAgeMatched;
     });
 
     setFilteredProducts(filteredProducts);
@@ -104,6 +132,15 @@ export default function Product(props) {
     setFilteredProducts(sortedProducts);
     toggleSorting();
   };
+  const filterProductsByAge = (productAge) => {
+    if (Object.values(ageFilters).some((value) => value === true)) {
+      if ((ageFilters.age0to6 && productAge >= 0 && productAge <= 6) || (ageFilters.age6to12 && productAge > 6 && productAge <= 12) || (ageFilters.age12to24 && productAge > 12 && productAge <= 24) || (ageFilters.age24plus && productAge > 24)) {
+        return true;
+      }
+      return false;
+    }
+    return true;
+  };
 
   return (
     <>
@@ -134,6 +171,7 @@ export default function Product(props) {
               <div className={styles.filterSelected}>
                 <div className={styles.filterResults}>
                   <p>Filter:</p>
+
                   {selectedColors.length > 0 && (
                     <div className={styles.selectedColors}>
                       {selectedColors.map((color) => (
@@ -152,6 +190,8 @@ export default function Product(props) {
               <div className={styles.allFilterOptions}>
                 <div className={styles.priceFilterContainer}>
                   <label htmlFor="maxPrice">Max Price:</label>
+                  <span>{maxPrice}</span>
+
                   <Range
                     step={1}
                     min={0}
@@ -186,7 +226,6 @@ export default function Product(props) {
                       />
                     )}
                   />
-                  <span>{maxPrice}</span>
                 </div>
                 <div className={styles.colorFilterContainer}>
                   <button className={styles.toggleButton} onClick={() => setIsDropdownActive(!isDropdownActive)}>
@@ -195,14 +234,33 @@ export default function Product(props) {
                   </button>
                   <div className={`${styles.dropdownContent} ${isDropdownActive ? styles.active : ""}`}>
                     {Array.from(colors).map((colorOption) => (
-                      <div key={uuidv4()} className={styles.alignColorsFilter}>
-                        <div className={styles.colorName}>{colorOption}</div>
-                        <div className={styles.colorOptions} onClick={() => isDropdownActive && filterProductsByColor(colorOption)}>
+                      <div key={uuidv4()} className={`${styles.alignColorsFilter} ${selectedColors.includes(colorOption) ? styles.outlined : ""}`} onClick={() => isDropdownActive && filterProductsByColor(colorOption)}>
+                        <p className={styles.colorName}>{colorOption}</p>
+                        <div className={styles.colorOptions}>
                           <Image className={styles.colorContainer} src={"/ass.jpg"} width={50} height={50} alt={colorOption} />
                         </div>
                       </div>
                     ))}
                   </div>
+                </div>
+                <div className={styles.ageFilterContainer}>
+                  <p>Age Range:</p>
+                  <label>
+                    <input type="checkbox" checked={ageFilters.age0to6} onChange={(e) => setAgeFilters((prevFilters) => ({ ...prevFilters, age0to6: e.target.checked }))} />
+                    0-6 months
+                  </label>
+                  <label>
+                    <input type="checkbox" checked={ageFilters.age6to12} onChange={(e) => setAgeFilters((prevFilters) => ({ ...prevFilters, age6to12: e.target.checked }))} />
+                    6-12 months
+                  </label>
+                  <label>
+                    <input type="checkbox" checked={ageFilters.age12to24} onChange={(e) => setAgeFilters((prevFilters) => ({ ...prevFilters, age12to24: e.target.checked }))} />
+                    12-24 months
+                  </label>
+                  <label>
+                    <input type="checkbox" checked={ageFilters.age24plus} onChange={(e) => setAgeFilters((prevFilters) => ({ ...prevFilters, age24plus: e.target.checked }))} />
+                    24+ months
+                  </label>
                 </div>
               </div>
               <div className={styles.menuActions}>
@@ -228,7 +286,7 @@ export default function Product(props) {
                   </div>
                 </Link>
                 <div className={styles.favoriteContainer}>
-                  <Image className={styles.iconsHeart} src={"/basket.svg"} width={50} height={50} alt="heart icon" />
+                  <Image className={styles.iconsHeart} src={"/basket.svg"} width={50} height={50} alt="heart icon" onClick={handleCheckout} />
                 </div>
                 <div className={styles.productHead}>
                   <p className={styles.productName}>{product.name}</p>
