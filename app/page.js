@@ -5,8 +5,6 @@ import Inspiration from "../componetns/landing/Inspiration";
 import Categories from "../componetns/landing/Categories";
 import Gallery from "@/componetns/landing/Gallery";
 import DropdownAccordion from "@/componetns/Footer/DropDown";
-import Link from "next/link";
-import vid from "../public/vid.mp4";
 export default function Page() {
   return (
     <>

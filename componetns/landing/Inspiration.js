@@ -3,7 +3,6 @@ import { useState } from "react";
 import styles from "../../styles/FrontPage.module.scss";
 import insp from "../../public/insp.jpg";
 import Image from "next/image";
-import { v4 as uuidv4 } from "uuid";
 import { RxCross1 } from "react-icons/rx";
 
 const hotspots = [

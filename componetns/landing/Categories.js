@@ -5,7 +5,6 @@ import insp from "../../public/insp.jpg";
 import styles from "../../styles/FrontPage.module.scss";
 import Link from "next/link";
 import classNames from "classnames";
-import { v4 as uuidv4 } from "uuid";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 export default function Categories({ inspCat }) {

@@ -83,11 +83,6 @@
   border: 3px solid #000;
   border-radius: 50%;
 }
-// .iconsContainer {
-//   display: flex;
-//   // justify-content: center;
-// }
-
 .imageContainer {
   position: relative;
   width: 100%;
@@ -177,13 +172,6 @@
 .colorOption.active {
   border: 2px solid #000;
 }
-// .colorFilterContiner {
-//   position: relative;
-//   width: 150px;
-//   height: 100px;
-// }
-
-/* Other styles for product cards, images, etc. */
 
 .productListContainer {
   display: flex;
@@ -237,8 +225,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.2rem;
-  // width: ;
-  // padding-left: 1rem;
 }
 
 .colorOption.active {
