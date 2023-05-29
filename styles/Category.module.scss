@@ -42,13 +42,9 @@
   height: 22px;
 }
 
-.colorOption {
-  position: relative;
-  // border-radius: 50%;
-  // cursor: pointer;
-  // overflow: hidden;
-  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+// .colorOption {
+//   position: relative;
+// }
 .colorOptions {
   position: relative;
   width: 30px;
@@ -83,6 +79,7 @@
   border: 3px solid #000;
   border-radius: 50%;
 }
+
 .imageContainer {
   position: relative;
   width: 100%;
@@ -220,12 +217,22 @@
   justify-content: center;
 }
 
-.colorPicker {
+.productListColors .colorPicker {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 0.2rem;
+  .colorOption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 }
+
 
 .colorOption.active {
   border: 3px solid $bg-prim-clr-pink;
@@ -274,16 +281,6 @@
   width: 100%;
 }
 
-.colorOption {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  // margin-right: 10px;
-  cursor: pointer;
-}
 .colorOptionFilter {
   display: flex;
   align-items: center;

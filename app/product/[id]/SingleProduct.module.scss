@@ -25,18 +25,6 @@
 }
 
 .productInfo {
-  text-align: center;
-
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
   .quantityContainer {
     display: flex;
     align-items: center;
@@ -66,6 +54,10 @@
 @media (min-width: 768px) {
   .addToCartButton {
     font-size: 1.2rem;
+  }
+  .dropDown {
+    width: 50% !important;
+    margin-left: auto;
   }
 }
 .carouselContainer {
@@ -106,7 +98,6 @@
     margin-bottom: 0;
   }
 }
-/* SingleProduct.module.scss */
 
 .carouselContainer {
   margin-top: 20px;
@@ -155,4 +146,76 @@
   background-color: $bg-prim-clr-white;
   position: relative;
   margin-bottom: 5rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  justify-content: center;
+  gap: 7rem;
+}
+
+.imageContainer {
+}
+
+.productInfo {
+}
+
+.quantityContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.addToCartButton {
+  margin-left: 1rem;
+}
+
+.carouselContainer {
+  margin-top: 2rem;
+}
+
+.carouselArrowWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.carouselArrow {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+}
+
+.prevArrow {
+  transform: rotate(180deg);
+}
+
+.productCont {
+  display: flex;
+  flex-direction: column;
+}
+
+.colorPicker {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  .colorOption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .colorContainerTile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }

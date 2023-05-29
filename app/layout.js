@@ -1,6 +1,8 @@
 import "./global.css";
 import Navbar from "../componetns/Navigation/Navbar";
 import Footer from "../componetns/Footer/Footer";
+import Head from "next/head";
+import { ProductProvider } from "@/componetns/ProductCotext";
 
 // async function getData() {
 //   const res = await fetch("https://kea-alt-del.dk/t7/api/products/1163");
@@ -27,12 +29,14 @@ export default function RootLayout({ children }) {
   // const product = await getData();
 
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ProductProvider>
+      <html lang="en">
+        <body>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ProductProvider>
   );
 }

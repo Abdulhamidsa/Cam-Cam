@@ -1,11 +1,5 @@
 ﻿@import "./variables.scss";
-.nav {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  padding: 0 1rem 0 1rem;
-}
+
 .burgerMenu {
   position: relative;
   display: flex;
@@ -19,7 +13,14 @@
   // position: fixed;
   // right: 5%;
   // margin-left: auto;
-  z-index: 100;
+  z-index: 9;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  // flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 0 2rem 0 1rem;
 }
 
 .burgerBar {
@@ -47,19 +48,21 @@
 
 .navLinks,
 .subMenu,
-.subSubMenu {
-  position: absolute;
-  top: 0;
+.subSubMenu,
+.subSubSubMenu {
+  position: fixed;
+  top: -15px;
+  // right: 100%;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   height: calc(100svh);
   height: calc(100vh);
-  width: 100svw;
-  width: 100vw;
+  width: 35svw;
+  width: 35vw;
   background-color: $bg-prim-clr-white;
   display: flex;
   flex-direction: column;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 7rem 1rem 2rem 1rem;
   gap: 1rem;
   z-index: 10;
 }
@@ -72,7 +75,8 @@
   margin-top: 1rem;
   // z-index: 555555555555555;
 }
-.navigation li {
+.navigation li,
+.navigation p {
   position: relative;
   font-size: $mob-heading-xs;
 }
@@ -89,11 +93,16 @@
   margin-right: 0.5rem;
 }
 .logo {
-  align-self: center;
-  margin-bottom: 1rem;
-  z-index: 55555555;
+  display: none;
 }
-
+.close {
+  position: absolute !important;
+  top: 70px;
+  right: 15px;
+  color: #9e8e80;
+  font-size: 1.5rem !important;
+  cursor: pointer;
+}
 .subMenuItem,
 .subSubMenuItem,
 .navItemMain {
@@ -109,10 +118,12 @@
 }
 .slideIn {
   transform: translateX(0px);
+  // right: 0;
   transition: transform 1s ease-in-out;
 }
 .slideOut {
   transform: translateX(0px);
+
   transition: transform 1s ease-in-out;
 }
 
@@ -131,9 +142,34 @@
   cursor: pointer;
   color: black;
   display: inline-block;
-
+  width: 40px;
   position: relative;
   // position: absolute;
   // top: -2%;
   transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .navLinks,
+  .subMenu,
+  .subSubMenu {
+    width: 100svw;
+    width: 100vw;
+    padding: 7rem 1rem 2rem 1rem;
+    z-index: 10;
+  }
+  .logo {
+    align-self: center;
+    margin-bottom: 1rem;
+    z-index: 55555;
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // Adjust the opacity and color as needed
+  z-index: 5; // Make sure the overlay appears above other elements
 }

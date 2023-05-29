@@ -1,23 +1,31 @@
 ﻿.insp {
   text-align: center;
+  // padding: 3rem 0rem 3rem 0rem;
+  background-color: $bg-prim-clr-beige;
+  margin-bottom: 1rem;
 }
+.heading {
+  margin-bottom: 1rem;
 
+  font-weight: 200;
+}
 .spots {
   position: relative;
+  max-width: 600px;
+  margin: auto;
 }
 
 .spot {
   position: absolute;
-  width: 5%;
+  width: 4%;
   height: 3%;
   top: 50%;
   left: 50%;
   border-radius: 100%;
   transform: translate(-50%, -50%);
   border: 2px solid transparent;
-  background-color: #fff;
+  background-color: $bg-prim-clr-white;
   transition: top 0.3s, left 0.3s; // Apply transitions to top and left properties
-  z-index: 5;
 
   &.activeSpot {
     background-color: red;
@@ -26,15 +34,15 @@
 .hotspotWrapper {
   position: relative;
   content: "";
-  min-width: 200%;
-  height: 200%;
+  min-width: 180%;
+  height: 180%;
   left: -50%;
   top: -50%;
   // transform: translate(-50%, -50%);
 
   border-radius: 100%;
-  background: #ffffff66;
-  animation: 2200ms pulse ease-in-out infinite;
+  background-color: #cdbdc268;
+  animation: 1800ms pulse ease-in-out infinite;
 }
 
 .popup {

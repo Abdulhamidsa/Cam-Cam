@@ -5,15 +5,31 @@ export default function Section({ section }) {
   const collectionData = {
     section1: [
       {
-        imageUrl: "/teddy.jpg",
-        heading: "FW 2023",
-        text: "NEW COLLECTION",
+        imageUrl: "/main.jpg",
+        heading: "",
+        text: "",
         buttonText: "SHOP NOW",
       },
     ],
     section2: [
       {
-        imageUrl: "/teddy.jpg",
+        imageUrl: "/sec1.jpg",
+        heading: "FW 2023",
+        text: "NEW COLLECTION",
+      },
+    ],
+    section3: [
+      {
+        imageUrl: "/sus.jpg",
+        heading: "THE SUSTAINABLE CHOICE",
+        text:"",
+        para: "Cam Cam Copenhagen is built upon a vision of creating beautiful and sustainable products for families’ special moments.Eco-friendly materials, socially and environmentally responsible production, and timeless design form the essence of our commitment to caring for the future, our children, and the planet. ",
+        buttonText: "READ MORE",
+      },
+    ],
+    section4: [
+      {
+        imageUrl: "/story.jpg",
         heading: "OUR STORY",
         text: "this is very cool story and i would love to see even more stuff about that if you want to ",
         buttonText: "READ MORE",
@@ -28,11 +44,15 @@ export default function Section({ section }) {
       <div className={styles.collectionSec}>
         {sectionData.map((item, index) => (
           <div className={styles.section} key={index}>
-            <h2>{item.heading}</h2>
-
-            <Image className={styles.imageSec} src={item.imageUrl} width={100} height={100} alt="Picture of the author" />
-            <h2 className={styles.secBody}>{item.text}</h2>
-            <button>{item.buttonText}</button>
+            {item.heading && (
+              <h2 className={styles.heading}>
+                {item.heading} <br></br>
+                {item.text}
+              </h2>
+            )}
+            <Image className={styles.imageSec} src={item.imageUrl} width={900} height={900} alt="Picture of the author" />
+            {item.buttonText && <button className={styles.secBody}>{item.buttonText}</button>}
+            {item.para && <p>{item.para}</p>}
           </div>
         ))}
       </div>

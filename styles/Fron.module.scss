@@ -1,34 +1,56 @@
 ﻿@import "./variables";
-
-.secBody,
-.collectionSec button {
+.collectionSec {
+  margin-bottom: 1rem;
+}
+.secBody {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  // justify-content: center;
   align-items: center;
+  gap: 0rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: $bg-prim-clr-pink;
   width: 100%;
   text-align: center;
+  color: $bg-prim-clr-pink;
+}
+.secBody h2:last-of-type {
+  margin-bottom: 1.2rem;
+}
+.section {
+  position: relative;
 }
 .imageSec {
   width: 100%;
   height: 100%;
-  // max-height: 450px;
+  max-height: 550px;
+  // max-width: 850px;
+  margin: auto;
   object-fit: cover;
   display: block;
   position: relative;
 }
+// .imageSec:first-of-type {
+//   padding-bottom: 1rem;
+// }
+.imageSecMain {
+  width: 100%;
+  height: 100%;
+  max-height: 80vh;
+  margin: auto;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 2rem;
+}
 .collectionSec {
-  position: relative;
 }
 .collectionSec button {
   font-size: $mob-heading-xs;
-  top: 90%;
-  width: 125px;
+  top: 50%;
+  width: 127px;
+  height: 44px;
   min-width: max-content;
   padding: 0.8rem 0.2rem 0.8rem 0.2rem;
   color: $bg-prim-clr-white;

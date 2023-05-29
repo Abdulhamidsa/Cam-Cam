@@ -1,4 +1,7 @@
 ﻿"use client";
+import { ProductContext } from "../../../componetns/ProductCotext";
+import React, { useContext } from "react";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,6 +9,11 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { RxChevronRight, RxChevronLeft } from "react-icons/rx";
 import styles from "./SingleProduct.module.scss";
+import { Collapse, Text } from "@nextui-org/react";
+import { v4 as uuidv4 } from "uuid";
+
+import { colorData } from "@/util/Colors";
+
 async function getProduct(id) {
   const res = await fetch(`https://wjdhkznweaesgfaoenbf.supabase.co/rest/v1/products?id=eq.${id}`, {
     headers: {
@@ -82,7 +90,19 @@ export default function ProductPage({ params: { id } }) {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const sliderRef = useRef(null); // Create a ref for the Slider component
+  const [productData, setProductData] = useContext(ProductContext);
+  // Rest of your code...
 
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const fetchedProduct = await getProduct(id);
+      setProductData(fetchedProduct);
+      console.log("Product Data:", fetchedProduct); // Add this line
+    };
+
+    fetchProduct();
+  }, [id, setProductData]);
+  // Rest of your code...
   useEffect(() => {
     const fetchProduct = async () => {
       const fetchedProduct = await getProduct(id);
@@ -140,19 +160,39 @@ export default function ProductPage({ params: { id } }) {
 
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.imageContainer}>{product && <Image src={product.imgurl} alt={product.name} width={300} height={400} />}</div>
-        <div className={styles.productInfo}>
-          <h1>{product?.name}</h1>
-          <h2>{product?.price}</h2>
-          <h2>{product?.size}</h2>
-          <div className={styles.quantityContainer}>
-            <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} min={1} />
+      <div className={styles.productCont}>
+        <div className={styles.container}>
+          <div className={styles.imageContainer}>{product && <Image src={product.imgurl} alt={product.name} width={450} height={450} />}</div>
+          <div className={styles.productInfo}>
+            <h2>{product?.name}</h2>
+            <h2>{product?.price}</h2>
+            <h2>{product?.size}</h2>
+            <div className={styles.colorPicker}>
+              {colorData.map((colorOption) => (
+                <div className={styles.colorOption} style={{ backgroundColor: colorOption.color }} key={uuidv4()}>
+                  <Image className={styles.colorContainerTile} src={colorOption.image} width={50} height={50} alt={colorOption.alt} />
+                </div>
+              ))}
+            </div>
+            <div className={styles.quantityContainer}>
+              <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} min={1} />
+              <button className={styles.addToCartButton}>Add to Cart</button>
+            </div>
             <button className={styles.addToCartButton}>Add to Cart</button>
           </div>
         </div>
+        <Collapse.Group className={styles.dropDown}>
+          <Collapse title="Option A">
+            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+          </Collapse>
+          <Collapse title="Option B">
+            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+          </Collapse>
+          <Collapse title="Option C">
+            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+          </Collapse>
+        </Collapse.Group>
       </div>
-
       <div className={styles.carouselContainer}>
         <h2>Others Also Bought</h2>
         <Slider ref={sliderRef} {...settings}>

@@ -51,10 +51,9 @@
 body {
   color: rgb(var(--foreground-rgb));
   /* background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
-  color: white;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #fbf8f0;
   color: black;
   height: 100svh;
 }
@@ -65,23 +64,20 @@ a {
 }
 h1 {
   font-size: 34px;
-  text-align: center;
-  color: #d4b2a7;
   font-weight: 200;
-  margin-bottom: 2rem;
 }
 h2 {
   font-size: 24px;
-  text-align: center;
-  color: black;
 }
 h3 {
   font-size: 20px;
 }
 h4 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 100;
-  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+}
+h5 {
+  font-size: 14px;
 }
 p {
   font-size: 13px;

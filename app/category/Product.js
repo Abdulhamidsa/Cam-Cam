@@ -6,17 +6,10 @@ import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { Range } from "react-range";
-import { loadStripe } from "@stripe/stripe-js";
-
-const colorData = [
-  { color: "", image: "/ass.jpg", alt: "pattern1" },
-  { color: "", image: "/ass.jpg", alt: "pattern2" },
-  { color: "", image: "/ass.jpg", alt: "pattern3" },
-  { color: "", image: "/ass.jpg", alt: "pattern4" },
-];
-
+import Colors from "../../util/Colors";
 export default function Product(props) {
   const products = props.products;
+
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [selectedColors, setSelectedColors] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,27 +24,6 @@ export default function Product(props) {
     age12to24: false,
     age24plus: false,
   });
-
-  const handleCheckout = async () => {
-    const stripe = await loadStripe("pk_test_51N2SXzKkTizHhw1syRwk052o2cje3EHSBJCIzJDlASS0rXg39MpmfLGWP7C1r718Fq3w1ZfakcLPdaDumvnxyzBk00CGhLvLKD");
-
-    const lineItems = filteredProducts.map((product) => ({
-      price: String(product.stripePriceId), // Convert to string
-      quantity: 1,
-    }));
-
-    const { error } = await stripe.redirectToCheckout({
-      lineItems,
-      mode: "payment",
-      successUrl: "http://localhost:3000/success", // Replace with your success URL
-      cancelUrl: "http://localhost:3000/cancel", // Replace with your cancel URL
-    });
-
-    if (error) {
-      console.error("Error during checkout:", error);
-      // Handle error
-    }
-  };
 
   const colors = new Set();
 
@@ -282,24 +254,18 @@ export default function Product(props) {
               <div key={uuidv4()} className={styles.productCard}>
                 <Link href={`/product/${product.id}`} legacyBehavior>
                   <div className={styles.imageContainer}>
-                    <Image className={styles.productImage} src={product.imgurl} alt={product.name} width={60} height={60} />
+                    <Image className={styles.productImage} src={product.imgurl} alt={product.name} width={200} height={200} />
                   </div>
                 </Link>
                 <div className={styles.favoriteContainer}>
-                  <Image className={styles.iconsHeart} src={"/basket.svg"} width={50} height={50} alt="heart icon" onClick={handleCheckout} />
+                  <Image className={styles.iconsHeart} src={"/basket.svg"} width={50} height={50} alt="heart icon" />
                 </div>
                 <div className={styles.productHead}>
                   <p className={styles.productName}>{product.name}</p>
                   <p className={styles.productPrice}>{product.price}DKK</p>
                   <div className={styles.productTileContainer}>
                     <div className={styles.productTile}>
-                      <div className={styles.colorPicker}>
-                        {colorData.map((colorOption) => (
-                          <div className={styles.colorOption} style={{ backgroundColor: colorOption.color }} key={uuidv4()}>
-                            <Image className={styles.colorContainerTile} src={colorOption.image} width={50} height={50} alt={colorOption.alt} />
-                          </div>
-                        ))}
-                      </div>
+                      <Colors className={styles.productListColors} />
                       <div className={styles.iconsContainer}>
                         <Image className={styles.icons} src={"/shopping-cart.svg"} width={50} height={50} alt="add to cart" />
                       </div>
