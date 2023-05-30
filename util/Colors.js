@@ -16,7 +16,7 @@ export default function Colors({ className }) {
   return (
     <div className={className}>
       <div className={styles.colorPicker}>
-        {colorData.map((colorOption) => (
+        {colorData.slice(0, 4).map((colorOption) => (
           <div className={styles.colorOption} style={{ backgroundColor: colorOption.color }} key={uuidv4()}>
             <Image className={styles.colorContainerTile} src={colorOption.image} width={50} height={50} alt={colorOption.alt} />
           </div>

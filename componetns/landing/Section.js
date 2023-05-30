@@ -1,5 +1,6 @@
 ﻿import Image from "next/image";
 import styles from "../../styles/FrontPage.module.scss";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Section({ section }) {
   const collectionData = {
@@ -45,9 +46,9 @@ export default function Section({ section }) {
 
   return (
     <>
-      {sectionData.map((item, index) => (
-        <div className={`${styles[item.style]}`}>
-          <div className={styles.section} key={index}>
+      {sectionData.map((item) => (
+        <div key={uuidv4()} className={`${styles[item.style]}`}>
+          <div className={styles.section}>
             {item.heading && (
               <h2 className={styles.heading}>
                 {item.heading} <br />

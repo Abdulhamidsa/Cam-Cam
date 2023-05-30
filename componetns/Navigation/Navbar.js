@@ -99,8 +99,8 @@ const Navbar = () => {
                 {menuItem.children.map((item) => (
                   <li key={uuidv4()} className={styles.subMenuItem} onClick={() => handleSubMenuClick(item.title)}>
                     {item.url ? (
-                      <Link key={uuidv4()} href={`category/${item.title}`} legacyBehavior>
-                        <p onClick={handleLinkClick}>{item.title}</p>
+                      <Link key={uuidv4()} href={`/category/${item.title.replace(/\s+/g, "-")}`} passHref>
+                        <p>{item.title}</p>
                       </Link>
                     ) : (
                       <>
@@ -124,7 +124,7 @@ const Navbar = () => {
                       <li key={uuidv4()} className={styles.subSubMenuItem} onClick={() => handleSubSubMenuClick(item.title)}>
                         {item.url ? (
                           <Link key={uuidv4()} href={`category/${item.title}`} legacyBehavior>
-                            <p onClick={handleLinkClick}>{item.title}</p>
+                            <p onClick={handleLinkClick}>{item.title.replace(/-/g, " ")}</p>
                           </Link>
                         ) : (
                           <>

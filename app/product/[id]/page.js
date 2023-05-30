@@ -168,7 +168,7 @@ export default function ProductPage({ params: { id } }) {
             <h2>{product?.price}</h2>
             <h2>{product?.size}</h2>
             <div className={styles.colorPicker}>
-              {colorData.map((colorOption) => (
+              {colorData.slice(0, 4).map((colorOption) => (
                 <div className={styles.colorOption} style={{ backgroundColor: colorOption.color }} key={uuidv4()}>
                   <Image className={styles.colorContainerTile} src={colorOption.image} width={50} height={50} alt={colorOption.alt} />
                 </div>

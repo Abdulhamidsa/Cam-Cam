@@ -172,6 +172,7 @@ export default function Product(props) {
                     onChange={(values) => setMaxPrice(values[0])}
                     renderTrack={({ props, children }) => (
                       <div
+                        key={uuidv4()}
                         {...props}
                         style={{
                           ...props.style,
@@ -186,7 +187,7 @@ export default function Product(props) {
                     )}
                     renderThumb={({ props }) => (
                       <div
-                        {...props}
+                        key={uuidv4()}
                         style={{
                           ...props.style,
                           height: "16px",

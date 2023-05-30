@@ -1,4 +1,6 @@
-﻿export const utilFunctions = {
+﻿import { v4 as uuidv4 } from "uuid";
+
+export const utilFunctions = {
   capitalizeation: (data, propertyName) => {
     return data.map((item) => {
       const capitalizedItem = {
@@ -22,7 +24,7 @@
   },
 
   removeNumbersAndSpecialChars: (str) => {
-    return str.replace(/[^\w\s]/gi, "").replace(/\d/g, " ");
+    return str.replace(/[^\w\s]/gi, " ");
   },
 };
 

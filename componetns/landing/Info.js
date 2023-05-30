@@ -1,5 +1,7 @@
 ﻿import Image from "next/image";
 import styles from "../../styles/FrontPage.module.scss";
+import { v4 as uuidv4 } from "uuid";
+
 function Info() {
   const infoData = {
     section1: [
@@ -43,9 +45,9 @@ function Info() {
     <div className={styles.infoContainer}>
       {Object.keys(infoData).map((section) => (
         <>
-          {infoData[section].map((item, index) => (
-            <div className={styles.iconsDev} key={index}>
-              <div className={styles.imageWrapper}> {item.imageUrl && <Image className={styles.image} src={item.imageUrl} width={175} height={175} alt={`Image ${index}`} />}</div>
+          {infoData[section].map((item) => (
+            <div className={styles.iconsDev} key={uuidv4()}>
+              <div className={styles.imageWrapper}> {item.imageUrl && <Image className={styles.image} src={item.imageUrl} width={175} height={175} alt={item.url} />}</div>
               {item.heading && <h5>{item.heading}</h5>}
               {item.text && <p>{item.text}</p>}
             </div>

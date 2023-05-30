@@ -4,6 +4,7 @@ import styles from "../../styles/FrontPage.module.scss";
 import insp from "../../public/insp.jpg";
 import Image from "next/image";
 import { RxCross1 } from "react-icons/rx";
+import { v4 as uuidv4 } from "uuid";
 
 const hotspots = [
   { id: 1, url: "https://example.com/page1", top: "50%", left: "50%" },
@@ -35,7 +36,7 @@ export default function Inspiration() {
         <Image className={styles.imageSec} src={insp} alt="Picture of the author" />
         {hotspots.map((hotspot) => (
           <div
-            key={hotspot.id}
+            key={uuidv4()}
             className={`${styles.spot} ${activeSpot === hotspot.id ? styles.activeSpot : ""}`}
             style={{
               top: hotspot.top,
