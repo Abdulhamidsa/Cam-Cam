@@ -52,7 +52,7 @@ export default function Inspiration() {
                   <span className={styles.title}>Product Title</span>
                   <span className={styles.price}>$99.99</span>
                 </div>
-                <button className={styles.showProductBtn}>Show Product</button>
+                <button className={styles.primBtn}>Show Product</button>
                 <RxCross1 className={styles.closeButton} onClick={handleClosePopup} />
               </div>
             )}

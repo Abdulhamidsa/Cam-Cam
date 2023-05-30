@@ -86,23 +86,23 @@ export default function Categories({ inspCat }) {
         {inspCatData.images.map((image) => (
           <div className={styles.imageCont} key={image.id}>
             <Link href={image.url} className={classNames(styles.imageContainer, containerStyleClass)} legacyBehavior>
-                <div className={styles.imageShape}>
-                  <Image className={styles.imageSec} src={image.url} width={800} height={800} alt={image.alt} />
+              <div className={styles.imageShape}>
+                <Image className={styles.imageSec} src={image.url} width={800} height={800} alt={image.alt} />
               </div>
             </Link>
           </div>
         ))}
+        <div className={styles.arrowsContainer}>
+          <BsChevronRight onClick={handleScrollRight} className={isMaxScrollRight ? styles.arrowHide : styles.arrow} />
+
+          <BsChevronLeft onClick={handleScrollLeft} className={isMaxScrollLeft ? styles.arrowDisabled : styles.arrow} />
+        </div>
       </div>
       {inspCat === "categories" && (
         <Link href={inspCatData.url} legacyBehavior>
           <button>{inspCatData.buttonText}</button>
         </Link>
       )}
-      <div className={styles.arrowsContainer}>
-        <BsChevronRight onClick={handleScrollRight} className={isMaxScrollRight ? styles.arrowHide : styles.arrow} />
-
-        <BsChevronLeft onClick={handleScrollLeft} className={isMaxScrollLeft ? styles.arrowDisabled : styles.arrow} />
-      </div>
     </div>
   );
 }

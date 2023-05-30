@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import styles from "../../styles/FrontPage.module.scss";
+import { Text, Collapse } from "@nextui-org/react";
 
 export default function DropdownAccordion() {
   const [dropdownItems, setDropdownItems] = useState([
@@ -25,25 +26,17 @@ export default function DropdownAccordion() {
 
   return (
     <div className={styles.dropdownAccordion}>
-      {dropdownItems.map((item) => (
-        <div key={item.id} className={styles.dropdownItem}>
-          <div className={styles.dropdownHeader} onClick={() => toggleAccordion(item.id)}>
-            <span>{item.title}</span>
-            {item.isOpen ? <FaChevronUp className={styles.dropDown} /> : <FaChevronDown className={styles.dropDown} />}
-          </div>
-          {item.isOpen && (
-            <div className={styles.dropdownContent}>
-              <div className={styles.contentRow}>
-                {item.content.map((contentItem, index) => (
-                  <div key={index} className={styles.contentItem}>
-                    {contentItem}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      ))}
+      <Collapse.Group className={styles.dropDown}>
+        {dropdownItems.map((item) => (
+          <Collapse key={item.id} title={item.title} isOpen={item.isOpen} onToggle={() => toggleAccordion(item.id)}>
+            {item.content.map((text, index) => (
+              <Text className={styles.headline} key={index}>
+                {text}
+              </Text>
+            ))}
+          </Collapse>
+        ))}
+      </Collapse.Group>
     </div>
   );
 }

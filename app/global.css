@@ -53,7 +53,8 @@ body {
   /* background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
   display: flex;
   flex-direction: column;
-  background-color: #fbf8f0;
+  /* background-color: #fbf8f0; */
+  background-color: #fff;
   color: black;
   height: 100svh;
 }
@@ -82,6 +83,18 @@ h5 {
 p {
   font-size: 13px;
   /* font-family: Arial, Helvetica, sans-serif; */
+}
+button {
+  font-size: 14;
+  width: 127px;
+  height: 44px;
+  min-width: max-content;
+  padding: 0.8rem 0.2rem 0.8rem 0.2rem;
+  color: white;
+  background-color: #a68376;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 500;
 }
 /* 
 $mob-heading-b: 34px;

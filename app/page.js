@@ -6,6 +6,7 @@ import Categories from "../componetns/landing/Categories";
 import Gallery from "@/componetns/landing/Gallery";
 import DropdownAccordion from "@/componetns/Footer/DropDown";
 import Image from "next/image";
+import Info from "@/componetns/landing/Info";
 export default function Page() {
   return (
     <>
@@ -29,10 +30,11 @@ export default function Page() {
         <Section section="section1" />
         <Section section="section2" />
         <Inspiration />
-        <Section section="section3" />
         <Categories inspCat="patterns" />
+        <Section section="section3" />
         <Categories inspCat="categories" />
         <Section section="section4" />
+        <Info />
         <Gallery />
         <DropdownAccordion />
       </div>

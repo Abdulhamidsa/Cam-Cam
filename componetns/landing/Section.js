@@ -15,24 +15,28 @@ export default function Section({ section }) {
       {
         imageUrl: "/sec1.jpg",
         heading: "FW 2023",
-        text: "NEW COLLECTION",
+        heading2: "NEW COLLECTION",
+        style: "collectinSec",
       },
     ],
     section3: [
       {
         imageUrl: "/sus.jpg",
         heading: "THE SUSTAINABLE CHOICE",
-        text:"",
+        text: "",
         para: "Cam Cam Copenhagen is built upon a vision of creating beautiful and sustainable products for families’ special moments.Eco-friendly materials, socially and environmentally responsible production, and timeless design form the essence of our commitment to caring for the future, our children, and the planet. ",
-        buttonText: "READ MORE",
+        buttonText: "",
+        style: "susSec",
+        relBtn: "READ MORE",
       },
     ],
     section4: [
       {
         imageUrl: "/story.jpg",
-        heading: "OUR STORY",
-        text: "this is very cool story and i would love to see even more stuff about that if you want to ",
+        heading1: "OUR STORY",
+        text: "We offer poetic products which help create calm and harmonious environments for children. Cam Cam Copenhagen is run by architect couple Sara Giese Camre and Robert Warren Paulsen. ",
         buttonText: "READ MORE",
+        style: "story",
       },
     ],
   };
@@ -41,21 +45,32 @@ export default function Section({ section }) {
 
   return (
     <>
-      <div className={styles.collectionSec}>
-        {sectionData.map((item, index) => (
+      {sectionData.map((item, index) => (
+        <div className={`${styles[item.style]}`}>
           <div className={styles.section} key={index}>
             {item.heading && (
               <h2 className={styles.heading}>
-                {item.heading} <br></br>
-                {item.text}
+                {item.heading} <br />
+                {item.heading2}
               </h2>
             )}
-            <Image className={styles.imageSec} src={item.imageUrl} width={900} height={900} alt="Picture of the author" />
-            {item.buttonText && <button className={styles.secBody}>{item.buttonText}</button>}
-            {item.para && <p>{item.para}</p>}
+            <div className={styles.imageContainer}>
+              <Image className={styles.imageSec} src={item.imageUrl} width={900} height={900} alt="Picture of the author" priority />
+              {item.buttonText && (
+                <div className={styles.buttonContainer}>
+                  <button className={styles.primColor}>{item.buttonText}</button>
+                  <p className={styles.h}>{item.text}</p>
+                  {item.heading1 && <h2>{item.heading1}</h2>}
+                </div>
+              )}
+            </div>
+            <div className={styles.para}>
+              {item.para && <p>{item.para}</p>}
+              {item.relBtn && <button className={styles.primBtn}>{item.relBtn}</button>}
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </>
   );
 }
