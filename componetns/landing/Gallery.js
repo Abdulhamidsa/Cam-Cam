@@ -3,6 +3,8 @@ import { useRef, useEffect } from "react";
 import styles from "../../styles/FrontPage.module.scss";
 import { useLayoutEffect, useState } from "react";
 import Image from "next/image";
+import { AiOutlineInstagram } from "react-icons/ai";
+import { flushSync } from "react-dom";
 const data = [
   { id: 1, src: "/DSCF3197.jpg", width: 120, height: 200, left: 0, top: 0 },
   { id: 2, src: "/DSCF3111.jpg", width: 80, height: 98, left: 125, top: 0 },
@@ -34,7 +36,7 @@ export default function Gallery() {
     let animationId;
 
     const scrollGallery = () => {
-      scrollPosition += 0.2;
+      scrollPosition += 0.15;
 
       if (scrollPosition >= galleryWidth) {
         scrollPosition = 0;
@@ -87,23 +89,31 @@ export default function Gallery() {
   }
 
   return (
-    <div className={styles.gallery} ref={galleryRef}>
-      <h2>Instgram</h2>
+    <>
+      <div className={styles.heading}>
+        <h2 className={styles.heading}>
+          SHARE WITH US
+          <AiOutlineInstagram />
+        </h2>
+      </div>
+      <div className={styles.gallery} ref={galleryRef}>
+        <h2>Instgram</h2>
 
-      {data.map((image, index) => (
-        <div
-          key={image.id}
-          className={styles.imgContainer}
-          style={{
-            width: `${adjustedWidth[index]}px`,
-            height: `${adjustedHeight[index]}px`,
-            left: `${adjustedLeft[index]}px`,
-            top: `${adjustedTop[index]}px`,
-          }}
-        >
-          <Image width={500} height={500} src={image.src} alt={`Image ${image.id}`} />
-        </div>
-      ))}
-    </div>
+        {data.map((image, index) => (
+          <div
+            key={image.id}
+            className={styles.imgContainer}
+            style={{
+              width: `${adjustedWidth[index]}px`,
+              height: `${adjustedHeight[index]}px`,
+              left: `${adjustedLeft[index]}px`,
+              top: `${adjustedTop[index]}px`,
+            }}
+          >
+            <Image width={500} height={500} src={image.src} alt={`Image ${image.id}`} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

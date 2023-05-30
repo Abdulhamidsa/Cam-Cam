@@ -34,7 +34,7 @@
 
 .scrollableContainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   width: 100%;
@@ -236,21 +236,26 @@
 }
 
 .footerContainer {
-  margin-top: 3rem;
+  margin: 3rem 0 3rem 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: auto;
+  // margin-top: auto;
   flex-shrink: 0;
 }
 .addressInfo {
   line-height: 1.3;
 }
 .contactInfo {
-  margin-top: 1.2rem;
+  margin: 1rem 0 0.5rem 0;
   line-height: 1;
+}
+.socials {
+  display: flex;
+  gap: 0.5rem;
+  // color: ;
 }
 .credit {
   display: flex;
@@ -266,6 +271,10 @@
 .heading {
   text-align: center;
   color: $bg-prim-clr-pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
 }
 
 .imageContainer {

@@ -11,7 +11,7 @@
 }
 .spots {
   position: relative;
-  max-width: 600px;
+  max-width: 400px;
   margin: auto;
 }
 
@@ -25,8 +25,9 @@
   transform: translate(-50%, -50%);
   border: 2px solid transparent;
   background-color: $bg-prim-clr-white;
-  transition: top 0.3s, left 0.3s; // Apply transitions to top and left properties
-
+  transition: top 0.3s, left 0.3s;
+  border: 0.3rem $bg-prim-clr-pink solid;
+  z-index: 5555;
   &.activeSpot {
     background-color: red;
   }
@@ -34,15 +35,17 @@
 .hotspotWrapper {
   position: relative;
   content: "";
-  min-width: 180%;
-  height: 180%;
-  left: -50%;
-  top: -50%;
+  min-width: 380%;
+  height: 380%;
+  left: -150%;
+  top: -140%;
   // transform: translate(-50%, -50%);
 
   border-radius: 100%;
-  background-color: #cdbdc268;
+  background-color: #ffffff;
+  opacity: 0.3;
   animation: 1800ms pulse ease-in-out infinite;
+  z-index: 1;
 }
 
 .popup {
@@ -75,7 +78,7 @@
   }
 
   .price {
-    color: red;
+    opacity: 0.6;
   }
 
   .showProductBtn {
@@ -98,6 +101,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    width: 15px;
   }
 }
 
@@ -106,12 +110,9 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.5);
   }
   100% {
     transform: scale(1);
   }
-}
-.primColor{
-  
 }

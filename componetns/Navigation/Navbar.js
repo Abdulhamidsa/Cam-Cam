@@ -70,7 +70,7 @@ const Navbar = () => {
     <nav className={styles.navigation}>
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
         <Link href={"/"} legacyBehavior>
-          <Image className={styles.logo} src="/logo.png" width={55} height={55} alt="image of logo" />
+          <Image className={styles.logo} src="/logo2.png" width={80} height={65} alt="image of logo" />
         </Link>
         <RxCross1 className={styles.close} onClick={handleMenuToggle} />
         {MenuData.map((menuItem) => (
