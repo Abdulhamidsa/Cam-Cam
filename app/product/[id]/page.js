@@ -122,39 +122,39 @@ export default function ProductPage({ params: { id } }) {
   const products = [
     {
       id: 1,
-      title: "Product 1",
+      title: "SWADDLE - GOTS PRESSED LEAVES ROSE",
       price: 19.99,
-      image: "/ass.jpg",
+      imgurl: "https://camcamcopenhagen.com/cdn/shop/products/505_P31_f_1000x.jpg?v=1613573688",
     },
     {
       id: 2,
-      title: "Product 2",
-      price: 19.99,
+      title: "RATTLE, LEAVES - OCS MIX CARAMEL",
+      price: 23.99,
       imgurl: "https://camcamcopenhagen.com/cdn/shop/products/1017_77_1_800x.jpg?v=1613559267",
     },
     {
       id: 3,
-      title: "Product 3",
-      price: 19.99,
-      image: "/ass.jpg",
+      title: "BIB, TEETHING JERSEY, 2-PACK - GOTS LIERRE",
+      price: 45.0,
+      imgurl: "https://camcamcopenhagen.com/cdn/shop/products/923_Teething_Bib_P82_Lierre_1_1000x.jpg?v=1645537702",
     },
     {
       id: 4,
-      title: "Product 4",
-      price: 19.99,
-      image: "/ass.jpg",
+      title: "PACIFIER HOLDER - GOTS GREY WAVE",
+      price: 18.0,
+      imgurl: "https://camcamcopenhagen.com/cdn/shop/products/951A_P02_f_1000x.jpg?v=1613562410",
     },
     {
       id: 5,
-      title: "Product 5",
+      title: "SOFT BLANKET - OCS POPPIES",
       price: 19.99,
-      image: "/ass.jpg",
+      imgurl: "https://camcamcopenhagen.com/cdn/shop/products/672_Soft_blanket_P83_Poppies_1_1000x.jpg?v=1644327648",
     },
     {
       id: 6,
       title: "Product 6",
       price: 19.99,
-      image: "/ass.jpg",
+      imgurl: "/ass.jpg",
     },
     // Add more product objects here
   ];
@@ -217,7 +217,7 @@ export default function ProductPage({ params: { id } }) {
       <div className={styles.carouselContainer}>
         <h2>Others Also Bought</h2>
         <Slider ref={sliderRef} {...settings}>
-          {producti
+          {products
             .filter((product) => product.imgurl) // Filter out products without imgurl
             .map((product) => (
               <div key={product.id} className={`${styles.productCard} ${styles.productCardWithGap}`}>
