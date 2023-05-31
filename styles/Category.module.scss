@@ -1,13 +1,14 @@
 ﻿@import "./styles/variables";
 .ProductContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 250px));
   gap: 0.3rem;
   // max-width: 500px;
   // padding-left: 2rem;
   // padding-right: 2rem;
   // margin: auto;
   padding: 0.5rem;
+  justify-content: center;
   width: 100%;
   // flex-grow: 1;
 }
@@ -29,14 +30,7 @@
   // height: 200px; /* Set the desired height for the product cards */
   box-shadow: rgba(99, 99, 99, 0.098) 0px 2px 8px 0px;
 }
-.productTile {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 5px;
-  padding: 0.5rem;
-}
+
 .icons {
   width: 100%;
   height: 22px;
@@ -117,19 +111,20 @@
 .productTileContainer {
   display: flex;
   // justify-content: space-between;
+  justify-content: center;
   gap: 0.5rem;
   width: 100%;
   // padding: 3px;
 }
 .productTile p,
 .productName {
+  line-height: 1.5;
   text-align: center;
-  line-height: 1.2;
-  font-size: clamp(12px, calc(2vw + 1px), 8px);
-  min-height: 1.8rem;
+  min-height: 4.9rem;
+  font-size: $desk-heading-xs;
 }
 .productPrice {
-  font-size: 0.6rem;
+  font-size: $desk-heading-xxs;
   font-weight: 400;
 }
 .colorName {
@@ -151,7 +146,7 @@
   display: none;
   flex-direction: column;
   gap: 0.5rem;
-  margin: 1rem 0rem 0rem 0rem;
+  // margin: 1rem 0rem 0rem 0rem;
 }
 .PickerName {
   display: flex;
@@ -163,7 +158,7 @@
   flex-direction: row-reverse;
   justify-content: flex-end;
   gap: 1rem;
-  border-bottom: 1px solid $bg-prim-clr-pink;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.126);
   padding: 0rem 0rem 0.5rem 1rem;
 }
 .colorOption.active {
@@ -172,49 +167,11 @@
 
 .productListContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: nowrap;
   width: 100%;
-  margin-top: 1rem;
-}
-
-.productListContainer {
+  margin-top: 5rem;
   position: relative;
-}
-
-.filterMenu {
-  position: relative;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-.filterMenu > * {
-  width: 100%;
-  border: 1px solid $bg-prim-clr-pink;
-  position: relative;
-}
-.filterMenu > button {
-  width: 100%;
-  display: block;
-  border: 1px solid $bg-prim-clr-pink;
-}
-.filterButton {
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-}
-
-.menuOverlay {
-  position: fixed;
-  background-color: $bg-prim-clr-white;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1500;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .productListColors .colorPicker {
@@ -222,30 +179,24 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.2rem;
+  justify-content: center;
   .colorOption {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     cursor: pointer;
   }
 }
-
 
 .colorOption.active {
   border: 3px solid $bg-prim-clr-pink;
 }
 
 .menuActions {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  // align-items: center;
-  // margin-top: 20px;
+  display: none;
 }
 
 .applyButton {
@@ -269,14 +220,17 @@
 }
 
 .filterMenu {
-  position: relative;
+  display: none;
+}
+.iconsContainer > img {
+  display: none;
 }
 
 .filterButton {
   // background-color: #f2f2f2;
   border: none;
-  color: #000;
-  padding: 10px 20px;
+  border-radius: none !important;
+
   cursor: pointer;
   width: 100%;
 }
@@ -312,12 +266,11 @@
 
 .toggleButton {
   background-color: white;
+  color: black;
   border: none;
-  padding: 10px 20px;
   font-size: 14px;
   cursor: pointer;
   width: 100%;
-  text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -333,9 +286,19 @@
 .allFilterOptions {
   display: flex;
   flex-direction: column;
-  height: 100svh;
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  min-width: 350px;
+  gap: 1rem;
+
+  // padding: 1rem;
+}
+.allFilterOptions > *:not(:first-of-type) {
+  border-bottom: 1px rgba(0, 0, 0, 0.169) solid;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .filterSelected {
   position: relative;
@@ -370,9 +333,34 @@
   justify-content: center;
   margin-top: 20px;
 }
-.priceFilterContainer {
-  padding: 10px 20px;
+
+.ageDrop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+
+    input[type="checkbox"] {
+      position: relative;
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: #816c59;
+    }
+  }
 }
+
+.ageDrop {
+  display: none; /* Initially hide the age range elements */
+}
+
+.active {
+  display: flex; /* Show the age range elements when the "active" class is present */
+}
+
 .outlined :nth-child(2) {
   border: 0.19rem $bg-prim-clr-pink solid;
 }
@@ -381,4 +369,184 @@
 }
 .filterResults {
   display: none;
+}
+.heading {
+  text-align: center;
+  padding: 2rem 0rem 1rem 0rem;
+}
+
+.rangeTrack {
+  height: 6px;
+  background: #ccc;
+  margin-top: 10px;
+  border-radius: 3px;
+
+  // Custom styles for the track background
+  .react-range-background {
+    height: 100%;
+    background: black;
+    border-radius: 3px;
+  }
+
+  // Custom styles for the track thumb
+  .react-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: red;
+    outline: none;
+  }
+}
+
+.priceFilterContainer {
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .rangeThumb {
+    position: relative;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: $sec-accent-color;
+    outline: none;
+
+    .maxPrice {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 13px;
+      color: $bg-prim-clr-pink;
+    }
+  }
+}
+.menuOverlay {
+  position: relative;
+  background-color: $bg-prim-clr-white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.productTile {
+  flex-direction: column;
+  display: flex;
+  gap: 0.5rem;
+}
+.addCartBtn {
+  width: 220px;
+}
+@media (max-width: 768px) {
+  .filterMenu {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .filterMenu > * {
+    width: 100%;
+    position: relative;
+  }
+  .filterMenu > button {
+    width: 100%;
+    border-right: 1px $bg-prim-clr-beige solid;
+  }
+  .menuOverlay {
+    position: fixed;
+    background-color: $bg-prim-clr-white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .productListContainer {
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 1rem;
+    position: relative;
+  }
+  .filterMenu {
+    position: relative;
+  }
+  .iconsContainer > img {
+    display: block;
+  }
+  .addCartBtn {
+    display: none;
+  }
+  .ProductContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: 0.3rem;
+    // max-width: 500px;
+    // padding-left: 2rem;
+    // padding-right: 2rem;
+    // margin: auto;
+    padding: 0.5rem;
+    width: 100%;
+    // flex-grow: 1;
+  }
+  .allFilterOptions {
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    height: 100vh;
+    width: 100%;
+    gap: 1rem;
+
+    // padding: 1rem;
+  }
+  .productTile {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .productTileContainer {
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+  }
+  .menuActions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    // align-items: center;
+    // margin-top: 20px;
+  }
+  .productTile p,
+  .productName {
+    text-align: center;
+    line-height: 1.2;
+    font-size: $mob-heading-xxs;
+    min-height: 1.8rem;
+  }
+  .productPrice {
+    font-size: 0.6rem;
+    font-weight: 400;
+  }
+  .productListColors .colorPicker {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    .colorOption {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
 }

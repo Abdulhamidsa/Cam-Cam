@@ -93,8 +93,12 @@ button {
   color: white;
   background-color: #a68376;
   border: 0;
-  border-radius: 5px;
   font-weight: 500;
+}
+input[type="checkbox"]:checked {
+  background-color: #a77e2d !important;
+  color: #ffffff !important;
+  accent-color: red;
 }
 /* 
 $mob-heading-b: 34px;

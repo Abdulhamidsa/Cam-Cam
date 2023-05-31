@@ -11,6 +11,7 @@ import { RxChevronRight, RxChevronLeft } from "react-icons/rx";
 import styles from "./SingleProduct.module.scss";
 import { Collapse, Text } from "@nextui-org/react";
 import { v4 as uuidv4 } from "uuid";
+import fetchProducts from "@/util/fetchProducts";
 
 import { colorData } from "@/util/Colors";
 
@@ -30,9 +31,9 @@ const settings = {
   arrows: false, // Hide default navigation arrows (we'll add custom arrows)
   infinite: false, // Enable infinite loop
   speed: 500, // Transition speed in milliseconds
-  slidesToShow: 6, // Number of slides to show at a time
-  slidesToScroll: 1, // Number of slides to scroll at a time
-  autoplay: false, // Enable autoplay
+  slidesToShow: 5, // Number of slides to show at a time
+  slidesToScroll: 2, // Number of slides to scroll at a time
+  // autoplay: true, // Enable autoplay
   autoplaySpeed: false,
   responsive: [
     {
@@ -54,7 +55,7 @@ const settings = {
       },
     },
     {
-      breakpoint: 576,
+      breakpoint: 476,
       settings: {
         slidesToShow: 2,
       },
@@ -129,7 +130,7 @@ export default function ProductPage({ params: { id } }) {
       id: 2,
       title: "Product 2",
       price: 19.99,
-      image: "/ass.jpg",
+      imgurl: "https://camcamcopenhagen.com/cdn/shop/products/1017_77_1_800x.jpg?v=1613559267",
     },
     {
       id: 3,
@@ -158,15 +159,25 @@ export default function ProductPage({ params: { id } }) {
     // Add more product objects here
   ];
 
+  const [producti, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Fetch six products
+    fetchProducts(1)
+      .then((data) => setProducts(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  console.log(producti);
+
   return (
     <>
       <div className={styles.productCont}>
         <div className={styles.container}>
-          <div className={styles.imageContainer}>{product && <Image src={product.imgurl} alt={product.name} width={450} height={450} />}</div>
+          <div className={styles.imageContainer}>{product && <Image src={product.imgurl} alt={product.name} width={850} height={850} priority />}</div>
           <div className={styles.productInfo}>
             <h2>{product?.name}</h2>
-            <h2>{product?.price}</h2>
-            <h2>{product?.size}</h2>
+            <p>{product?.price}</p>
             <div className={styles.colorPicker}>
               {colorData.slice(0, 4).map((colorOption) => (
                 <div className={styles.colorOption} style={{ backgroundColor: colorOption.color }} key={uuidv4()}>
@@ -174,37 +185,48 @@ export default function ProductPage({ params: { id } }) {
                 </div>
               ))}
             </div>
-            <div className={styles.quantityContainer}>
-              <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} min={1} />
-              <button className={styles.addToCartButton}>Add to Cart</button>
+            <div className={styles.buttons}>
+              <div className={`${styles.quantityContainer} ${styles.customQuantityContainer}`}>
+                <span className={styles.quantityButton} onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+                  -
+                </span>
+                <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} min={1} className={styles.quantityInput} />
+                <span className={styles.quantityButton} onClick={() => setQuantity(quantity + 1)}>
+                  +
+                </span>
+              </div>
+
+              <div className={styles.wishList}>
+                <button className={styles.addToCartButton}>ADD TO CART</button>
+
+                <button className={styles.addToCartButton}>ADD TO WISHLIST </button>
+                <Image className={styles.iconsHeart} src={"/basket.svg"} width={50} height={50} alt="heart icon" />
+              </div>
             </div>
-            <button className={styles.addToCartButton}>Add to Cart</button>
           </div>
         </div>
         <Collapse.Group className={styles.dropDown}>
-          <Collapse title="Option A">
+          <Collapse title="DISCRIPTION">
             <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
           </Collapse>
-          <Collapse title="Option B">
-            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
-          </Collapse>
-          <Collapse title="Option C">
-            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
-          </Collapse>
+          <Collapse title="DIMENSIONS">{product && product.size && <Text>{product.size}</Text>}</Collapse>
+
+          <Collapse title="MATERIALS  CARE">{product && product.care && <Text>{product.care}</Text>}</Collapse>
         </Collapse.Group>
       </div>
       <div className={styles.carouselContainer}>
         <h2>Others Also Bought</h2>
         <Slider ref={sliderRef} {...settings}>
-          {products.map((product) => (
-            <div key={product.id} className={`${styles.productCard} ${styles.productCardWithGap}`}>
-              <img src={product.image} alt={product.title} />
-              <h3>{product.title}</h3>
-              <p>${product.price}</p>
-            </div>
-          ))}
+          {producti
+            .filter((product) => product.imgurl) // Filter out products without imgurl
+            .map((product) => (
+              <div key={product.id} className={`${styles.productCard} ${styles.productCardWithGap}`}>
+                <Image src={product.imgurl} alt={product.title} width={200} height={200} />
+                <h4>{product.name}</h4>
+                <p>${product.price}</p>
+              </div>
+            ))}
         </Slider>
-
         <div className={styles.carouselArrowWrapper}>
           <RxChevronLeft className={`${styles.carouselArrow} ${styles.prevArrow}`} onClick={previousSlide} />
           <RxChevronRight className={`${styles.carouselArrow} ${styles.nextArrow}`} onClick={nextSlide} />

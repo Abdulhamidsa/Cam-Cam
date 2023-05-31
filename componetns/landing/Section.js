@@ -10,6 +10,7 @@ export default function Section({ section }) {
         heading: "",
         text: "",
         buttonText: "SHOP NOW",
+        style: "main",
       },
     ],
     section2: [
@@ -56,7 +57,7 @@ export default function Section({ section }) {
               </h2>
             )}
             <div className={styles.imageContainer}>
-              <Image className={styles.imageSec} src={item.imageUrl} width={900} height={900} alt="Picture of the author" priority />
+              <Image className={`${styles.imageSec} ${item.style && item.style}`} src={item.imageUrl} width={900} height={900} alt="Picture of the author" priority quality={100} />{" "}
               {item.buttonText && (
                 <div className={styles.buttonContainer}>
                   <button className={styles.primColor}>{item.buttonText}</button>

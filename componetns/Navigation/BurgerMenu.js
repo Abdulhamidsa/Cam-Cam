@@ -10,7 +10,7 @@ const BurgerMenu = ({ isMenuOpen, handleMenuToggle }) => {
         <div className={`${styles.burgerBar} ${isMenuOpen ? styles.open : ""}`}></div>
       </div>
       <Link href={"/"} legacyBehavior>
-        <Image src={"/logo2.png"} alt="cam cam logo" width={80} height={65} />
+        <Image className={styles.logo} src={"/logo2.png"} alt="cam cam logo" width={80} height={80} />
       </Link>
     </div>
   );

@@ -64,7 +64,13 @@
   position: relative;
   scroll-snap-align: start;
 }
-
+.main {
+  max-height: none !important;
+  img {
+    height: 70vh;
+    height: 70svh;
+  }
+}
 .patternsContainer .imageContainer {
   // padding: 1rem;
 }
@@ -357,7 +363,7 @@
     // gap: 0.2;
   }
   h5 {
-    color: $bg-prim-clr-heading;
+    color: $bg-prim-clr-brownish;
     padding: 0.4rem;
   }
 }
@@ -365,3 +371,9 @@
 .imageWrapper {
   position: relative;
 }
+
+// .breadcrumbs {
+//   position: absolute;
+//   top: 180px;
+//   left: 25px;
+// }

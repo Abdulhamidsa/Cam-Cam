@@ -7,6 +7,7 @@ import { MenuData } from "./MenuData";
 import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
 import Link from "next/link";
+import Breadcrumbs from "./Bredcrumbs";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +15,7 @@ const Navbar = () => {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [activeSubSubMenu, setActiveSubSubMenu] = useState(null);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [breadcrumbData, setBreadcrumbData] = useState([]); // State variable for breadcrumb data
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -63,14 +65,32 @@ const Navbar = () => {
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
-
-    setIsOverlayOpen(!isMenuOpen); // Tog
+    setIsOverlayOpen(!isMenuOpen); // Toggle the overlay state
   };
+
+  const getBreadcrumb = () => {
+    const breadcrumbs = [];
+
+    if (activeMenu) {
+      breadcrumbs.push(activeMenu);
+
+      if (activeSubMenu) {
+        breadcrumbs.push(activeSubMenu);
+
+        if (activeSubSubMenu) {
+          breadcrumbs.push(activeSubSubMenu);
+        }
+      }
+    }
+
+    return breadcrumbs;
+  };
+
   return (
     <nav className={styles.navigation}>
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
         <Link href={"/"} legacyBehavior>
-          <Image className={styles.logo} src="/logo2.png" width={80} height={65} alt="image of logo" />
+          <Image className={styles.logo} src="/logo2.png" width={80} height={80} alt="image of logo" />
         </Link>
         <RxCross1 className={styles.close} onClick={handleMenuToggle} />
         {MenuData.map((menuItem) => (
@@ -93,6 +113,9 @@ const Navbar = () => {
           {activeMenu === menuItem.title && menuItem.children && (
             <>
               <ul className={`${styles.subMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+                <Link href={"/"} legacyBehavior>
+                  <Image className={styles.logo} src="/logo2.png" width={80} height={80} alt="image of logo" />
+                </Link>
                 {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt="left arrow" onClick={handleBackClick} />}
                 <RxCross1 className={styles.close} onClick={handleMenuToggle} />
 
@@ -105,7 +128,6 @@ const Navbar = () => {
                     ) : (
                       <>
                         {item.title}
-
                         <RxChevronRight />
                       </>
                     )}
@@ -115,6 +137,9 @@ const Navbar = () => {
 
               {activeSubMenu && menuItem.children.find((child) => child.title === activeSubMenu)?.children && (
                 <ul className={`${styles.subSubMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
+                  <Link href={"/"} legacyBehavior>
+                    <Image className={styles.logo} src="/logo2.png" width={80} height={80} alt="image of logo" />
+                  </Link>
                   {activeMenu && <Image className={styles.backArrow} src={"/arrow.svg"} width={20} height={20} alt="left arrow" onClick={handleBackClick} />}
                   <RxCross1 className={styles.close} onClick={handleMenuToggle} />
 
@@ -142,6 +167,8 @@ const Navbar = () => {
       ))}
       <BurgerMenu isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
       {isOverlayOpen && <div className={styles.overlay} onClick={handleMenuToggle}></div>}
+
+      {activeMenu && <Breadcrumbs breadcrumbs={getBreadcrumb()} />}
     </nav>
   );
 };

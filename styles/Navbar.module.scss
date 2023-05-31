@@ -20,7 +20,7 @@
   align-items: center;
   // flex-direction: row-reverse;
   justify-content: space-between;
-  padding: 0 2rem 0 1rem;
+  padding: 0 2rem 0 2rem;
 }
 
 .burgerBar {
@@ -93,7 +93,10 @@
   margin-right: 0.5rem;
 }
 .logo {
-  display: none;
+  height: auto;
+  width: auto;
+  max-height: 90px;
+  max-width: 90px;
 }
 .close {
   position: absolute !important;
@@ -160,8 +163,7 @@
   }
   .logo {
     align-self: center;
-    margin-bottom: 1rem;
-    z-index: 55555;
+    // width: 20%;
   }
 }
 .overlay {
