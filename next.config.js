@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ["camcamcopenhagen.com", "cdn.shopify.com"],
+    domains: ["camcamcopenhagen.com", "cdn.shopify.com", "global-standard.org", "us.fsc.org", "textileexchange.org"],
     deviceSizes: [320, 640, 768, 1024, 1280, 1440],
     imageSizes: [16, 32, 48, 64, 96, 150, 300], // Adjusted image sizes to include larger sizes
     minimumCacheTTL: 60,

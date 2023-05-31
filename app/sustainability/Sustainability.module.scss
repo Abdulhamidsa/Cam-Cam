@@ -1,0 +1,251 @@
+﻿@import "../../styles/variables";
+.vidBg {
+  width: 100%;
+  height: 80vh;
+}
+.vidBg2 {
+  width: 290px;
+  height: 290px;
+}
+.vid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.images {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+}
+.heading {
+  color: $sec-heading;
+  text-align: center;
+}
+.paragraph {
+  font-size: $desk-body-m;
+}
+.section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+  background-color: $bg-prim-clr-beige;
+  padding: 3.5rem 0rem 3.5rem 0rem;
+  .sectionVid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.6rem;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    p {
+      width: 350px;
+    }
+  }
+}
+
+.materials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 3.5rem 0rem 3.5rem 0rem;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    // width: 100%;
+  }
+  img {
+    width: 150px;
+  }
+  p {
+    width: 75%;
+  }
+}
+
+.production {
+  width: 100%;
+  height: auto;
+  .mobileImage {
+    display: none;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.certificates {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 3.5rem 0rem 3.5rem 0rem;
+  p {
+    text-decoration: underline;
+  }
+  img {
+    width: 150px;
+  }
+  .certificateIcons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .certifCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 3.5rem 0rem 3.5rem 0rem;
+  background-color: $bg-prim-clr-beige;
+  div {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    // width: 150px;
+  }
+  img {
+    max-width: 350px;
+    width: 100%;
+  }
+  p {
+    width: 90%;
+    max-width: 420px;
+  }
+}
+.socialCrit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 3.5rem 0rem 3.5rem 0rem;
+  background-color: $bg-prim-clr-brownish;
+  div {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    img {
+      width: 250px;
+    }
+  }
+  .bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    width: 50%;
+    text-align: left;
+    p {
+      margin-left: -0.5rem;
+    }
+    li {
+      list-style-type: disc;
+      text-align: left;
+    }
+  }
+}
+
+.susGoals {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 3.5rem 0rem 3.5rem 0rem;
+  p {
+    padding: 2rem;
+    width: 90%;
+  }
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.faq {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+}
+@media (max-width: 762px) {
+  .paragraph {
+    font-size: $mob-body-m;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .middle {
+    div {
+      padding: 1rem;
+    }
+  }
+  .socialCrit {
+    img {
+      width: 100% !important;
+    }
+    .bullets {
+      width: 100%;
+      padding: 2rem;
+    }
+  }
+  .production {
+    .deskImage {
+      display: none;
+    }
+    .mobileImage {
+      display: block;
+    }
+  }
+  .susGoals {
+    .images {
+      width: 100px;
+    }
+    p {
+      width: 80%;
+    }
+  }
+  .faq {
+    width: 80%;
+    .dropDown {
+      h3 {
+        font-size: $mob-heading-xxs;
+      }
+    }
+  }
+}
