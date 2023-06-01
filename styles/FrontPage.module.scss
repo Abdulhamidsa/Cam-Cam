@@ -269,7 +269,9 @@
   p {
     margin-bottom: 1rem;
     font-size: 14px;
-    padding: 1rem;
+  }
+  h2 {
+    padding-bottom: 1rem;
   }
 }
 .collectinSec {
@@ -332,6 +334,7 @@
   .buttonContainer {
     p {
       font-size: $desk-body-b;
+      width: 50%;
     }
   }
 }
