@@ -3,7 +3,26 @@ import Navbar from "../componetns/Navigation/Navbar";
 import Footer from "../componetns/Footer/Footer";
 import Head from "next/head";
 import { ProductProvider } from "@/componetns/ProductCotext";
+import { Inter, Roboto_Mono, Poppins } from "next/font/google";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const roboto_mono = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-roboto-mono",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight:["100","200"],
+  variable: "--font-poppins",
+  display: "swap",
+});
 // async function getData() {
 //   const res = await fetch("https://kea-alt-del.dk/t7/api/products/1163");
 
@@ -30,7 +49,7 @@ export default function RootLayout({ children }) {
 
   return (
     <ProductProvider>
-      <html lang="en">
+      <html lang="en" className={`${inter.variable} ${roboto_mono.variable} $ ${poppins.variable}`}>
         <body>
           <Navbar />
           {children}
