@@ -1,6 +1,5 @@
 ﻿import { utilFunctions } from "../../../util/functions";
-import Product from "../Product";
-import { decodeURIComponent } from "querystring"; // Import decodeURIComponent function
+import Product from "../../../componetns/products/Product";
 
 export default async function CategoryPage({ params: { category } }) {
   const res = await fetch(`https://wjdhkznweaesgfaoenbf.supabase.co/rest/v1/products?subcategory=eq.${category}&limit=10`, {

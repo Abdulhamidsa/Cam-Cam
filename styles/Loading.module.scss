@@ -1,0 +1,28 @@
+﻿.wrapper {
+  width: 100vw;
+  width: 100svw;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+}
+
+@keyframes hoverAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading {
+  animation: hoverAnimation 2s infinite;
+}

@@ -8,7 +8,7 @@ export const MenuData = utilFunctions.capitalizeation(
       title: "shop",
       children: [
         {
-          title: "SLEEP-AND-CUDDLE",
+          title: "SLEEP AND CUDDLE",
           children: [
             {
               title: "BEDDING",
@@ -329,6 +329,7 @@ export const MenuData = utilFunctions.capitalizeation(
     {
       title: "sustaiAbility",
       url: "/sustainability",
+      urlPage: "/sustainability",
     },
   ],
   "title"

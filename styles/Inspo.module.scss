@@ -39,20 +39,17 @@
   height: 380%;
   left: -150%;
   top: -140%;
-  // transform: translate(-50%, -50%);
-
   border-radius: 100%;
   background-color: #ffffff;
   opacity: 0.3;
   animation: 1800ms pulse ease-in-out infinite;
   z-index: 1;
 }
-
 .popup {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 150px;
+  width: 250px;
   transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 10px;

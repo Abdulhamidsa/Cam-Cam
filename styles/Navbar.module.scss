@@ -115,9 +115,9 @@
 .navItemMain svg,
 .subMenuItem svg,
 .subSubMenuItem svg {
-  // margin-left: ;
   position: absolute;
   right: 0;
+  color: #9e8e80;
 }
 .slideIn {
   transform: translateX(0px);
@@ -174,4 +174,12 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); // Adjust the opacity and color as needed
   z-index: 5; // Make sure the overlay appears above other elements
+}
+
+.navigation {
+  p,
+  span,
+  li {
+    cursor: pointer;
+  }
 }

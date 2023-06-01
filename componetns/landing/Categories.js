@@ -13,24 +13,24 @@ export default function Categories({ inspCat }) {
     patterns: {
       title: "SHOP BY PATTERN",
       images: [
-        { id: 1, name: "ASHLEY", src: insp, alt: "Picture 1", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/ASHLEY.png?crop=center&height=270&v=1681893525&width=270" },
-        { id: 2, name: "STRIPES BLUE", src: insp, alt: "Picture 2", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/CLASSIC_STRIPES_BLUE.png?crop=center&height=270&v=1681893525&width=270" },
-        { id: 3, name: "LIERRE", src: insp, alt: "Picture 3", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/LIERRE.png?crop=center&height=270&v=1681893525&width=270" },
-        { id: 4, name: "DREAMLAND", src: insp, alt: "Picture 4", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/DREAMLAND_3cdb54cf-411b-4185-862d-eed440faf72e.png?crop=center&height=270&v=1681894303&width=270" },
-        { id: 5, name: "pattern1", src: insp, alt: "Picture 5", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/LIERRE.png?crop=center&height=270&v=1681893525&width=270" },
-        { id: 6, name: "pattern1", src: insp, alt: "Picture 6", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/DREAMLAND_3cdb54cf-411b-4185-862d-eed440faf72e.png?crop=center&height=270&v=1681894303&width=270" },
-        { id: 7, name: "pattern1", src: insp, alt: "Picture 7", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/WINDFLOWER_CREME.png?crop=center&height=270&v=1681893525&width=270" },
-        { id: 8, name: "pattern1", src: insp, alt: "Picture 8", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/GREEN_LEAVES.png?crop=center&height=270&v=1681893525&width=270" },
-        { id: 9, name: "pattern1", src: insp, alt: "Picture 9", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/PRESSED_LEAVES_ROSE.png?crop=center&height=270&v=1681893524&width=270" },
-        { id: 10, name: "pattern1", src: insp, alt: "Picture 10", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/FAWN.png?crop=center&height=270&v=1681893524&width=270" },
+        { id: 1, pattern: "ASHLEY", src: insp, alt: "Picture 1", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/ASHLEY.png?crop=center&height=270&v=1681893525&width=270" },
+        { id: 2, pattern: "STRIPES BLUE", src: insp, alt: "Picture 2", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/CLASSIC_STRIPES_BLUE.png?crop=center&height=270&v=1681893525&width=270" },
+        { id: 3, pattern: "LIERRE", src: insp, alt: "Picture 3", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/LIERRE.png?crop=center&height=270&v=1681893525&width=270" },
+        { id: 4, pattern: "DREAMLAND", src: insp, alt: "Picture 4", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/DREAMLAND_3cdb54cf-411b-4185-862d-eed440faf72e.png?crop=center&height=270&v=1681894303&width=270" },
+        { id: 5, pattern: "pattern1", src: insp, alt: "Picture 5", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/LIERRE.png?crop=center&height=270&v=1681893525&width=270" },
+        { id: 6, pattern: "pattern1", src: insp, alt: "Picture 6", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/DREAMLAND_3cdb54cf-411b-4185-862d-eed440faf72e.png?crop=center&height=270&v=1681894303&width=270" },
+        { id: 7, pattern: "pattern1", src: insp, alt: "Picture 7", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/WINDFLOWER_CREME.png?crop=center&height=270&v=1681893525&width=270" },
+        { id: 8, pattern: "pattern1", src: insp, alt: "Picture 8", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/GREEN_LEAVES.png?crop=center&height=270&v=1681893525&width=270" },
+        { id: 9, pattern: "pattern1", src: insp, alt: "Picture 9", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/PRESSED_LEAVES_ROSE.png?crop=center&height=270&v=1681893524&width=270" },
+        { id: 10, pattern: "pattern1", src: insp, alt: "Picture 10", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/FAWN.png?crop=center&height=270&v=1681893524&width=270" },
       ],
     },
     categories: {
       title: "SHOP BY CATEGORY",
       images: [
-        { id: 1, name: "pattern1", src: insp, alt: "Picture 1", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/STORAGE.jpg?crop=center&height=270&v=1675062249&width=270" },
-        { id: 2, name: "pattern1", src: insp, alt: "Picture 2", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/NEWS_2.jpg?crop=center&height=270&v=1684147595&width=270" },
-        { id: 3, name: "pattern1", src: insp, alt: "Picture 3", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/CHANGING_BAG.jpg?crop=center&height=270&v=1675062077&width=270" },
+        { id: 1, name: "SLEEP AND CUDDLE", src: insp, alt: "Picture 1", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/STORAGE.jpg?crop=center&height=270&v=1675062249&width=270" },
+        { id: 2, name: "FEEDING", src: insp, alt: "Picture 2", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/NEWS_2.jpg?crop=center&height=270&v=1684147595&width=270" },
+        { id: 3, name: "BATHTIME", src: insp, alt: "Picture 3", url: "https://cdn.shopify.com/s/files/1/1591/9641/files/CHANGING_BAG.jpg?crop=center&height=270&v=1675062077&width=270" },
       ],
       buttonText: "VIEW ALL",
       url: "/this",
@@ -61,7 +61,6 @@ export default function Categories({ inspCat }) {
       setScrollPosition(currentPosition);
     }
   };
-
   const handleScrollLeft = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
@@ -70,7 +69,6 @@ export default function Categories({ inspCat }) {
       });
     }
   };
-
   const handleScrollRight = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({
@@ -79,7 +77,6 @@ export default function Categories({ inspCat }) {
       });
     }
   };
-
   return (
     <div className={containerStyleClass}>
       <h2 className={styles.heading}>{inspCatData.title}</h2>
@@ -91,17 +88,17 @@ export default function Categories({ inspCat }) {
                 <Image className={styles.imageSec} src={image.url} width={800} height={800} alt={image.alt} />
               </div>
             </Link>
+            <p>{image.name}</p>
           </div>
         ))}
         <div className={styles.arrowsContainer}>
           <BsChevronRight onClick={handleScrollRight} className={isMaxScrollRight ? styles.arrowHide : styles.arrow} />
-
           <BsChevronLeft onClick={handleScrollLeft} className={isMaxScrollLeft ? styles.arrowDisabled : styles.arrow} />
         </div>
       </div>
       {inspCat === "categories" && (
         <Link href={inspCatData.url} legacyBehavior>
-          <button>{inspCatData.buttonText}</button>
+          <button className={styles.primBtn}>{inspCatData.buttonText}</button>
         </Link>
       )}
     </div>

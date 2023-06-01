@@ -18,6 +18,7 @@ export default function Section({ section }) {
         imageUrl: "/sec1.jpg",
         heading: "FW 2023",
         heading2: "NEW COLLECTION",
+        buttonText: "SHOP NOW",
         style: "collectinSec",
       },
     ],
@@ -34,7 +35,7 @@ export default function Section({ section }) {
     ],
     section4: [
       {
-        imageUrl: "/story.jpg",
+        imageUrl: "/our-story.svg",
         heading1: "OUR STORY",
         text: "We offer poetic products which help create calm and harmonious environments for children. Cam Cam Copenhagen is run by architect couple Sara Giese Camre and Robert Warren Paulsen. ",
         buttonText: "READ MORE",
@@ -60,7 +61,7 @@ export default function Section({ section }) {
               <Image className={`${styles.imageSec} ${item.style && item.style}`} src={item.imageUrl} width={500} height={500} alt="Picture of the author" priority quality={100} />{" "}
               {item.buttonText && (
                 <div className={styles.buttonContainer}>
-                  <button className={styles.primColor}>{item.buttonText}</button>
+                  <button className={styles.primBtn}>{item.buttonText}</button>
                   <p className={styles.h}>{item.text}</p>
                   {item.heading1 && <h2>{item.heading1}</h2>}
                 </div>

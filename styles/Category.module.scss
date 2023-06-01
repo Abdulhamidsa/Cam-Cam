@@ -17,7 +17,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
 }
 .productCard {
   background-color: var(--bg-prim-clr-white);
@@ -87,16 +86,6 @@
   right: 0%;
   background-color: transparent;
 }
-.iconsHeart {
-  background-color: $bg-prim-clr-beige;
-  width: 100%;
-  // display: inline-block;
-  top: 0;
-  position: relative;
-  left: 0;
-
-  height: 30px;
-}
 .productImage {
   position: absolute;
   top: 0;
@@ -121,7 +110,8 @@
   line-height: 1.5;
   text-align: center;
   min-height: 4.9rem;
-  font-size: $desk-heading-xs;
+  font-size: $desk-body-m;
+  padding: 0.5rem;
 }
 .productPrice {
   font-size: $desk-heading-xxs;
@@ -180,6 +170,7 @@
   flex-wrap: wrap;
   gap: 0.2rem;
   justify-content: center;
+  padding: 0.5rem;
   .colorOption {
     display: flex;
     align-items: center;
@@ -196,24 +187,22 @@
 }
 
 .menuActions {
-  display: none;
+  .applyButton,
+  .resetButton {
+    display: none;
+  }
 }
 
-.applyButton {
+.applyButton,
+.resetButtonDesk {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   width: 150px;
-}
-
-.applyButton {
-  // background-color: #28a745;
-  // color: #fff;
+  margin: auto;
 }
 
 .closeButton {
-  // background-color: #dc3545;
-  // color: #fff;
   position: absolute;
   top: 0;
   right: 0;
@@ -227,14 +216,23 @@
 }
 
 .filterButton {
-  // background-color: #f2f2f2;
+  background-color: $prim-cta-btn;
+  color: $bg-prim-clr-beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
   border: none;
   border-radius: none !important;
-
   cursor: pointer;
   width: 100%;
 }
-
+.filterButton:nth-child(1) {
+  border-right: 1px solid $bg-prim-clr-white;
+}
+.filterClose {
+  cursor: pointer;
+}
 .colorOptionFilter {
   display: flex;
   align-items: center;
@@ -286,12 +284,11 @@
 .allFilterOptions {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   height: 100%;
   width: 100%;
   min-width: 350px;
   gap: 1rem;
-
-  // padding: 1rem;
 }
 .allFilterOptions > *:not(:first-of-type) {
   border-bottom: 1px rgba(0, 0, 0, 0.169) solid;
@@ -309,6 +306,9 @@
   justify-content: space-between;
   padding: 1rem;
   box-shadow: rgba(99, 99, 99, 0.098) 0px 2px 8px 0px;
+}
+.filterSelected {
+  display: none;
 }
 
 .filterResults {
@@ -354,11 +354,11 @@
 }
 
 .ageDrop {
-  display: none; /* Initially hide the age range elements */
+  display: none;
 }
 
 .active {
-  display: flex; /* Show the age range elements when the "active" class is present */
+  display: flex;
 }
 
 .outlined :nth-child(2) {
@@ -381,14 +381,12 @@
   margin-top: 10px;
   border-radius: 3px;
 
-  // Custom styles for the track background
   .react-range-background {
     height: 100%;
     background: black;
     border-radius: 3px;
   }
 
-  // Custom styles for the track thumb
   .react-range-thumb {
     height: 16px;
     width: 16px;
@@ -438,6 +436,7 @@
 }
 .addCartBtn {
   width: 220px;
+  border-radius: 2px !important;
 }
 @media (max-width: 768px) {
   .filterMenu {
@@ -445,6 +444,10 @@
     display: flex;
     width: 100%;
     justify-content: center;
+  }
+
+  .resetButtonDesk {
+    display: none;
   }
   .filterMenu > * {
     width: 100%;
@@ -500,8 +503,12 @@
     height: 100vh;
     width: 100%;
     gap: 1rem;
-
-    // padding: 1rem;
+  }
+  .menuActions {
+    .applyButton,
+    .resetButton {
+      display: block;
+    }
   }
   .productTile {
     display: flex;
@@ -548,5 +555,8 @@
       border-radius: 50%;
       cursor: pointer;
     }
+  }
+  .filterSelected {
+    display: flex;
   }
 }
