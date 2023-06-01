@@ -1,5 +1,6 @@
 ﻿import Image from "next/image";
 import styles from "../../styles/FrontPage.module.scss";
+import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 export default function Section({ section }) {
   const collectionData = {
@@ -10,6 +11,7 @@ export default function Section({ section }) {
         text: "",
         buttonText: "SHOP NOW",
         style: "main",
+        link: "/",
       },
     ],
     section2: [
@@ -19,6 +21,7 @@ export default function Section({ section }) {
         heading2: "NEW COLLECTION",
         buttonText: "SHOP NOW",
         style: "collectinSec",
+        link: "/",
       },
     ],
     section3: [
@@ -30,6 +33,7 @@ export default function Section({ section }) {
         buttonText: "",
         style: "susSec",
         relBtn: "READ MORE",
+        link: "/sustainability",
       },
     ],
     section4: [
@@ -39,6 +43,7 @@ export default function Section({ section }) {
         text: "We offer poetic products which help create calm and harmonious environments for children. Cam Cam Copenhagen is run by architect couple Sara Giese Camre and Robert Warren Paulsen. ",
         buttonText: "READ MORE",
         style: "story",
+        link: "/about",
       },
     ],
   };
@@ -58,7 +63,9 @@ export default function Section({ section }) {
               <Image className={`${styles.imageSec} ${item.style && item.style}`} src={item.imageUrl} width={750} height={750} alt="Picture of the author" quality={80} />
               {item.buttonText && (
                 <div className={styles.buttonContainer}>
-                  <button className={styles.primBtn}>{item.buttonText}</button>
+                  <Link href={item.link}>
+                    <button className={styles.primBtn}>{item.buttonText}</button>
+                  </Link>
                   <p className={styles.h}>{item.text}</p>
                   {item.heading1 && <h2>{item.heading1}</h2>}
                 </div>
@@ -66,7 +73,11 @@ export default function Section({ section }) {
             </div>
             <div className={styles.para}>
               {item.para && <p>{item.para}</p>}
-              {item.relBtn && <button className={styles.primBtn}>{item.relBtn}</button>}
+              {item.relBtn && (
+                <Link href={item.link}>
+                  <button className={styles.primBtn}>{item.relBtn}</button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

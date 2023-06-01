@@ -175,7 +175,30 @@
     }
   }
 }
+.about {
+  p {
+    width: 450px !important;
+  }
 
+  .vidBg2 {
+    width: 450px !important;
+    height: 450px !important;
+  }
+  .heroContainer {
+    position: relative;
+    min-height: 350px;
+    height: 100%;
+  }
+
+  .imageWrapper {
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
 .susGoals {
   display: flex;
   flex-direction: column;

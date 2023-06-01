@@ -264,7 +264,6 @@
   left: 50%;
   width: 100%;
   transform: translate(-50%, -50%);
-
   p {
     margin-bottom: 1rem;
     font-size: 14px;
@@ -294,7 +293,6 @@
     }
   }
 }
-
 .infoContainer {
   display: flex;
   justify-content: center;
@@ -323,13 +321,18 @@
   position: relative;
 }
 
+.primBtn:hover {
+  background-color: $sec-accent-color;
+}
 @media (min-width: 762px) {
   .primBtn {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: $desk-body-m;
+    cursor: pointer;
   }
+
   .buttonContainer {
     p {
       font-size: $desk-body-b;
