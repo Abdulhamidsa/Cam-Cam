@@ -10,7 +10,7 @@ function page() {
         </div>
       </div>
       <div className={styles.section}>
-        <h2 className={styles.heading}>THE SUSTAINABLE CHOICE</h2>
+        <h2 className={styles.heading}>ABOUT CAM CAM</h2>
         <div className={styles.sectionVid}>
           <p className={styles.paragraph}>
             At Cam Cam Copenhagen, we are committed to creating sustainable and environmentally conscious products for babies and young children. We believe that every small step towards sustainability matters, and we continuously strive to improve our production processes and
