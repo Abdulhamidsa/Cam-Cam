@@ -13,6 +13,7 @@ body {
   color: black;
   min-height: 100svh;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
