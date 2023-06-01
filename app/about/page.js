@@ -6,7 +6,7 @@ function page() {
     <div className={styles.about}>
       <div className={styles.heroContainer}>
         <div className={styles.imageWrapper}>
-          <Image src="/about.png" alt="an image of a designed room" width={700} height={700} quality={80} />
+          <Image src="/about.jpg" alt="an image of a designed room" width={700} height={700} quality={80} />
         </div>
       </div>
       <div className={styles.section}>
@@ -18,7 +18,7 @@ function page() {
             Paulsen.The company was founded in 2012.
           </p>
           <div className={styles.vidBg2}>
-            <video className={styles.vid} controls poster="/explainer.png">
+            <video className={styles.vid} controls poster="/about.png">
               <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1685652235/About_us-video_scooa8.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
