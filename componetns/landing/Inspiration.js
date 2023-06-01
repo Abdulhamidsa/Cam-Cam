@@ -5,30 +5,23 @@ import insp from "../../public/insp.jpg";
 import Image from "next/image";
 import { RxCross1 } from "react-icons/rx";
 import { v4 as uuidv4 } from "uuid";
-
 const hotspots = [
   { id: 1, url: "https://example.com/page1", top: "50%", left: "50%" },
   { id: 2, url: "https://example.com/page2", top: "20%", left: "40%" },
   { id: 3, url: "https://example.com/page3", top: "50%", left: "20%" },
   { id: 4, url: "https://example.com/page3", top: "60%", left: "30%" },
-  // Add more hotspot objects as needed
 ];
-
 export default function Inspiration() {
   const [activeSpot, setActiveSpot] = useState(null);
-
   const handleSpotHover = (spotId) => {
     setActiveSpot(spotId);
   };
-
   const handleSpotLeave = () => {
     setActiveSpot(null);
   };
-
   const handleClosePopup = () => {
     setActiveSpot(null);
   };
-
   return (
     <div className={styles.insp}>
       <h2 className={styles.heading}>GET INSPIRED BY US</h2>

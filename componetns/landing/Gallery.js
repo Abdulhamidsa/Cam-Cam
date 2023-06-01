@@ -15,7 +15,6 @@ const data = [
 
   { id: 9, src: "/IMG_2913.jpg", width: 160, height: 150, left: 0, top: 204 },
   { id: 10, src: "/IMG_3042.jpg", width: 90, height: 150, left: 165, top: 204 },
-  // { id: 11, src: "/insp.jpg", width: 80, height: 74, left: 295, top: 279 },
   { id: 11, src: "/DSCF3474.jpg", width: 155, height: 150, left: 260, top: 204 },
   { id: 12, src: "/IMG_2990.jpg", width: 155, height: 150, left: 422, top: 204 },
   { id: 13, src: "/insp.jpg", width: 90, height: 150, left: 580, top: 204 },
@@ -68,7 +67,6 @@ export default function Gallery() {
   let adjustedLeft;
   let adjustedTop;
   let adjustedHeight;
-
   if (windowWidth >= 1024) {
     adjustedWidth = data.map((image) => image.width * 2);
     adjustedLeft = data.map((image) => image.left * 1.94);
@@ -85,7 +83,6 @@ export default function Gallery() {
     adjustedTop = data.map((image) => image.top * 1);
     adjustedHeight = data.map((image) => image.height * 1);
   }
-
   return (
     <>
       <div className={styles.heading}>

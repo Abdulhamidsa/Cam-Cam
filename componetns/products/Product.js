@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { Range, getTrackBackground } from "react-range";
 import Colors from "./Colors";
-import Breadcrumbs from "@/componetns/Navigation/Bredcrumbs";
 export default function Product(props) {
   const [products, setProducts] = useState(props.products);
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -15,7 +14,7 @@ export default function Product(props) {
   const [isSortingOpen, setIsSortingOpen] = useState(false);
   const [sortingOption, setSortingOption] = useState("");
   const [isDropdownActive, setIsDropdownActive] = useState(false);
-  const [maxPrice, setMaxPrice] = useState(50);
+  const [maxPrice, setMaxPrice] = useState(400);
   const [ageFilters, setAgeFilters] = useState({
     age0to6: false,
     age6to12: false,
@@ -43,10 +42,7 @@ export default function Product(props) {
   const toggleAgeDropdown = () => {
     setIsAgeDropdownActive((prevState) => !prevState);
   };
-
   const colors = new Set();
-
-  // Iterate over the products to collect available colors
   products.forEach((product) => {
     if (product.colors) {
       if (typeof product.colors === "string") {
@@ -56,7 +52,6 @@ export default function Product(props) {
       }
     }
   });
-
   const filterProductsByColor = (color) => {
     const updatedSelectedColors = selectedColors.includes(color) ? selectedColors.filter((c) => c !== color) : [...selectedColors, color];
 
@@ -68,7 +63,6 @@ export default function Product(props) {
 
     setFilteredProducts(updatedFilteredProducts);
   };
-
   const applyFilters = () => {
     const filteredProducts = products.filter((product) => {
       let isColorMatched = true;
@@ -85,18 +79,15 @@ export default function Product(props) {
         isPriceMatched = product.price <= maxPrice;
       }
 
-      let isAgeMatched = filterProductsByAge(product.age); // Apply age filter immediately
+      let isAgeMatched = filterProductsByAge(product.age);
 
       return isColorMatched && isPriceMatched && isAgeMatched;
     });
-
     setFilteredProducts(filteredProducts);
     toggleMenu();
   };
-
   const handleRangeChange = (values) => {
     setMaxPrice(values[0]);
-
     const updatedFilteredProducts = products.filter((product) => {
       let isColorMatched = true;
       if (selectedColors.length > 0) {
@@ -106,20 +97,15 @@ export default function Product(props) {
           isColorMatched = product.colors.some((color) => selectedColors.includes(color));
         }
       }
-
       let isPriceMatched = true;
       if (values[0] !== "") {
         isPriceMatched = product.price <= values[0];
       }
-
       let isAgeMatched = filterProductsByAge(product.age);
-
       return isColorMatched && isPriceMatched && isAgeMatched;
     });
-
     setFilteredProducts(updatedFilteredProducts);
   };
-
   const clearFilters = () => {
     setSelectedColors([]);
     setFilteredProducts(products);
@@ -151,7 +137,6 @@ export default function Product(props) {
 
     setFilteredProducts(sortedProducts);
   };
-
   const handleAgeFilterChange = () => {
     const updatedFilteredProducts = products.filter((product) => {
       let isColorMatched = true;
@@ -162,7 +147,6 @@ export default function Product(props) {
           isColorMatched = product.colors.some((color) => selectedColors.includes(color));
         }
       }
-
       let isPriceMatched = true;
       if (maxPrice !== "") {
         isPriceMatched = product.price <= maxPrice;
@@ -197,7 +181,6 @@ export default function Product(props) {
             <div className={styles.filterSelected}>
               <div className={styles.filterResults}>
                 <p>Filter:</p>
-
                 {selectedColors.length > 0 && (
                   <div className={styles.selectedColors}>
                     {selectedColors.map((color) => (
@@ -214,14 +197,13 @@ export default function Product(props) {
                 Close
               </p>
             </div>
-
             <div className={styles.allFilterOptions}>
               <div className={styles.priceFilterContainer}>
                 <label htmlFor="maxPrice">Max Price</label>
                 <Range
                   step={1}
                   min={0}
-                  max={100}
+                  max={400}
                   values={[maxPrice]}
                   onChange={handleRangeChange}
                   renderTrack={({ props, children }) => (

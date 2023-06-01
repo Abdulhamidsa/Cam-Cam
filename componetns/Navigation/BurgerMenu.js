@@ -15,5 +15,4 @@ const BurgerMenu = ({ isMenuOpen, handleMenuToggle }) => {
     </div>
   );
 };
-
 export default BurgerMenu;

@@ -1,7 +1,6 @@
 ﻿import Image from "next/image";
 import styles from "../../styles/FrontPage.module.scss";
 import { v4 as uuidv4 } from "uuid";
-
 export default function Section({ section }) {
   const collectionData = {
     section1: [
@@ -43,9 +42,7 @@ export default function Section({ section }) {
       },
     ],
   };
-
   const sectionData = collectionData[section];
-
   return (
     <>
       {sectionData.map((item) => (
@@ -58,7 +55,7 @@ export default function Section({ section }) {
               </h2>
             )}
             <div className={styles.imageContainer}>
-              <Image className={`${styles.imageSec} ${item.style && item.style}`} src={item.imageUrl} width={500} height={500} alt="Picture of the author" priority quality={100} />{" "}
+              <Image className={`${styles.imageSec} ${item.style && item.style}`} src={item.imageUrl} width={750} height={750} alt="Picture of the author" priority quality={90} />{" "}
               {item.buttonText && (
                 <div className={styles.buttonContainer}>
                   <button className={styles.primBtn}>{item.buttonText}</button>

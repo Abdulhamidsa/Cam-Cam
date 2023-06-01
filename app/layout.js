@@ -1,7 +1,6 @@
 import "../styles/global.css";
 import Navbar from "../componetns/Navigation/Navbar";
 import Footer from "../componetns/Footer/Footer";
-import Head from "next/head";
 import { Nanum_Myeongjo, Poppins } from "next/font/google";
 
 const nanum_Myeongjo = Nanum_Myeongjo({
@@ -16,14 +15,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
   display: "swap",
 });
-
+export const metadata = {
+  title: "Cam Cam Copenhagen",
+};
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${nanum_Myeongjo.variable} ${poppins.variable}`}>
-      <Head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
       <body>
         <Navbar />
         {children}

@@ -1,6 +1,4 @@
-﻿import { v4 as uuidv4 } from "uuid";
-
-export const utilFunctions = {
+﻿export const utilFunctions = {
   capitalizeation: (data, propertyName) => {
     return data.map((item) => {
       const capitalizedItem = {

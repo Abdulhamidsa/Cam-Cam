@@ -1,6 +1,4 @@
 ﻿"use client";
-import { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import styles from "../../styles/FrontPage.module.scss";
 import { Text, Collapse } from "@nextui-org/react";
 import { v4 as uuidv4 } from "uuid";

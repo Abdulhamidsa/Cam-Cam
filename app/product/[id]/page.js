@@ -121,7 +121,7 @@ export default function ProductPage({ params: { id } }) {
     <>
       <div className={styles.productCont}>
         <div className={styles.container}>
-          <div className={styles.imageContainer}>{product && <Image src={product.imgurl} alt={product.name} width={850} height={850} priority />}</div>
+          <div className={styles.imageContainer}>{product && <Image src={product.imgurl} alt={product.name} width={600} height={600} priority quality={75} />}</div>
           <div className={styles.productBoxInfo}>
             <h2>{product?.name}</h2>
             <p>${product?.price}</p>
@@ -160,7 +160,7 @@ export default function ProductPage({ params: { id } }) {
         <h2>Others Also Bought</h2>
         <Slider ref={sliderRef} {...settings}>
           {products
-            .filter((product) => product.imgurl) // Filter out products without imgurl
+            .filter((product) => product.imgurl)
             .map((product) => (
               <div key={product.id} className={`${styles.productCard} ${styles.productCardWithGap}`}>
                 <Image src={product.imgurl} alt={product.title} width={200} height={200} />

@@ -62,24 +62,6 @@ const Navbar = () => {
     }, 0);
   };
 
-  const getBreadcrumb = () => {
-    const breadcrumbs = [];
-
-    if (activeMenu) {
-      breadcrumbs.push(activeMenu);
-
-      if (activeSubMenu) {
-        breadcrumbs.push(activeSubMenu);
-
-        if (activeSubSubMenu) {
-          breadcrumbs.push(activeSubSubMenu);
-        }
-      }
-    }
-
-    return breadcrumbs;
-  };
-
   return (
     <nav className={styles.navigation}>
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.slideIn : ""}`}>
@@ -129,7 +111,6 @@ const Navbar = () => {
                     </li>
                   ))}
                 </ul>
-
                 {activeSubMenu && menuItem.children.find((child) => child.title === activeSubMenu)?.children && (
                   <ul className={`${styles.subSubMenu} ${isMenuOpen ? styles.slideIn : ""}`}>
                     <Link href={"/"} legacyBehavior passHref>
@@ -166,5 +147,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;
