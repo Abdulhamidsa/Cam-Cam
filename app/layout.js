@@ -2,7 +2,6 @@ import "../styles/global.css";
 import Navbar from "../componetns/Navigation/Navbar";
 import Footer from "../componetns/Footer/Footer";
 import { Nanum_Myeongjo, Poppins } from "next/font/google";
-
 const nanum_Myeongjo = Nanum_Myeongjo({
   subsets: ["latin"],
   variable: "--font-Nanum",
