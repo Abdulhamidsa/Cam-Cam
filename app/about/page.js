@@ -6,7 +6,7 @@ function page() {
     <div className={styles.about}>
       <div className={styles.heroContainer}>
         <div className={styles.imageWrapper}>
-          <Image src="/about.jpg" alt="an image of a designed room" width={700} height={700} quality={100} />
+          <Image src="/about.jpg" alt="an image of a designed room" width={700} height={700} quality={80} />
         </div>
       </div>
       <div className={styles.section}>
