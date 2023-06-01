@@ -327,9 +327,14 @@ export const MenuData = utilFunctions.capitalizeation(
       title: "outlet",
     },
     {
-      title: "sustaiAbility",
+      title: "sustainability",
       url: "/sustainability",
       urlPage: "/sustainability",
+    },
+    {
+      title: "about us",
+      url: "/about",
+      urlPage: "/about",
     },
   ],
   "title"
