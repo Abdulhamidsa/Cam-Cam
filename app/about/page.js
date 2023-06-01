@@ -13,9 +13,9 @@ function page() {
         <h2 className={styles.heading}>ABOUT CAM CAM</h2>
         <div className={styles.sectionVid}>
           <p className={styles.paragraph}>
-            At Cam Cam Copenhagen, we are committed to creating sustainable and environmentally conscious products for babies and young children. We believe that every small step towards sustainability matters, and we continuously strive to improve our production processes and
-            reduce our environmental impact. We are proud to be GOTS, OCS, and FSC certified, and we support global reforestation and donate to charitable organizations worldwide. Our products are made from high-quality materials that are gentle on the environment and safe for
-            your little ones.
+            Cam Cam Copenhagen’s core originates from the love of babies and children, and a belief that they only deserve the best. It also comes from an understanding, as architects, that our surroundings are immensely important to us and influence us profoundly from the very
+            beginning. Cam Cam Copenhagen creates quality, timeless and tactile design for children. We offer poetic products which help create calm and harmonious environments for children. Cam Cam Copenhagen is run by architect couple Sara Giese Camre and Robert Warren
+            Paulsen.The company was founded in 2012.
           </p>
           <div className={styles.vidBg2}>
             <video className={styles.vid} controls poster="/explainer.png">
