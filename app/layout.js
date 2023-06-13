@@ -15,9 +15,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
   display: "swap",
 });
-export const metadata = {
-  title: "  Cam Cam Copenhagen | Home   ",
-};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${nanum_Myeongjo.variable} ${poppins.variable}`}>
