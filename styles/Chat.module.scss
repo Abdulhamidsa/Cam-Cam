@@ -143,11 +143,11 @@
   color: $sec-accent-color;
 }
 .excit {
-  position: sticky;
+  position: fixed;
   top: 2%;
-  align-self: flex-end;
-  right: 0;
-  float: right;
+  right: 5%;
+  // align-self: flex-end;
+
   font-size: 1.49rem;
   color: $prim-cta-btn;
   cursor: pointer;
