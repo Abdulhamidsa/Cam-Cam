@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Collapse, Text } from "@nextui-org/react";
 export const metadata = {
-  title: "  Sustainability | Cam Cam Copenhagen ",
+  title: " Sustainability | Cam Cam Copenhagen ",
 };
 const materialIcon = ["materialsIcon"];
 const certificates = [
@@ -100,7 +100,7 @@ export default function page() {
         <div>
           <Image className={styles.images} src={"/SOCIAL CRITERIA.svg"} width={500} height={500} alt="image of a woman at factory" />
           <div className={styles.bullets}>
-            <p className={styles.paragraph}>At Cam Cam Copenhagen, we adhere to stringent social criteria to ensure a fair and ethical supply chain. Here are some key elements:</p>
+            <p className={styles.paragraph}>At Cam Cam Copenhagen, we adhere to stringents social criteria to ensure a fair and ethical supply chain. Here are some key elements:</p>
             <ul>
               <li> Employment is freely chosen.</li>
               <li>Freedom of association and collective bargaining are respected.</li>
