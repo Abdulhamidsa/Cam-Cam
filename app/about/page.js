@@ -1,8 +1,6 @@
 ﻿import Image from "next/image";
 import styles from "../../styles/Sustainability.module.scss";
-export const metadata = {
-  title: "  About us  |  Cam Cam Copenhagen    ",
-};
+
 function page() {
   return (
     <div className={styles.about}>

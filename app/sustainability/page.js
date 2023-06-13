@@ -3,9 +3,6 @@ import styles from "../../styles/Sustainability.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { Collapse, Text } from "@nextui-org/react";
-export const metadata = {
-  title: " Sustainability | Cam Cam Copenhagen ",
-};
 const materialIcon = ["materialsIcon"];
 const certificates = [
   {
