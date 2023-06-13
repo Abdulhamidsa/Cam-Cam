@@ -363,7 +363,7 @@ export default function Product(props) {
                     <div className={styles.productTile}>
                       <Colors className={styles.productListColors} />
                       <div className={styles.iconsContainer}>
-                        <button className={styles.addCartBtn}>ADD TO CART</button>
+                        <button className={styles.addCartBtns}>ADD TO CART</button>
                         <Image className={styles.icons} src={"/shopping-cart.svg"} width={50} height={50} alt="add to cart" />
                       </div>
                     </div>

@@ -393,7 +393,8 @@
   display: flex;
   gap: 0.5rem;
 }
-.addCartBtn {
+.addCartBtn,
+.addCartBtns {
   width: 220px;
   border-radius: 2px !important;
 }
@@ -404,6 +405,7 @@
     width: 100%;
     justify-content: center;
   }
+  .addCartBtn,
   .addCartBtn {
     width: 120px;
     border-radius: 2px !important;
@@ -445,10 +447,8 @@
   .iconsContainer > img {
     display: block;
   }
-  .addCartBtn {
-    // button {
-    //   padding: 0.5rem;
-    // }
+  .addCartBtns {
+    display: none;
   }
   .ProductContainer {
     display: grid;
@@ -522,11 +522,13 @@
 }
 .carouselArrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 25px;
+  top: 45%;
+  // transform: translateY(-50%);
+
+  width: 50px;
   height: auto;
   color: $bg-prim-clr-pink;
+  cursor: pointer;
 }
 .carouselArrow:first-child {
   left: 0;
@@ -539,7 +541,7 @@
 .carouselArrowWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  // margin-top: 1rem;
 }
 .iconsHeart {
   position: absolute;
@@ -548,4 +550,5 @@
 }
 .carouselContainer {
   padding: 4rem 1rem 4rem 1rem;
+  position: relative;
 }
