@@ -12,6 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 }
 .productCard {
   background-color: var(--bg-prim-clr-white);
@@ -403,6 +404,11 @@
     width: 100%;
     justify-content: center;
   }
+  .addCartBtn {
+    width: 120px;
+    border-radius: 2px !important;
+    margin-bottom: 0.5rem;
+  }
 
   .resetButtonDesk {
     display: none;
@@ -440,7 +446,9 @@
     display: block;
   }
   .addCartBtn {
-    display: none;
+    // button {
+    //   padding: 0.5rem;
+    // }
   }
   .ProductContainer {
     display: grid;
@@ -487,9 +495,10 @@
     line-height: 1.2;
     font-size: $mob-heading-xxs;
     min-height: 1.8rem;
+    font-weight: 600;
   }
   .productPrice {
-    font-size: 0.6rem;
+    font-size: 14px;
     font-weight: 400;
   }
   .productListColors .colorPicker {
@@ -534,8 +543,8 @@
 }
 .iconsHeart {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 2%;
+  right: 5%;
 }
 .carouselContainer {
   padding: 4rem 1rem 4rem 1rem;

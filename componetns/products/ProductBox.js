@@ -110,13 +110,9 @@ export const ProductBox = () => {
               <div className={styles.productHead}>
                 <p className={styles.productName}>{product.title}</p>
                 <p className={styles.productPrice}>{product.price}DKK</p>
-                <div className={styles.productTileContainer}>
-                  <div className={styles.productTile}>
-                    <div className={styles.iconsContainer}>
-                      <button className={styles.addCartBtn}>ADD TO CART</button>
-                      <Image onClick={handleClick} className={styles.iconsHeart} src={isClicked ? "/heart-clicked.png" : "/heart4.png"} width={40} height={40} quality={100} alt="heart icon" />
-                    </div>
-                  </div>
+                <div className={styles.iconsContainer}>
+                  <button className={styles.addCartBtn}>ADD TO CART</button>
+                  <Image onClick={handleClick} className={styles.iconsHeart} src={isClicked ? "/heart-clicked.png" : "/heart4.png"} width={35} height={35} alt="heart icon" />
                 </div>
               </div>
             </div>
