@@ -17,25 +17,22 @@ const Chatbot = () => {
       answer: "Check your confirmation email where you can fimd a link to track your order!",
     },
     {
-      question: "What materials does Cam Cam use?",
-      answer: "I'm doing well, thank you!",
+      question: "What does GOATS mean?",
+      answer:
+        "GOTS stands for Global Organic Textile Standard, which is the worldwide leading textile processing standard for organic fibers. GOTS certification ensures that every step of the textile production process, from harvesting the raw materials to labeling the final product, meets strict environmental and social criteria.",
     },
     {
-      question: "How sustainable is Cam Cam?",
-      answer: "I'm doing well, thank you!",
+      question: "What sustainable materials does Cam Cam use in their products?",
+      answer: "Cam Cam uses a variety of sustainable materials, including organic cotton, GOTS-certified cotton, and FSC-certified wood. We also strive to minimize waste in our production processes and prioritize environmentally-friendly materials whenever possible.",
     },
   ]);
-
   const chatContainerRef = useRef(null);
-
   useEffect(() => {
     if (allMsgs.length === 0) {
       setAllMsgs([{ sender: "Cam Cam Chatbot", content: "Hey there, how can I help you?" }]);
     } else if (allMsgs.length === 1) {
       setAllMsgs((prevAllMsgs) => [...prevAllMsgs, { options: quesAnsw.map((qa) => qa.question) }]);
     }
-
-    // Scroll chat container to the bottom
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
@@ -44,16 +41,13 @@ const Chatbot = () => {
   const handleToggleChat = () => {
     setShowChat((prevShowChat) => !prevShowChat);
   };
-
   const handleOptionClick = (option) => {
     setAllMsgs((prevAllMsgs) => [...prevAllMsgs, { sender: "User", content: option }, { sender: "Chatbot", content: getAnswerByQuestion(option) }]);
   };
-
   const getAnswerByQuestion = (question) => {
     const matchedPair = quesAnsw.find((pair) => pair.question === question);
     return matchedPair ? matchedPair.answer : "Sorry, I don't have an answer to that question.";
   };
-
   return (
     <div className={styles.chatbotContainer}>
       <div className={`${styles.chatBubble} ${showChat ? styles.hidden : ""}`} onClick={handleToggleChat}>
@@ -62,7 +56,6 @@ const Chatbot = () => {
       <div className={`${styles.chatContainer} ${showChat ? "" : styles.hidden}`} ref={chatContainerRef}>
         <div className={styles.allMsgsContainer}>
           <RxCross1 className={styles.excit} onClick={handleToggleChat} />
-
           {allMsgs.map((msg, index) => (
             <div key={index} className={`${styles.msg} ${msg.sender === "User" ? styles.userallMsgs : styles.chatbotallMsgs}`}>
               <span className={styles.sender}>{msg.sender}</span>
@@ -89,25 +82,4 @@ const Chatbot = () => {
     </div>
   );
 };
-
 export default Chatbot;
-
-// const handleSendMsg = (event) => {
-//   event.preventDefault();
-//   const userInput = event.target.elements.userInput.value.trim();
-//   event.target.elements.userInput.value = "";
-
-//   if (allMsgs.length === 0) {
-//     setAllMsgs([
-//       { sender: "Chatbot", content: "Welcome! How can I assist you today?" },
-//       { sender: "Options", options: quesAnsw.map((qa) => qa.question) },
-//     ]);
-//   } else {
-//     const matchedPair = quesAnsw.find((pair) => pair.question === userInput);
-//     if (matchedPair) {
-//       setAllMsgs((prevAllMsgs) => [...prevAllMsgs, { sender: "User", content: userInput }, { sender: "Chatbot", content: matchedPair.answer }, { sender: "hoiii", options: ["Was that helpful?", "Contact customer service"] }]);
-//     } else {
-//       setAllMsgs((prevAllMsgs) => [...prevAllMsgs, { sender: "User", content: userInput }, { sender: "Chatbot", content: "Sorry, I don't have an answer to that question." }, { sender: "hiiii", options: ["Contact customer service"] }]);
-//     }
-//   }
-// };
