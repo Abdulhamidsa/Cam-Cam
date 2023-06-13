@@ -6,8 +6,7 @@ import Gallery from "@/componetns/landing/Gallery";
 import DropdownAccordion from "@/componetns/Footer/DropDown";
 import Info from "@/componetns/landing/Info";
 import { ProductBox } from "@/componetns/products/ProductBox";
-import { Metadata } from "next";
-export const Metadata = {
+export const metadata = {
   title: "  Cam Cam Copenhagen | Home   ",
 };
 export default function Page() {
