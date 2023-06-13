@@ -2,6 +2,7 @@ import "../styles/global.css";
 import Navbar from "../componetns/Navigation/Navbar";
 import Footer from "../componetns/Footer/Footer";
 import { Nanum_Myeongjo, Poppins } from "next/font/google";
+import Chatbot from "@/componetns/landing/ChatBot";
 const nanum_Myeongjo = Nanum_Myeongjo({
   subsets: ["latin"],
   variable: "--font-Nanum",
@@ -15,13 +16,14 @@ const poppins = Poppins({
   display: "swap",
 });
 export const metadata = {
-  title: "Cam Cam Copenhagen",
+  title: "  Cam Cam Copenhagen | Home   ",
 };
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${nanum_Myeongjo.variable} ${poppins.variable}`}>
       <body>
         <Navbar />
+        <Chatbot />
         {children}
         <Footer />
       </body>

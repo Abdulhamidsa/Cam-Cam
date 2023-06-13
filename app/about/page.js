@@ -1,12 +1,14 @@
 ﻿import Image from "next/image";
 import styles from "../../styles/Sustainability.module.scss";
-
+export const metadata = {
+  title: "  About us  |  Cam Cam Copenhagen    ",
+};
 function page() {
   return (
     <div className={styles.about}>
       <div className={styles.heroContainer}>
         <div className={styles.imageWrapper}>
-          <Image src="/about.jpg" alt="an image of a designed room" width={700} height={700} quality={80} />
+          <Image src="/about.jpg" alt="an image of a designed room" width={1000} height={1000} quality={100} />
         </div>
       </div>
       <div className={styles.section}>

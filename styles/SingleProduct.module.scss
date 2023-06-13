@@ -245,3 +245,14 @@
   flex-direction: column;
   gap: 0.1rem;
 }
+
+.heading {
+  margin: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  color: $bg-prim-clr-pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
+}

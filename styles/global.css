@@ -65,7 +65,8 @@ li,
 button,
 span,
 input,
-label {
+label,
+h5 {
   font-family: var(--font-poppins);
 }
 @media (prefers-color-scheme: light) {

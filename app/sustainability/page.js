@@ -3,6 +3,9 @@ import styles from "../../styles/Sustainability.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { Collapse, Text } from "@nextui-org/react";
+export const metadata = {
+  title: "  Sustainability | Cam Cam Copenhagen  ",
+};
 const materialIcon = ["materialsIcon"];
 const certificates = [
   {
@@ -30,7 +33,7 @@ export default function page() {
   return (
     <>
       <div className={styles.vidBg}>
-        <video className={styles.vid} autoPlay loop muted poster="/path/to/video-poster.jpg">
+        <video className={styles.vid} autoPlay loop muted>
           <source src="https://res.cloudinary.com/dtaceicn1/video/upload/v1684858958/Hero_Homepage_l1vj2s.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -65,7 +68,7 @@ export default function page() {
         </p>
       </div>
       <div className={styles.production}>
-        <Image className={`${styles.images} ${styles.deskImage}`} src="/Production-process-desktop.png" width={900} height={900} />
+        <Image className={`${styles.images} ${styles.deskImage}`} src="/Production-process-desktop.png" width={1000} height={1000} />
         <Image className={`${styles.images} ${styles.mobileImage}`} src="/Production-process-mobile.png" width={900} height={900} quality={100} />
       </div>
 

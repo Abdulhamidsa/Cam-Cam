@@ -297,7 +297,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: $sec-accent-color;
+  background-color: #cdbdc2;
   align-items: center;
   gap: 1.9rem;
   padding: 2rem 0rem 2rem 0rem;
@@ -312,8 +312,12 @@
     text-align: center;
   }
   h5 {
-    color: $bg-prim-clr-brownish;
+    // color: $bg-prim-clr-brownish;
     padding: 0.4rem;
+    font-weight: 700;
+  }
+  p{
+    font-weight: 700;
   }
 }
 

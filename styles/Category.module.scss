@@ -511,3 +511,32 @@
     display: flex;
   }
 }
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: auto;
+  color: $bg-prim-clr-pink;
+}
+.carouselArrow:first-child {
+  left: 0;
+  transform: rotate(0deg);
+}
+
+.carouselArrow:last-child {
+  right: 0;
+}
+.carouselArrowWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.iconsHeart {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.carouselContainer {
+  padding: 4rem 1rem 4rem 1rem;
+}
