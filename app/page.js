@@ -16,7 +16,6 @@ export default function Page() {
         <Section section="section1" />
         <Section section="section2" />
         <Inspiration />
-        {/* <Chatbot /> */}
         <Categories inspCat="patterns" />
         <Section section="section3" />
         <Categories inspCat="categories" />

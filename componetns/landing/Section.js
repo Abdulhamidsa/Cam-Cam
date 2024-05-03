@@ -60,7 +60,7 @@ export default function Section({ section }) {
               </h2>
             )}
             <div className={styles.imageContainer}>
-              <Image className={`${styles.imageSec} ${item.style && item.style}`} src={item.imageUrl} width={750} height={750} alt="Picture of the author" quality={80} />
+              <Image className={`${styles.imageSec} ${item.style && item.style}`} src={item.imageUrl} width={1000} height={1000} alt="Picture of the author" quality={100} />
               {item.buttonText && (
                 <div className={styles.buttonContainer}>
                   <Link href={item.link}>

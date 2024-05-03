@@ -103,7 +103,7 @@ export default function Gallery() {
               top: `${adjustedTop[index]}px`,
             }}
           >
-            <Image width={400} height={400} src={image.src} alt={`Image ${image.id}`} />
+            <Image width={300} height={300} quality={70} src={image.src} alt={`Image ${image.id}`} />
           </div>
         ))}
       </div>
