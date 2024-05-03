@@ -26,7 +26,7 @@
   background-color: $bg-prim-clr-white;
   transition: top 0.3s, left 0.3s;
   border: 0.3rem $bg-prim-clr-pink solid;
-  z-index: 5555;
+  z-index: 90;
   &.activeSpot {
     background-color: red;
   }
@@ -57,7 +57,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 55;
+  z-index: 200;
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
 

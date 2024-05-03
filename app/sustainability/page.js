@@ -95,7 +95,7 @@ export default function page() {
       <div className={styles.socialCrit}>
         <h2 className={styles.heading}>SOCIAL CRITERIA</h2>
         <div>
-          <Image className={styles.images} src={"/SOCIAL CRITERIA.svg"} width={500} height={500} alt="image of a woman at factory" />
+          <Image className={styles.images} src={"/SOCIAL CRITERIA.jpg"} width={800} height={800} quality={80} alt="image of a woman at factory" />
           <div className={styles.bullets}>
             <p className={styles.paragraph}>At Cam Cam Copenhagen, we adhere to stringents social criteria to ensure a fair and ethical supply chain. Here are some key elements:</p>
             <ul>

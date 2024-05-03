@@ -22,24 +22,24 @@ const products = [
     price: 23.99,
     imgurl: "https://camcamcopenhagen.com/cdn/shop/products/1017_77_1_800x.jpg?v=1613559267",
   },
-  {
-    id: 3,
-    title: "BIB, TEETHING JERSEY, 2-PACK - GOTS LIERRE",
-    price: 45.0,
-    imgurl: "https://camcamcopenhagen.com/cdn/shop/products/923_Teething_Bib_P82_Lierre_1_1000x.jpg?v=1645537702",
-  },
-  {
-    id: 4,
-    title: "PACIFIER HOLDER - GOTS GREY WAVE",
-    price: 18.0,
-    imgurl: "https://camcamcopenhagen.com/cdn/shop/products/951A_P02_f_1000x.jpg?v=1613562410",
-  },
-  {
-    id: 5,
-    title: "SOFT BLANKET - OCS POPPIES",
-    price: 19.99,
-    imgurl: "https://camcamcopenhagen.com/cdn/shop/products/672_Soft_blanket_P83_Poppies_1_1000x.jpg?v=1644327648",
-  },
+  // {
+  //   id: 3,
+  //   title: "BIB, TEETHING JERSEY, 2-PACK - GOTS LIERRE",
+  //   price: 45.0,
+  //   imgurl: "https://camcamcopenhagen.com/cdn/shop/products/923_Teething_Bib_P82_Lierre_1_1000x.jpg?v=1645537702",
+  // },
+  // {
+  //   id: 4,
+  //   title: "PACIFIER HOLDER - GOTS GREY WAVE",
+  //   price: 18.0,
+  //   imgurl: "https://camcamcopenhagen.com/cdn/shop/products/951A_P02_f_1000x.jpg?v=1613562410",
+  // },
+  // {
+  //   id: 5,
+  //   title: "SOFT BLANKET - OCS POPPIES",
+  //   price: 19.99,
+  //   imgurl: "https://camcamcopenhagen.com/cdn/shop/products/672_Soft_blanket_P83_Poppies_1_1000x.jpg?v=1644327648",
+  // },
   {
     id: 6,
     title: "SWADDLE - GOTS DREAMLAND",
@@ -111,7 +111,7 @@ export const ProductBox = () => {
                 <p className={styles.productName}>{product.title}</p>
                 <p className={styles.productPrice}>{product.price}DKK</p>
                 <div className={styles.iconsContainer}>
-                  <button className={styles.addCartBtn}>ADD TO CART</button>
+                  {/* <button className={styles.addCartBtn}>ADD TO CART</button> */}
                   <Image onClick={handleClick} className={styles.iconsHeart} src={isClicked ? "/heart-clicked.png" : "/heart4.png"} width={35} height={35} alt="heart icon" />
                 </div>
               </div>

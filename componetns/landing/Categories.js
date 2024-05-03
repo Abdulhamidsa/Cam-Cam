@@ -3,7 +3,6 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "../../styles/FrontPage.module.scss";
 import Link from "next/link";
-import classNames from "classnames";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { v4 as uuidv4 } from "uuid";
 export default function Categories({ inspCat }) {
@@ -78,11 +77,9 @@ export default function Categories({ inspCat }) {
       <div className={styles.scrollableContainer} ref={containerRef} onScroll={handleScroll}>
         {inspCatData.images.map((image) => (
           <div className={styles.imageCont} key={uuidv4()}>
-            <Link href={image.url} className={classNames(styles.imageContainer, containerStyleClass)} legacyBehavior>
-              <div className={styles.imageShape}>
-                <Image className={styles.imageSec} src={image.url} width={800} height={800} alt={image.alt} />
-              </div>
-            </Link>
+            <div className={styles.imageShape}>
+              <Image className={styles.imageSec} src={image.url} width={800} height={800} alt={image.alt} />
+            </div>
             <p>{image.name}</p>
           </div>
         ))}
